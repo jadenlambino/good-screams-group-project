@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   SubGenre.associate = function (models) {
     // associations can be defined here
+    SubGenre.hasMany(models.Movie, { foreignKey: 'subGenreId' })
     SubGenre.belongsToMany(models.User, {
       through: 'favGenre',
       otherKey: 'userId',

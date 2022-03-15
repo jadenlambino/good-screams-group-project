@@ -2,8 +2,10 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/movies.css')
   body
-    a(href="/") Home
-    block content
+    nav
+      a(href="/home") Home
+      block content

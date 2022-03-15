@@ -18,7 +18,7 @@ const userValidators = [
         .withMessage('Email must not be more than 255 characters long')
         .isEmail()
         .withMessage('Email is not a valid email'),
-    check('password')
+    check('hashedPassword')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid password')
         .isLength({ max: 50 })

@@ -1,0 +1,49 @@
+.navbar {
+    background-color: #590202;
+    box-sizing: border-box;
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+ul {
+    display: inline-flex;
+    list-style: none;
+    float: left;
+    text-align: center;
+    padding: 15px;
+}
+
+.title {
+    font-size: 20px;
+    color: white;
+}
+
+.click {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.search {
+    display: inline-flex;
+    float: right;
+    padding: 10px 25px;
+    align-self: flex-end;
+}
+
+.bar {
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+}
+
+.search button {
+    float: right;
+    padding: 5px 10px;
+    margin-right: 16px;
+}

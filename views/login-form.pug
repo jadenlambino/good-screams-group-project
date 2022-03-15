@@ -1,0 +1,18 @@
+link(rel='stylesheet', href='/stylesheets/login.css')
+div(class='login-container')
+    form(action="/users/login" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+
+        div
+            label(for="email") Email:
+            input(type="email" name="email" id="email" required)
+        div
+            label(for="hashedPassword") Password:
+            input(type="password" name="hashedPassword" id="hashedPassword" required)
+        div
+            button Submit
+        div
+            if errors
+                ul
+                    each error in errors
+                        li= error

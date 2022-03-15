@@ -3,7 +3,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 //const userValidators = require('./validation')
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-
+const { loginUser } = require('../auth')
 const db = require('../db/models');
 const { check, validationResult } = require('express-validator');
 
@@ -36,7 +36,7 @@ router.post('/login', csrfProtection, loginValidators,
                 const passwordMatch = await bcrypt.compare(hashedPassword, user.hashedPassword.toString());
 
                 if (passwordMatch) {
-                    loginUser(res, req, user);
+                    loginUser(req, res, user);
                     return res.redirect('/');
                 }
             }

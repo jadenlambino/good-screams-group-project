@@ -1,20 +1,25 @@
-div 
-    form(action="/" method="post") 
+div
+    if errors
+        ul
+            each error in errors
+                li= error
+
+    form(action="/users/signup" method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
-        div 
+        div
             label(for="firstName") First Name:
-            input(type="text" name="firstName" id="firstName" required)
-        div 
+            input(type="text" name="firstName" id="firstName" value=newUser.firstName)
+        div
             label(for="lastName") Last Name:
-            input(type="text" name="lastName" id="lastName" required)
+            input(type="text" name="lastName" id="lastName" value = newUser.lastName)
         div
             label(for="email") Email:
-            input(type="email" name="email" id="email" required)
-        div 
+            input(type="email" name="email" id="email" value = newUser.email)
+        div
             label(for="hashedPassword") Password:
-            input(type="password" name="hashedPassword" id="hashedPassword" required)
-        div 
+            input(type="password" name="hashedPassword" id="hashedPassword")
+        div
             label(for="confirmPassword") Confirm Password:
-            input(type="password" name="confirmPassword" id="confirmPassword" required)
-        div 
+            input(type="password" name="confirmPassword" id="confirmPassword")
+        div
             button Submit

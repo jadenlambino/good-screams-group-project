@@ -37,7 +37,7 @@ router.post('/login', csrfProtection, loginValidators,
 
                 if (passwordMatch) {
                     loginUser(req, res, user);
-                    return res.redirect('/');
+                    return res.redirect('/home');
                 }
             }
             errors.push('The given information does not match the records we have on file. Please check the information entered.');

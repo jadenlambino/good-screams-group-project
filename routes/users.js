@@ -46,7 +46,7 @@ router.post(
       newUser.hashedPassword = hashed;
       await newUser.save();
       loginUser(req, res, newUser);
-      res.redirect("/");
+      res.redirect("/home");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       console.log(errors);

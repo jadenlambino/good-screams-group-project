@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    div
+        each movie in allMovies
+            img(class='posterImg' src=movie.posterImg)
+            a(href=`/movies/${movie.id}`)= movie.name

@@ -15,8 +15,8 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json(jsonReviews)
 }));
 
-router.post('/', asyncHandler(async (req, res) => {
-    
+router.post('/', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
+
 }))
 
 

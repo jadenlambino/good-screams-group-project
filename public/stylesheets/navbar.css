@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+body {
+    margin: 0;
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+header {
+    background-color: white;
+    height: 4em;
+    font-family: 'Creepster';
+}
+
+.navbar {
+    /* display: flex; */
+    width: 90%;
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* padding: 20px; */
+    color: red;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+#title{
+    font-size: 32px;
+    float: left;
+    padding: 10px 0;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 40px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.bar{
+    border: auto;
+    border-radius: 10px;
+    text-align: center;
+    height: auto;
+}
+
+.searchbutton {
+    position: relative;
+    float: right;
+    height: 20px;
+    padding: 8px;
+    margin-left: 5px;
+}
+
+span a {
+    padding: 10px;
+}
+
+li a:hover {
+    color: #FF0000;
+    transition: all .25s ease;
+    animation: drip 2s forwards;
+}
+
+@keyframes drip {
+    to {
+        text-shadow:
+       2px 4px 1px #300000,
+       2px 6px 1px #400000,
+       2px 8px 1px #500000,
+       2px 10px 1px #600000,
+       2px 12px 1px #700000,
+       2px 12px 1px #800000,
+       2px 16px 1px #900000,
+       2px 18px 1px #A00000
+    }
+}

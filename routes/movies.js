@@ -1,8 +1,9 @@
 const express = require("express");
 const db = require("../db/models");
 const router = express.Router();
-const { asyncHandler } = require("./utils");
-const path = require("path");
+const { asyncHandler } = require('./utils');
+const path = require('path');
+const { requireAuth } = require('../auth');
 
 router.get(
   "/",

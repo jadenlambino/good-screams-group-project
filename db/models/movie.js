@@ -7,31 +7,60 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING(255),
       },
-      subGenreId: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: { model: "SubGenres" },
-      },
       rating: {
         allowNull: false,
         type: DataTypes.NUMERIC(4, 2),
       },
+      releaseDate: {
+        allowNull: false,
+        type: DataTypes.DATE,
+      },
       posterImg: {
         allowNull: false,
         type: DataTypes.TEXT,
+      },
+      description: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
+      budget: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+      },
+      revenue: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+      },
+      subGenreId: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: { model: "SubGenres" },
       },
     },
     {}
   );
   Movie.associate = function (models) {
     // associations can be defined here
-    Movie.belongsTo(models.SubGenre, { foreignKey: "subGenreId" });
-    Movie.hasMany(models.Review, { foreignKey: "moviesId" });
-    Movie.belongsToMany(models.List, {
-      through: "MoviesList",
-      foreignKey: "moviesId",
-      otherKey: "listsId",
+    Movie.belongsToMany(models.Cast, {
+      through: " CastMovie",
+      foreignKey: "movieId",
+      otherKey: "castIdId",
     });
+
+    Movie.belongsToMany(models.Crew, {
+      through: " CrewMovie",
+      foreignKey: "movieId",
+      otherKey: "crewId",
+    });
+
+    Movie.belongsToMany(models.List, {
+      through: "MovieList",
+      foreignKey: "movieId",
+      otherKey: "listId",
+    });
+
+    Movie.hasMany(models.Media, { foreignKey: "movieId" });
+    Movie.hasMany(models.Review, { foreignKey: "movieId" });
   };
   return Movie;
 };

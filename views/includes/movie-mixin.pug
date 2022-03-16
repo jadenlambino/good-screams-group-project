@@ -1,0 +1,9 @@
+div.movie_columns_container
+    each genre in subGenres
+        div.movie_column_container
+            h3(id=genre.name).genre_titles= genre.name
+            div.movies_container
+                each movie in genre.Movies
+                    div.movie_container
+                        img(class='posterImg' src=movie.posterImg)
+                        a(href=`/movies/${movie.id}`).movie_title= movie.name

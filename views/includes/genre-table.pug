@@ -1,0 +1,5 @@
+div.genre_container
+    h2 Genre
+    div.genre_container_text
+        each genre in subGenres
+            a(href=`#${genre.name}`)= genre.name

@@ -7,8 +7,16 @@ const path = require('path');
 const { requireAuth } = require('../auth');
 
 
-router.post('/', asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
+    const reviews = await db.Review.findAll({
+        where: { movieId: 1 }
+    })
+   const jsonReviews = JSON.stringify(reviews)
+    res.json(jsonReviews)
+}));
 
+router.post('/', asyncHandler(async (req, res) => {
+    
 }))
 
 

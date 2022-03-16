@@ -20,6 +20,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      posterImg: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       description: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -36,21 +40,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "SubGenres" },
-      },
-      mediaId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: "Media" },
-      },
-      castId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: "Casts" },
-      },
-      crewId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: "Crews" },
       },
       createdAt: {
         allowNull: false,

@@ -1,14 +1,14 @@
 extends layout.pug
 
 block content
-    div(class='main_container')
-        div(class='movie_container')
-            div(class='list_button_container')
-                button(class='list_button' type='submit') Want To Watch
+    div(class='main_movie_container')
+        div(class='movie_info_container')
+            //- div(class='list_button_container')
             div(class='movie_img_container')
                 img(class='movie_img' src=movie.posterImg)
+                button(class='list_button' type='submit') Want To Watch
             div(class='movie_description_container')
                 p(class='movie_title')= movie.name
-                p(class='release_date') Release date: #{movie.releaseDate}
+                p(class='release_date') Release date: #{movie.releaseDate.getMonth()} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}
                 p(class='movie_rating') Rating: #{movie.rating}
-                p(class='movie_description') Description: #{movie.description}
+                p(class='movie_description') Description:  #{movie.description}

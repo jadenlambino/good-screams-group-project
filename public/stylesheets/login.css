@@ -20,6 +20,7 @@ body {
     /* padding-bottom: 35px; */
     background-color: #c4c4c4;
     border-radius: 8px;
+    border: rgba(139, 16, 16, 0.75) solid 1px;
     box-shadow: 5px 5px 20px rgb(139, 16, 16);
 }
 

@@ -67,7 +67,7 @@ span a {
     padding: 10px;
 }
 
-li a:hover {
+.click:hover {
     color: white;
     transition: all .25s ease;
     animation: drip 2s forwards;

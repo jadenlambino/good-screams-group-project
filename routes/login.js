@@ -3,7 +3,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 //const userValidators = require('./validation')
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const { loginUser } = require('../auth')
+const { loginUser, logoutUser } = require('../auth')
 const db = require('../db/models');
 const { check, validationResult } = require('express-validator');
 
@@ -14,12 +14,12 @@ router.get('/login', csrfProtection, (req, res) => {
 });
 
 const loginValidators = [
-    check ('email')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a valid Email Address'),
+    check('email')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid Email Address'),
     check('hashedPassword')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a password.')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a password.')
 ];
 
 router.post('/login', csrfProtection, loginValidators,
@@ -52,6 +52,11 @@ router.post('/login', csrfProtection, loginValidators,
             csrfToken: req.csrfToken(),
         });
     }));
+
+router.post('/logout', (req, res) => {
+    logoutUser(req, res);
+    res.redirect('/')
+})
 
 
 

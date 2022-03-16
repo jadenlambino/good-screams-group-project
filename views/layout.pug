@@ -6,7 +6,31 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/movies.css')
         link(rel='stylesheet' href='/stylesheets/movie-info.css')
+        link(rel='stylesheet' href='/stylesheets/navbar.css')
+        script(src='/javascripts/reviews_dynamic.js' type='module')
   body
-    nav
-      a(href="/home") Home
+    header
+      div(class='navbar')
+          a(id='title' href="/home") GOOD SCREAMS
+
+          nav
+            ul
+              li
+                a(href='/movies' class='click') Movies
+              li
+                a(href='mymovies' class='click') My Movies
+              li
+                div(class='search')
+                  form(action='')
+                    input(class='bar', type="text", name="search", placeholder='Search Movies')
+                    button(class='searchbutton')
+              li
+                if locals.authenticated
+                  form(class='click' action='/users/logout' method='post')
+                    button(class='btn' type='submit') LOGOUT
+                else
+                  span(class='userSpan')
+                    a(class='click' href='/users/login') LOG IN
+                    a(class='click' href='/users/signup') SIGN UP
+
     block content

@@ -41,17 +41,6 @@ module.exports = (sequelize, DataTypes) => {
   );
   Movie.associate = function (models) {
     // associations can be defined here
-    Movie.belongsToMany(models.Cast, {
-      through: " CastMovie",
-      foreignKey: "movieId",
-      otherKey: "castIdId",
-    });
-
-    Movie.belongsToMany(models.Crew, {
-      through: " CrewMovie",
-      foreignKey: "movieId",
-      otherKey: "crewId",
-    });
 
     Movie.belongsToMany(models.List, {
       through: "MovieList",

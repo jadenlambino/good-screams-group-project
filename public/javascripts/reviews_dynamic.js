@@ -26,4 +26,15 @@ window.addEventListener("load", async (event) => {
             body: JSON.stringify({ test: "test" }),
         });
     });
+
+    // const editButton = document.getElementsByClassName('reviews')[0].querySelector('button')
+    // console.log(editButton)
+    // editButton.addEventListener('click', event => {
+    //     // const reviewId = event.target.id
+    //     console.log(reviewId)
+    //     editButton.setAttribute("id", `edit-review`)
+
+    // })
+
+
 });

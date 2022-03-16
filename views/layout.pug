@@ -24,7 +24,6 @@ html
                     button(class='searchbutton')
               li
                 if locals.authenticated
-                  span(class='navbar-text px-4') Welcome!
                   form(class='click' action='/users/logout' method='post')
                     button(class='btn' type='submit') LOGOUT
                 else

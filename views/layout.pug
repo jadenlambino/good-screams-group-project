@@ -7,19 +7,20 @@ html
         link(rel='stylesheet' href='/stylesheets/movies.css')
         link(rel='stylesheet' href='/stylesheets/navbar.css')
   body
-    div(class='navbar')
-      ul
-        li(class='title') GOOD SCREAMS
-        li(class='click')
-          a(href="/home") Home
-        li(class='click')
-          a(href='/movies') Movies
-        li(class='click')
-          a(href='mymovies') My Movies
-      div
-        search(class='search')
-          form(action='')
-            input(class='bar', type="text", name="search", placeholder='Search Movies')
-          button
+    header
+      div(class='navbar')
+          a(id='title' href="/home") GOOD SCREAMS
+
+          nav
+            ul
+              li
+                a(href='/movies' class='click') Movies
+              li
+                a(href='mymovies' class='click') My Movies
+              li
+                div(class='search')
+                  form(action='')
+                    input(class='bar', type="text", name="search", placeholder='Search Movies')
+                    button(class='searchbutton')
 
     block content

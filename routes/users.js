@@ -16,25 +16,24 @@ router.get("/", function (req, res, next) {
 router.get(
   "/signup",
   csrfProtection,
-  asyncHandler(async (req, res) => {
-    const newUser = await db.User.build();
+  (req, res) => {
+    const newUser = db.User.build();
     res.render("sign-up", {
       title: "Signup",
       newUser,
       csrfToken: req.csrfToken(),
     });
-  })
-);
+  });
 
 router.post(
   "/signup",
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     const { firstName, lastName, email, hashedPassword } = req.body;
 
-    const newUser = await db.User.build({
+    const newUser = db.User.build({
       firstName,
       lastName,
       email,

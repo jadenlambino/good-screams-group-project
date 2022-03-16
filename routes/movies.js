@@ -3,6 +3,7 @@ const db = require('../db/models');
 const router = express.Router();
 const { asyncHandler } = require('./utils');
 const path = require('path');
+const { requireAuth } = require('../auth');
 
 router.get('/', asyncHandler(async(req, res) => {
     const allMovies = await db.Movie.findAll();

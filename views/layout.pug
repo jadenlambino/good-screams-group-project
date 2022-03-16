@@ -22,5 +22,14 @@ html
                   form(action='')
                     input(class='bar', type="text", name="search", placeholder='Search Movies')
                     button(class='searchbutton')
+              li
+                if locals.authenticated
+                  span(class='navbar-text px-4') Welcome!
+                  form(class='click' action='/users/logout' method='post')
+                    button(class='btn' type='submit') LOGOUT
+                else
+                  span(class='userSpan')
+                    a(class='click' href='/users/login') LOG IN
+                    a(class='click' href='/users/signup') SIGN UP
 
     block content

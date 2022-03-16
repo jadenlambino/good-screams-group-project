@@ -63,6 +63,10 @@ nav li {
     margin-left: 5px;
 }
 
+span a {
+    padding: 10px;
+}
+
 li a:hover {
     color: #FF0000;
     transition: all .25s ease;

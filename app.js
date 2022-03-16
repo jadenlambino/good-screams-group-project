@@ -12,6 +12,7 @@ const loginRouter = require('./routes/login');
 const homeRouter = require('./routes/home');
 const moviesRouter = require('./routes/movies');
 const { sessionSecret } = require('./config');
+const { restoreUser } = require('./auth');
 const { csrfProtection, asyncHandler } = require('./routes/utils');
 
 const app = express();
@@ -40,7 +41,7 @@ app.use(
 
 // create Session table if it doesn't already exist
 store.sync();
-
+app.use(restoreUser)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/users', loginRouter);

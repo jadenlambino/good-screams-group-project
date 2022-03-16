@@ -7,12 +7,13 @@ const { csrfProtection, asyncHandler } = require("./utils");
 // const { requireAuth } = require("../auth");
 
 router.get(
-  "/",
+  "/:id(\\d+)",
   asyncHandler(async (req, res) => {
+    const movieId = parseInt(req.params.id, 10);
     console.log(res);
     const reviews = await db.Review.findAll({
       include: db.User,
-      where: { movieId: 1 },
+      where: { movieId: movieId },
     });
     const jsonReviews = JSON.stringify(reviews);
     res.json(jsonReviews);

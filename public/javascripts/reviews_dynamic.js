@@ -1,9 +1,14 @@
 // const db = require('../../db/models');
 
 window.addEventListener("load", async (event) => {
+  const currentMovieId = window.location.href.split("/");
+
   const addReview = document.getElementsByClassName("add_review_btn")[0];
   const reviewsDiv = document.getElementsByClassName("reviews_description")[0];
-  const reviewsData = await fetch("/reviews");
+
+  const reviewsData = await fetch(
+    `/reviews/${currentMovieId[currentMovieId.length - 1]}`
+  );
   const jsonReviewsData = JSON.parse(await reviewsData.json());
   console.log(jsonReviewsData);
 

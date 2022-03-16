@@ -20,7 +20,7 @@ window.addEventListener("load", async (event) => {
   }
 
   addReview.addEventListener("click", async () => {
-    const res = await fetch("http://localhost:8081/reviews", {
+    const res = await fetch("/reviews", {
       method: "POST",
       header: { "Content-Type": "application/json" },
       body: JSON.stringify({ test: "test" }),

@@ -3,9 +3,9 @@
 window.addEventListener("load", async (event) => {
     const addReview = document.getElementsByClassName('add_review_btn')[0]
     const div = document.getElementsByClassName('reviews_description')[0]
-    const data = await fetch('http://localhost:8081/reviews')
+    const data = await fetch('/reviews')
     const jsonData = await data.json()
-  
+
     const parse = JSON.parse(jsonData)
 
 

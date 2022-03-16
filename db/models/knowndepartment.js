@@ -1,10 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const SubGenre = sequelize.define('SubGenre', {
+  const KnownDepartment = sequelize.define('KnownDepartment', {
     name: DataTypes.STRING
   }, {});
-  SubGenre.associate = function(models) {
+  KnownDepartment.associate = function(models) {
     // associations can be defined here
   };
-  return SubGenre;
+  return KnownDepartment;
 };

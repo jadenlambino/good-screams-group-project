@@ -1,37 +1,19 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Movie = sequelize.define(
-    "Movie",
-    {
-      name: {
-        allowNull: false,
-        type: DataTypes.STRING(255),
-      },
-      subGenreId: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: { model: "SubGenres" },
-      },
-      rating: {
-        allowNull: false,
-        type: DataTypes.NUMERIC(4, 2),
-      },
-      posterImg: {
-        allowNull: false,
-        type: DataTypes.TEXT,
-      },
-    },
-    {}
-  );
-  Movie.associate = function (models) {
+  const Movie = sequelize.define('Movie', {
+    name: DataTypes.STRING,
+    rating: DataTypes.NUMERIC,
+    releaseDate: DataTypes.DATE,
+    description: DataTypes.TEXT,
+    budget: DataTypes.INTEGER,
+    revenue: DataTypes.INTEGER,
+    subGenreId: DataTypes.INTEGER,
+    mediaId: DataTypes.INTEGER,
+    castId: DataTypes.INTEGER,
+    crewId: DataTypes.INTEGER
+  }, {});
+  Movie.associate = function(models) {
     // associations can be defined here
-    Movie.belongsTo(models.SubGenre, { foreignKey: "subGenreId" });
-    Movie.hasMany(models.Review, { foreignKey: "moviesId" });
-    Movie.belongsToMany(models.List, {
-      through: "MoviesList",
-      foreignKey: "moviesId",
-      otherKey: "listsId",
-    });
   };
   return Movie;
 };

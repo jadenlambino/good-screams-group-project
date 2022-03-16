@@ -1,38 +1,42 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Reviews', {
+    return queryInterface.createTable("Media", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      content: {
+      name: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.STRING(150),
       },
-      userId: {
+      key: {
+        allowNull: false,
+        type: Sequelize.STRING(150),
+      },
+      siteId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Users' }
+        references: { model: "Sites" },
       },
-      moviesId: {
+      typeId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Movies' }
+        references: { model: "Types" },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Reviews');
-  }
+    return queryInterface.dropTable("Media");
+  },
 };

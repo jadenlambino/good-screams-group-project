@@ -1,34 +1,34 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('MoviesLists', {
+    return queryInterface.createTable("FavGenres", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      moviesId: {
+      userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Movies' }
+        references: { model: "Users" },
       },
-      listsId: {
+      subGenreId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Lists' }
+        references: { model: "SubGenres" },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('MoviesLists');
-  }
+    return queryInterface.dropTable("FavGenres");
+  },
 };

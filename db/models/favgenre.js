@@ -1,18 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const FavGenre = sequelize.define('FavGenre', {
-    userId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      references: { model: 'Users' }
-    },
-    subGenreId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      references: { model: 'subGenres' }
-    }
+    userId: DataTypes.INTEGER,
+    subGenreId: DataTypes.INTEGER
   }, {});
-  FavGenre.associate = function (models) {
+  FavGenre.associate = function(models) {
     // associations can be defined here
   };
   return FavGenre;

@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Acme:regular);
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 782px;
+}
+
+.movie_container {
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 834px;
+    height: 420px;
+    /* left: 303px;
+    top: 193px; */
+    background-color: pink;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.movie_img_container {
+    display: flex;
+    margin: 3px;
+    padding: 5px;
+}
+
+
+.movie_img{
+    width: 162.15px;
+    height: 230px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    background-color: black;
+}
+
+.movie_rating {
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+
+.movie_title {
+
+    color: white;
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 41px;
+}
+
+.release_date {
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+
+    color: #FFFFFF;
+}
+
+.movie_description {
+    font-family: 'Acme';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.movie_description_container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: start;
+    background-color: hotpink;
+    margin: 3px;
+    padding: 5px;
+    width: 471px;
+    height: 327px;
+}

@@ -17,13 +17,14 @@ window.addEventListener("load", async (event) => {
     const liTag = document.createElement("li");
     const editBtn = document.createElement("button");
     const deleteBtn = document.createElement("button");
-    pTag.className = `reviews-content user-${el.userId}`;
+    pTag.className = `reviews-content userid-${el.userId}`;
+    pTag.setAttribute("id", `reviewId-${el.id}`);
     pTag.innerText = el.content;
-    liTag.className = `reviews-owner user-${el.userId}`;
+    liTag.className = `reviews-owner userid-${el.userId}`;
     liTag.innerText = `By: ${el.User.firstName} ${el.User.lastName}`;
-    editBtn.className = `editbtn user-${el.userId}`;
+    editBtn.className = `editbtn userid-${el.userId}`;
     editBtn.innerText = "Edit";
-    deleteBtn.className = `deletebtn user-${el.userId}`;
+    deleteBtn.className = `deletebtn userid-${el.userId}`;
     deleteBtn.innerText = "Delete";
     pTag.appendChild(liTag);
     pTag.appendChild(editBtn);

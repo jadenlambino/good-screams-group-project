@@ -1,7 +1,10 @@
 // const db = require('../../db/models');
 
+// const res = require("express/lib/response");
+const currentMovieId = window.location.href.split("/")[4];
 window.addEventListener("load", async (event) => {
-  const currentMovieId = window.location.href.split("/");
+
+  console.log (currentMovieId)
 
   const addReview = document.getElementsByClassName("add_review_btn")[0];
   const reviewsDiv = document.getElementsByClassName("reviews_description")[0];
@@ -10,7 +13,7 @@ window.addEventListener("load", async (event) => {
     `/reviews/${currentMovieId[currentMovieId.length - 1]}`
   );
   const jsonReviewsData = JSON.parse(await reviewsData.json());
-  // console.log(jsonReviewsData);
+
 
   for (let el of jsonReviewsData) {
     const pTag = document.createElement("p");
@@ -32,11 +35,32 @@ window.addEventListener("load", async (event) => {
     reviewsDiv.appendChild(pTag);
   }
 
-  addReview.addEventListener("click", async () => {
-    const res = await fetch("/reviews", {
-      method: "POST",
-      header: { "Content-Type": "application/json" },
-      body: JSON.stringify({ test: "test" }),
-    });
+  const movieReviewsContainer = document.querySelector('.review_container')
+  movieReviewsContainer.addEventListener('click', e => {
+    const reviewButton = e.target.className.split('_')[2]
+    const form = document.querySelector('#new-review')
+
+    if (reviewButton === 'btn') {
+      form.classList.remove('hidden')
+    }
   });
+
+  const revButton = document.getElementById('submit-review')
+
+  revButton.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    const desc = document.getElementById('textarea').value
+
+    fetch(`/movies/${currentMovieId}`, {
+      method: "POST",
+    })
+    .then((res) => console.log(res))
+
+    // if (res) {
+      let newEle = document.createElement('p');
+      newEle.innerText = `${desc}`;
+      movieReviewsContainer.appendChild(newEle);
+    // }
+  })
 });

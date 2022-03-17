@@ -15,12 +15,11 @@ block content
     div(class='movie_review_container')
         div(class='review_container')
             div(class='review_btn_container')
-                form(action=`/reviews/new/${movie.id}` method='get')
-                    button(class='add_review_btn') Write a review
-            form(class='hidden')
+                button(class='add_review_btn') Write a review
+            form(class='hidden' id='new-review')
                 label(for='content')
-                textarea(name='content')
-                button(class='submit_review_btn') Submit Review
+                textarea(name='content' id='textarea')
+                button(class='submit_review_btn' type='submit' id='submit-review') Submit Review
         div(class='reviews_description')
 
     script(src='/javascripts/reviews_dynamic.js' type='module')

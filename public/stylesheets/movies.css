@@ -13,6 +13,8 @@ img {
 
 .main_container {
   display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .genre_container {
@@ -27,6 +29,15 @@ img {
   font-size: xx-large;
   position: sticky;
   top: 35px;
+}
+
+.genre_title_movies {
+  font-family: "zombies_rebornregular";
+  font-size: 50px;
+}
+.genre_titles {
+  font-family: "Creepster";
+  font-size: 30px;
 }
 
 .genre_container_text {

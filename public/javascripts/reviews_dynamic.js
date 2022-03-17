@@ -40,7 +40,7 @@ window.addEventListener("load", async (event) => {
     });
   });
 
-const deleteBtns = document.querySelectorAll('.deletebtn')
+const deleteBtns = document.querySelector('.deletebtn')
 
 for (let i = 0; i < deleteBtns.length; i++) {
     const btn = deleteBtns[i];

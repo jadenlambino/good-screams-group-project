@@ -39,4 +39,42 @@ window.addEventListener("load", async (event) => {
       body: JSON.stringify({ test: "test" }),
     });
   });
+
+  //UPDATING
+  // const editButton = document.getElementsByClassName('reviews')[0].querySelector('button')
+  const editButtons = document.querySelectorAll('.editbtn')
+  for (let i = 0; i < editButtons.length; i++) {
+    let editButton = editButtons[i];
+    editButton.addEventListener('click', event => {
+      const reviewId = event.target.id.split('-')[1]
+      console.log(event.target.id)
+      const form = document.getElementById('form')
+      if (form.classList.contains('hidden')) {
+        form.classList.remove('hidden')
+      } else {
+        form.classList.add('hidden')
+      }
+
+      let submitBtn = document.getElementById('submitbtn')
+      submitBtn.addEventListener('click', async (event2) => {
+        event2.preventDefault()
+
+        const content = document.getElementById('edit-content').value
+
+        const res = await fetch(`/reviews/${reviewId}`, {
+          method: 'PATCH',
+          body: JSON.stringify({ content: content }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+
+        const final = await res.json();
+
+        if (final.message === 'Review has been updated') {
+          const review = document.getElementById('form')
+          review.innerHTML = final.review.content
+          form.classList.add('hidden')
+        }
+      })
+    })
+  }
 });

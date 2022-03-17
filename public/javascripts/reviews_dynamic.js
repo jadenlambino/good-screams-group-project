@@ -10,7 +10,7 @@ window.addEventListener("load", async (event) => {
         `/reviews/${currentMovieId[currentMovieId.length - 1]}`
     );
     const jsonReviewsData = JSON.parse(await reviewsData.json());
-    console.log(jsonReviewsData);
+    // console.log(jsonReviewsData);
 
     for (let el of jsonReviewsData) {
         const pTag = document.createElement("p");
@@ -40,14 +40,41 @@ window.addEventListener("load", async (event) => {
         });
     });
 
+    //UPDATING
     // const editButton = document.getElementsByClassName('reviews')[0].querySelector('button')
-    // console.log(editButton)
-    // editButton.addEventListener('click', event => {
-    //     // const reviewId = event.target.id
-    //     console.log(reviewId)
-    //     editButton.setAttribute("id", `edit-review`)
+    const editButtons = document.querySelectorAll('.editbtn')
+    for (let i = 0; i < editButtons.length; i++) {
+        let editButton = editButtons[i];
+        editButton.addEventListener('click', event => {
+            const reviewId = event.target.id.split('-')[1]
+            console.log(reviewId)
+            const form = document.getElementById('form')
+            if (form.classList.contains('hidden')) {
+                form.classList.remove('hidden')
+            } else {
+                form.classList.add('hidden')
+            }
 
-    // })
+            let submitBtn = document.getElementById('submitbtn')
+            submitBtn.addEventListener('click', async (event2) => {
+                event2.preventDefault()
 
+                const content = document.getElementById('edit-content').value
 
+                const result = await fetch(`/reviews/${reviewId}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({ content: content }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+
+                const final = await res.json();
+
+                if (final.message === 'Review has been updated') {
+                    const review = document.getElementById('form')
+                    review.innerHTML = final.review.content
+                    form.classList.add('hidden')
+                }
+            })
+        })
+    }
 });

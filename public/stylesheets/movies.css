@@ -29,6 +29,11 @@ img {
   top: 35px;
 }
 
+.genre_title_movies {
+  font-family: "zombies_rebornregular";
+  font-size: 50px;
+}
+
 .genre_container_text {
   display: flex;
   flex-direction: column;

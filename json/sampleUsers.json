@@ -1,0 +1,38 @@
+[
+  {
+    "firstName": "Demo",
+    "lastName": "Login",
+    "email": "Demo@example.com",
+    "hashedPassword": "$2a$12$glecq6CwaifXc8.gsHJmpORuQBWWa1EshCtOkF6vXotxW4/q9MgYq"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Rollins",
+    "email": "Jane@example.com",
+    "hashedPassword": "$2a$12$3b4a.PluySegQnH0zcfJtu1Dlhpl8N5aNnvniqcSlgEqT9q7CwGCm"
+  },
+  {
+    "firstName": "Felix",
+    "lastName": "Conner",
+    "email": "Felix@example.com",
+    "hashedPassword": "$2a$12$AineE.QHgYTDlrOnvwtLMuUOgj5/mPJ8X9mk2HcaeabmTVyBerGP."
+  },
+  {
+    "firstName": "Alicia",
+    "lastName": "David",
+    "email": "Alicia@example.com",
+    "hashedPassword": "$2a$12$ql6LwgA8rEzBdztllSS6oOnq60jre8Zr70EjJJzEvn9zEDyg8C.Ny"
+  },
+  {
+    "firstName": "Lily",
+    "lastName": "Sanford",
+    "email": "Lily@example.com",
+    "hashedPassword": "$2a$12$6UaFRKfPZI/DYirfeGlJpuRSohWl924./PZdoprxnl3vuTGQkJ02C"
+  },
+  {
+    "firstName": "Mark",
+    "lastName": "Brown",
+    "email": "Mark@example.com",
+    "hashedPassword": "$2a$12$hteGinuK2C3JK7mI83.rUu3V31cHk24NsxUfIDnecUKxpIYs8P1py"
+  }
+]

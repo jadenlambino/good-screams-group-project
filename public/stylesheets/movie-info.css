@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Acme:regular);
 
 .hidden {
+<<<<<<< HEAD
     display: none;
 }
 
@@ -11,93 +12,103 @@
     align-items: center;
     width: 100%;
     height: 782px;
+=======
+  display: none;
+>>>>>>> main
 }
 
-
+.main_movie_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 782px;
+}
 
 .movie_info_container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 834px;
-    height: 420px;
-    background-color: pink;
-    border: 2px solid black;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 834px;
+  height: 420px;
+  background-color: pink;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .movie_img_container {
-    margin: 3px;
-    padding: 5px;
-    background-color: hotpink;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+  margin: 3px;
+  padding: 5px;
+  background-color: hotpink;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
 }
 
-.movie_img{
-    width: 162.15px;
-    height: 230px;
-    border-radius: 8px;
+.movie_img {
+  width: 162.15px;
+  height: 230px;
+  border-radius: 8px;
 }
 
 .movie_rating {
-    font-family: 'Acme';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    margin: 5px;
-    color: #FFFFFF;
+  font-family: "Acme";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 5px;
+  color: #ffffff;
 }
 
 .movie_info_title {
-    color: white;
-    font-family: 'Acme';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    margin: 5px;
+  color: white;
+  font-family: "Acme";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  margin: 5px;
 }
 
 .release_date {
-    font-family: 'Acme';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    margin: 5px;
-    color: #FFFFFF;
+  font-family: "Acme";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 5px;
+  color: #ffffff;
 }
 
 .movie_description {
-    font-family: 'Acme';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: #FFFFFF;
-    margin: 5px;
+  font-family: "Acme";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 5px;
 }
 
 .movie_description_container {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items:start;
-    justify-content:flex-start;
-    background-color: hotpink;
-    margin: 3px;
-    padding: 3px;
-    width: 471px;
-    height: 327px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  background-color: hotpink;
+  margin: 3px;
+  padding: 3px;
+  width: 471px;
+  height: 327px;
 }
 
 .list_button_container {
-    position: absolute;
-    width: 146px;
-    height: 31px;
-    left: 278.5px;
-    top: 524px;
-    margin: 5px;
-    background: 8C4250;
+  position: absolute;
+  width: 146px;
+  height: 31px;
+  left: 278.5px;
+  top: 524px;
+  margin: 5px;
+  background: 8c4250;
 }

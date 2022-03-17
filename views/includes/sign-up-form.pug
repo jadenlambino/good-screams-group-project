@@ -1,4 +1,6 @@
-div
+link(rel='stylesheet', href='/stylesheets/includes/sign-up-form.css')
+
+div(class='signup-container')
     if errors
         ul
             each error in errors
@@ -6,20 +8,21 @@ div
 
     form(action="/users/signup" method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
-        div
+        h2 Sign Up...
+        div(id="firstname-container")
             label(for="firstName") First Name:
             input(type="text" name="firstName" id="firstName" value=newUser.firstName)
-        div
+        div(id="lastname-container")
             label(for="lastName") Last Name:
             input(type="text" name="lastName" id="lastName" value = newUser.lastName)
-        div
+        div(id="email-container")
             label(for="email") Email:
             input(type="email" name="email" id="email" value = newUser.email)
-        div
+        div(id="pass-container")
             label(for="hashedPassword") Password:
             input(type="password" name="hashedPassword" id="hashedPassword")
-        div
+        div(id="passconf-container")
             label(for="confirmPassword") Confirm Password:
             input(type="password" name="confirmPassword" id="confirmPassword")
         div
-            button Submit
+            button(id='button-container') Submit

@@ -5,7 +5,7 @@ window.addEventListener("load", async (event) => {
   const reviewsDiv = document.getElementsByClassName("reviews_description")[0];
   const reviewsData = await fetch("/reviews");
   const jsonReviewsData = JSON.parse(await reviewsData.json());
-  console.log(jsonReviewsData);
+//   console.log(jsonReviewsData);
 
   for (let el of jsonReviewsData) {
     const pTag = document.createElement("p");
@@ -33,4 +33,31 @@ window.addEventListener("load", async (event) => {
       body: JSON.stringify({ test: "test" }),
     });
   });
+
+
+
+    const reviewDiv = document.querySelector("reviews_description");
+    const deleteBtns = document.querySelectorAll(`.deletebtn`)
+        for (let i = 0; i < deleteBtns.length; i++) {
+        const btn = deleteBtns[i];
+        btn.addEventListener('click', async (e) => {
+            console.log(e.target.id)
+            const reviewId = e.target.id.split('-')[2]
+            console.log(reviewId)
+            const res = await fetch(`/reviews/${reviewId}`, {
+                method: 'DELETE'
+            })
+
+            const data = await res.json()
+            if (data.message === "Success") {
+                const container = document.getElementById(`review_container-${reviewId}`)
+                container.remove()
+            } else {
+                // append some element that just displays the error message
+                    pTag.innerText = 'Error';
+                    reviewDiv.appendChild(pTag)
+            }
+        })
+}
+
 });

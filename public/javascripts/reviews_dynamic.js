@@ -10,7 +10,7 @@ window.addEventListener("load", async (event) => {
     `/reviews/${currentMovieId[currentMovieId.length - 1]}`
   );
   const jsonReviewsData = JSON.parse(await reviewsData.json());
-  console.log(jsonReviewsData);
+  // console.log(jsonReviewsData);
 
   for (let el of jsonReviewsData) {
     const pTag = document.createElement("p");

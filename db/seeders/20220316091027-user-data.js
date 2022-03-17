@@ -1,4 +1,16 @@
 "use strict";
+const users = require("../../json/sampleUsers.json");
+const results = [];
+users.forEach((ele) => {
+  results.push({
+    firstName: ele.firstName,
+    lastName: ele.lastName,
+    email: ele.email,
+    hashedPassword: ele.hashedPassword,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
+});
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -8,20 +20,7 @@ module.exports = {
 
       Example:
       */
-    return queryInterface.bulkInsert(
-      "Users",
-      [
-        {
-          firstName: "Test",
-          lastName: "Demo",
-          email: "demo@appacademy.com",
-          hashedPassword: "test",
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-      ],
-      {}
-    );
+    return queryInterface.bulkInsert("Users", results, {});
   },
 
   down: (queryInterface, Sequelize) => {

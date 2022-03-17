@@ -10,7 +10,7 @@ window.addEventListener("load", async (event) => {
     `/reviews/${currentMovieId[currentMovieId.length - 1]}`
   );
   const jsonReviewsData = JSON.parse(await reviewsData.json());
-  console.log(jsonReviewsData);
+//   console.log(jsonReviewsData);
 
   for (let el of jsonReviewsData) {
     const pTag = document.createElement("p");
@@ -39,4 +39,28 @@ window.addEventListener("load", async (event) => {
       body: JSON.stringify({ test: "test" }),
     });
   });
+
+const deleteBtns = document.querySelectorAll('.deletebtn')
+
+for (let i = 0; i < deleteBtns.length; i++) {
+    const btn = deleteBtns[i];
+    btn.addEventListener('click', async(e) => {
+        // const reviewId = e.target.id.split('-')[2]
+        // console.log(reviewId)
+        const res = await fetch(`/reviews/${currentMovieId[currentMovieId.length - 1]}`, {
+            method: 'DELETE'
+        })
+
+        const data = await res.json()
+        if (data.message === "Success") {
+            const container = document.querySelector(`.reviews_description`)
+            container.remove()
+        } else {
+            const pTag = document.createElement("p");
+            pTag.innerText = 'Error';
+            reviewsDiv.appendChild(pTag);
+        }
+    })
+}
+
 });

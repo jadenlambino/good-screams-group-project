@@ -67,7 +67,7 @@ window.addEventListener("load", async (event) => {
                     headers: { 'Content-Type': 'application/json' }
                 })
 
-                const final = await res.json();
+                const final = await result.json();
 
                 if (final.message === 'Review has been updated') {
                     const review = document.getElementById('form')

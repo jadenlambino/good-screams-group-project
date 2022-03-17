@@ -35,7 +35,9 @@ router.post(
 router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
     console.log('you have arrived at the route handler')
     const reviewId = parseInt(req.params.id, 10)
-    const review = await db.Review.findByPk(reviewId)
+    const review = await db.Review.findByPk(reviewId, {
+        
+    })
 
     if (review) {
         await review.destroy();

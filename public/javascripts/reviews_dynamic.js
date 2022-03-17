@@ -45,7 +45,6 @@ const deleteBtns = document.querySelectorAll('.deletebtn')
 for (let i = 0; i < deleteBtns.length; i++) {
     const btn = deleteBtns[i];
     btn.addEventListener('click', async(e) => {
-        // const reviewId = e.target.id.split('-')[2]
         // console.log(reviewId)
         const res = await fetch(`/reviews/${currentMovieId[currentMovieId.length - 1]}`, {
             method: 'DELETE'

@@ -1,9 +1,9 @@
 const express = require("express");
 const db = require("../db/models");
 const router = express.Router();
-const { asyncHandler } = require('./utils');
-const path = require('path');
-const { requireAuth } = require('../auth');
+const { asyncHandler } = require("./utils");
+const path = require("path");
+const { requireAuth, restoreUser } = require("../auth");
 
 router.get(
   "/",
@@ -17,17 +17,15 @@ router.get(
 
 router.get(
   "/:id(\\d+)",
+  requireAuth,
   asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(id);
-    console.log(req.body)
 
     if (movie) {
       res.render("movie-info", { title: movie.name, movie });
     }
   })
 );
-
-
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express");
 
 const router = express.Router();
 const db = require('../db/models');
@@ -8,13 +8,19 @@ const { requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const { Movie } = require('../db/models')
 
-router.get('/', asyncHandler(async (req, res) => {
-    const reviews = await db.Review.findAll({
-        where: { movieId: 1 }
+router.get(
+    "/:id(\\d+)",
+    asyncHandler(async (req, res) => {
+      const movieId = parseInt(req.params.id, 10);
+      console.log(res);
+      const reviews = await db.Review.findAll({
+        include: db.User,
+        where: { movieId: movieId },
+      });
+      const jsonReviews = JSON.stringify(reviews);
+      res.json(jsonReviews);
     })
-   const jsonReviews = JSON.stringify(reviews)
-    res.json(jsonReviews)
-}));
+  );
 
 const reviewValidation = [
     check('content')
@@ -22,18 +28,20 @@ const reviewValidation = [
     .withMessage('Please fill out the texbox.')
 ]
 
-router.get('/new', csrfProtection, requireAuth, async(req,res,next) => {
-    const movies = await Movie.findAll();
+router.get('/new/:id(\\d+)', csrfProtection, requireAuth, async(req,res,next) => {
+    console.log(req.params)
+    const movieId = parseInt(req.params.movieId, 10);
+    const movie = await db.Movie.findByPK(movieId);
     res.render('review-form', {
         title: 'New Review',
-        movies,
+        movie,
         errors: [],
         csrfToken: req.csrfToken()
     })
 });
 
-router.post('/new', requireAuth, csrfProtection, reviewValidation, asyncHandler(async (req, res) => {
-    const movieId = parseInt(req.params.movieId, 10);
+router.post('/new/:id(\\d+)', requireAuth, csrfProtection, reviewValidation, asyncHandler(async (req, res) => {
+    const movieId = parseInt(req.params.Movies.movieId, 10);
 
     const { content } = req.body;
 
@@ -58,6 +66,5 @@ router.post('/new', requireAuth, csrfProtection, reviewValidation, asyncHandler(
         }
     }
 }))
-
 
 module.exports = router;

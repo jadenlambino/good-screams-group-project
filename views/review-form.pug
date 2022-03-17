@@ -1,10 +1,12 @@
 extends layout
 
+
 block content
     div(class='form-container')
-    form(action=`/movies/${movieId}` method='post')
+    h3: em for #{movies.name}
+    form(action=`/movies/${movies.id}` method='post')
         input(type="hidden", name="_csrf" value=csrfToken)
-        input(type="text", name="contents")
+        input(type="textarea", name="contents" required)
 
     div
     span DEEZ NUTS

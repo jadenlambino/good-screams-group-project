@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    div(class='form-container')
+    form(action=`/movies/${movieId}` method='post')
+        input(type="hidden", name="_csrf" value=csrfToken)
+        input(type="text", name="contents")
+
+    div
+    span DEEZ NUTS

@@ -15,7 +15,8 @@ block content
     div(class='movie_review_container')
         div(class='review_container')
             div(class='review_btn_container')
-                button(class='add_review_btn') Write a review
+                form(action='/reviews/new' method='get')
+                    button(class='add_review_btn' type='submit') Write a review
                 button(class='edit_review_btn') Edit review
                 button(class='delete_review_btn') Delete review
             form(class='hidden')

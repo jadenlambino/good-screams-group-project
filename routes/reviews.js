@@ -1,13 +1,12 @@
 const express = require('express')
 
 const router = express.Router();
-const db = require("../db/models");
+const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 const path = require('path');
 const { requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
-const { Movie } = require('..db/models')
-
+const { Movie } = require('../db/models')
 
 router.get('/', asyncHandler(async (req, res) => {
     const reviews = await db.Review.findAll({
@@ -25,7 +24,7 @@ const reviewValidation = [
 
 router.get('/new', csrfProtection, requireAuth, async(req,res,next) => {
     const movies = await Movie.findAll();
-    res.render('<<postform>>', {
+    res.render('review-form', {
         title: 'New Review',
         movies,
         errors: [],
@@ -51,7 +50,7 @@ router.post('/new', requireAuth, csrfProtection, reviewValidation, asyncHandler(
         res.redirect(`/movies/${movieId}`)
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
-        res.render('<<url for review form page>>'), {
+        res.render('review-form'), {
             title: 'New Review',
             content,
             errors,

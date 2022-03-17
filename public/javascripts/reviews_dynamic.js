@@ -41,7 +41,6 @@ window.addEventListener("load", async (event) => {
     });
   });
 
-<<<<<<< HEAD
   //UPDATING
   // const editButton = document.getElementsByClassName('reviews')[0].querySelector('button')
   const editButtons = document.querySelectorAll('.editbtn')
@@ -79,11 +78,10 @@ window.addEventListener("load", async (event) => {
       })
     })
   }
-=======
 
 
 
-const reviewsDescription = document.querySelector('.reviews_description');
+  const reviewsDescription = document.querySelector('.reviews_description');
   reviewsDescription.addEventListener('click', async (e) => {
 
     const btn = e.target.id.split('-')[0];
@@ -105,5 +103,4 @@ const reviewsDescription = document.querySelector('.reviews_description');
     }
   });
 
->>>>>>> bcd476c84dc5a05df4cd61dcbc72815a9271895a
 });

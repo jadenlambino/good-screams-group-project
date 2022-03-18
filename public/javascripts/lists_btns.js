@@ -45,8 +45,6 @@ window.addEventListener("load", async (event) => {
       title.innerText = listName.innerText;
       const listId = listName.className.split(" ")[1].split("-")[3];
 
-      console.log(listId);
-
       const moviesContainer = document.getElementById("dynamic_container");
 
       const renameBtn = document.getElementById("rename_btn");

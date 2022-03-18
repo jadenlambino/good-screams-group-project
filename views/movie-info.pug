@@ -17,10 +17,10 @@ block content
                 div(class='review_container')
                     div(class='review_btn_container')
                         button(class='add_review_btn') Write a review
-                    form(class='hidden')
+                    form(class='hidden' id='form')
                         label(for='content')
-                        textarea(name='content')
-                        button(class='submit_review_btn') Submit Review
+                        textarea(name='content' id='edit-content')
+                        button(class='submit_review_btn' id='submitbtn') Submit Review
                     div(class='reviews_description')
 
         script(src='/javascripts/reviews_dynamic.js' type='module')

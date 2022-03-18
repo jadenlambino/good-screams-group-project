@@ -14,7 +14,7 @@ router.get(
       include: db.User,
       where: { movieId: movieId },
     });
-    console.log(reviews);
+    // console.log(reviews);
     const jsonReviews = JSON.stringify({ userId: auth.userId, reviews });
 
     res.json(jsonReviews);
@@ -23,7 +23,7 @@ router.get(
 
 router.post(
   "/",
-  asyncHandler(async (req, res) => {})
+  asyncHandler(async (req, res) => { })
 );
 
 router.delete(
@@ -42,5 +42,19 @@ router.delete(
     }
   })
 );
+
+router.patch('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const reviewId = parseInt(req.params.id, 10);
+  const review = await db.Review.findByPk(reviewId);
+  console.log(reviewId)
+
+  if (review) {
+    review.content = req.body.content;
+    await review.save();
+    res.json({ message: 'Review has been updated', review })
+  } else {
+    res.json({ message: 'Post does not exist' })
+  }
+}))
 
 module.exports = router;

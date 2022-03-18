@@ -49,7 +49,7 @@ app.use("/users", loginRouter);
 app.use("/home", homeRouter);
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
-app.use("/lists", listsRouter);
+app.use("/mylists", listsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

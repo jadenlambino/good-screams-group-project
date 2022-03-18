@@ -28,22 +28,41 @@ const reviewValidation = [
     .withMessage('Please fill out the texbox.')
 ]
 
-router.post('/movies/:id', requireAuth, csrfProtection, reviewValidation, asyncHandler(async (req, res) => {
-    const movieId = parseInt(req.params.Movies.movieId, 10);
+router.post('/new', requireAuth, csrfProtection, reviewValidation, asyncHandler(async (req, res) => {
+    const movieId = parseInt(req.params.id, 10);
 
     const { content } = req.body;
+    console.log(content)
 
-    const review = await db.Review.build({
-        content,
-        userId: res.locals.userId,
-        movieId
-    });
+    // const review = await db.Review.build({
+    //     content,
+    //     userId: res.locals.userId,
+    //     movieId
+    // });
 
-    const validatorErrors = validationResult(req)
+    // const validatorErrors = validationResult(req)
 
-    if (validatorErrors.isEmpty()) {
-        await review.save();
-    }
+    // if (validatorErrors.isEmpty()) {
+    //     await review.save();
+    //     res.json({message: "Success", post})
+    // }
 }))
+
+router.delete(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    console.log("you have arrived at the route handler");
+    const reviewId = parseInt(req.params.id, 10);
+    const review = await db.Review.findByPk(reviewId, {});
+
+    if (review) {
+      await review.destroy();
+      res.json({ message: "Success" });
+      console.log(res.json());
+    } else {
+      res.json({ message: "Failure" });
+    }
+  })
+);
 
 module.exports = router;

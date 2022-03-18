@@ -116,12 +116,12 @@
 }
 
 
-.movie_review_container {
+/* .movie_review_container { */
   /* flex-direction: column;
   justify-content: center;
   align-items: center; */
 
-}
+/* } */
 
 .review_container::-webkit-scrollbar{
   display: none;

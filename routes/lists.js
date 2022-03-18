@@ -24,6 +24,23 @@ router.get(
     res.render("lists", { title: "Lists", lists, id: userId });
   })
 );
+router.get(
+  "/update",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    let { userId } = req.session.auth;
+    console.log(userId);
+    const lists = await db.List.findAll({
+      include: db.Movie,
+      where: {
+        userId,
+      },
+      order: [["id", "ASC"]],
+    });
+
+    res.json({ lists });
+  })
+);
 
 router.post(
   "/new",

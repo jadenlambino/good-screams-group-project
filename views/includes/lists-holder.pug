@@ -9,7 +9,7 @@ div.lists_container
             div
                 button#delete_btn Delete List
                 button#edit_btn Edit List
-        div.movie_container
+        div.movies_container#dynamic_container
             each movie in lists[0].Movies
                  div.movie_container
                         img(class='posterImg' src=movie.posterImg)

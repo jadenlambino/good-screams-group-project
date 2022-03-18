@@ -1,0 +1,45 @@
+#hidden {
+  display: none;
+}
+
+.lists_container {
+  display: flex;
+  flex-direction: column;
+  width: 1100px;
+}
+
+.list_container {
+  display: flex;
+  flex-direction: column;
+  background-color: #400404;
+  border-radius: 16px;
+  height: 1200px;
+  padding: 10px;
+  margin: 10px;
+}
+.list_header_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lists_title {
+  font-family: "Creepster";
+  font-size: 30px;
+  color: white;
+}
+
+.add_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.list_input_field {
+  width: 140px;
+}
+
+.list_form_btn {
+  width: 70px;
+}

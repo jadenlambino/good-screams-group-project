@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+<<<<<<< HEAD
     div(class='movie_info_page')
         div(class='main_movie_container')
             div(class='movie_info_container')
@@ -22,5 +23,26 @@ block content
                         textarea(name='content' id='edit-content')
                         button(class='submit_review_btn' id='submitbtn') Submit Review
                     div(class='reviews_description')
+=======
+    div(class='main_movie_container')
+        div(class='movie_info_container')
+            div(class='movie_img_container')
+                img(class='movie_img' src=movie.posterImg)
+                button(class='list_button' type='submit') Want To Watch
+            div(class='movie_description_container')
+                p(class='movie_info_title')= movie.name
+                p(class='release_date') Release date: #{movie.releaseDate.getMonth()} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}
+                p(class='movie_rating') Rating: #{movie.rating}
+                p(class='movie_description') Description:  #{movie.description}
+        div(class='review_btn_container')
+            button(class='add_review_btn') Write a review
+    div(class='movie_review_container')
+        div(class='review_container')
+            form(class='hidden')
+                label(for='content')
+                textarea(name='content')
+                button(class='submit_review_btn') Submit Review
+            div(class='reviews_description')
+>>>>>>> 78a8b39888cf617243ddcf6076a81b314953684b
 
     script(src='/javascripts/reviews_dynamic.js' type='module')

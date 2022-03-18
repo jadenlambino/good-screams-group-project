@@ -1,0 +1,12 @@
+extends layout
+
+
+block content
+    div(class='form-container')
+    //- h3: em= movie.name
+    form(action=`/reviews/new` method='post')
+        input(type="hidden", name="_csrf" value=csrfToken)
+        input(type="textarea", name="contents" required)
+
+    div
+        span DEEZ NUTS

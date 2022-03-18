@@ -18,7 +18,7 @@ router.get(
   csrfProtection,
   (req, res) => {
     const newUser = db.User.build();
-    res.render("sign-up", {
+    res.render("sign-up-form2", {
       title: "Signup",
       newUser,
       csrfToken: req.csrfToken(),
@@ -49,7 +49,7 @@ router.post(
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       console.log(errors);
-      res.render("sign-up", {
+      res.render("sign-up-form2", {
         title: "Signup",
         errors,
         newUser,

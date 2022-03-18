@@ -28,24 +28,31 @@ const reviewValidation = [
     .withMessage('Please fill out the texbox.')
 ]
 
-router.post('/new', requireAuth, csrfProtection, reviewValidation, asyncHandler(async (req, res) => {
-    const movieId = parseInt(req.params.id, 10);
+router.post('/new/movies/:id(\\d+)', asyncHandler(async (req, res) => {
+  const movieId = parseInt(req.params.id, 10);
+  console.log(movieId)
+    const { content } = req.body
+    const { userId } = req.session.auth
+    //  console.log(req.body)
+    // console.log(req.session.auth)
 
-    const { content } = req.body;
-    console.log(content)
-
-    // const review = await db.Review.build({
-    //     content,
-    //     userId: res.locals.userId,
-    //     movieId
+    // const reviews = await db.Review.findAll({
+    //   include: db.User,
+    //   where: { movieId: movieId },
     // });
+    // console.log(reviews);
+    //const jsonReviews = JSON.stringify({ userId: auth.userId, reviews });
 
-    // const validatorErrors = validationResult(req)
+    const review = await db.Review.build({
+        content,
+        userId,
+        movieId
+    });
+      await review.save();
+      res.json({message: "Success"})
 
-    // if (validatorErrors.isEmpty()) {
-    //     await review.save();
-    //     res.json({message: "Success", post})
-    // }
+
+
 }))
 
 router.delete(
@@ -64,5 +71,19 @@ router.delete(
     }
   })
 );
+
+router.patch('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const reviewId = parseInt(req.params.id, 10);
+  const review = await db.Review.findByPk(reviewId);
+  console.log(reviewId)
+
+  if (review) {
+    review.content = req.body.content;
+    await review.save();
+    res.json({ message: 'Review has been updated', review })
+  } else {
+    res.json({ message: 'Post does not exist' })
+  }
+}))
 
 module.exports = router;

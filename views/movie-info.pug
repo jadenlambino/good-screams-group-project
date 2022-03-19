@@ -9,7 +9,7 @@ block content
                 button(class='list_button' type='submit') Want To Watch
             div(class='movie_description_container')
                 p(class='movie_info_title')= movie.name
-                p(class='release_date') Release date: #{movie.releaseDate.getMonth()} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}
+                p(class='release_date') Release date: #{movie.releaseDate.getMonth() + 1} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}
                 p(class='movie_rating') Rating: #{movie.rating}
                 p(class='movie_description') Description:  #{movie.description}
         div(class='movie_review_container')

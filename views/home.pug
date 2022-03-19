@@ -1,7 +1,8 @@
 extends layout.pug
 
 block content
-    include includes/fav-genre-table.pug
+    div.main_container
+        include includes/fav-genre-table.pug
+        include includes/fav-genre-holder.pug
 
-
-     script(src='/javascripts/home_dynamic.js' type='module')
+        script(src='/javascripts/home_dynamic.js' type='module')

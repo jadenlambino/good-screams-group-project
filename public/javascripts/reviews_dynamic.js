@@ -232,6 +232,7 @@ window.addEventListener("load", async (event) => {
   dropDownList(currentMovieId);
 
   makeReview(currentMovieId);
+
   deleteBtn();
   editBtn();
 });

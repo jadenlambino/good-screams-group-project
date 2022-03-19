@@ -1,0 +1,9 @@
+div.movie_columns_container
+    div.movie_column_container.movie_column_container_video
+        h3.genre_titles Discover
+        div.movies_container
+            for media in fourArr
+                div.video_conatiner
+                    iframe(src=media.key, frameborder="4")
+                    a.movie_title(href=`/movies/${media.Movie.id}`)= `${media.Movie.name}`
+                    a.type_title= `Video Type: ${media.Type.name}`

@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Acme:regular);
 @import url(https://fonts.googleapis.com/css?family=Creepster:regular);
 
 
@@ -38,18 +37,15 @@
   width: 250px;
   height: 386px;
   border-radius: 16px;
-  /* margin: 10px; */
-  /* box-shadow: 1px 1px 5px white; */
 }
 
 .movie_rating {
-  font-family: "Acme";
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   margin: 5px;
   color: #ffffff;
-  letter-spacing: 1.5px;
 }
 
 .movie_info_title {
@@ -57,11 +53,10 @@
   font-family: "Creepster";
   font-size: 50px;
   margin: 5px;
-  letter-spacing: 1.5px;
 }
 
 .release_date {
-  font-family: "Acme";
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -74,8 +69,12 @@
   display: none;
 }
 
+.movie_description_container::-webkit-scrollbar{
+  display: none;
+}
+
 .movie_description {
-  font-family: "Acme";
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -84,7 +83,6 @@
   overflow-y: scroll;
   padding-right: 20px;
   line-height: 1.5em;
-  letter-spacing: 1px;
   flex-flow: row wrap;
 }
 
@@ -94,7 +92,9 @@
   margin: 3px;
   padding: 10x;
   width: 450px;
+  overflow-y: scroll;
 }
+
 
 .list_button_container {
   display: flex;
@@ -145,6 +145,9 @@
 }
 
 .reviews_description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 470px;
     height: 300px;
     color: white;
@@ -152,6 +155,14 @@
     overflow-y: scroll;
 
 }
+
+.single-review-container{
+   border: 1px solid white;
+   border-radius: 16px;
+   margin: 10px;
+   padding: 0px 10px 10px 10px;
+ }
+
 
 .add_review_btn {
     width: 162px;
@@ -213,13 +224,37 @@
  cursor: pointer;
 }
 
+.submit_review_btn{
+  background-color: #8C4250;
+  border: none;
+  color: white;
+  margin: 2px;
+  font-family: 'Acme';
+  border-radius: 2px;
+  width: 120px;
+  height: 22px;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
 .reviews-owner{
   letter-spacing: .2px;
 }
 
 .reviews-content{
   letter-spacing: .5px;
+  padding: 0;
 }
+
  li {
    list-style-type: none;
  }
+
+.content {
+border-radius: 16px;
+}
+
+#textarea {
+  border-radius: 16px;
+}

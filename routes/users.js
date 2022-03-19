@@ -1,6 +1,6 @@
 const express = require("express");
 const { csrfProtection, asyncHandler } = require("./utils");
-const userValidators = require("./validation");
+const userValidators = require("./signup-validation");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { loginUser } = require("../auth");

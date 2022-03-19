@@ -15,7 +15,7 @@ block content
                 div(class='movie_info_title')= movie.name
                 div(class='release_date') Release date:&nbsp #{movie.releaseDate.getMonth() + 1} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}
                 div(class='movie_rating') Rating:&nbsp #{movie.rating}
-            div(class='movie_description') Description:&nbsp #{movie.description}
+                div(class='movie_description') Description:&nbsp #{movie.description}
         div(class='movie_review_container')
             div(class='review_container')
                 form(class='hidden' id='new-review')

@@ -24,12 +24,6 @@ section {
     text-align: center;
 }
 
-.deez {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-100%,20%);
-}
 
 .button-list {
     list-style: none;

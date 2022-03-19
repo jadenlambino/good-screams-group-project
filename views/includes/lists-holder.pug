@@ -1,8 +1,16 @@
 div.lists_container
     div.list_container
         div.list_header_container
-            h3.lists_title My Current List Name
             div
-                button Detele List
-                button Edit List
-        div.movie_container
+                h3.lists_title#list_title=lists[0].name
+                div.rename_container#hidden
+                    input#rename_input(type= "text")
+                    button#rename_btn(class= `input-listid-${lists[0].id}`) Rename
+            div
+                button(class=`delete-button-listid-${lists[0].id}`)#delete_btn Delete List
+                button#edit_btn Edit List
+        div.movies_container#dynamic_container
+            each movie in lists[0].Movies
+                 div.movie_container
+                        img(class='posterImg' src=movie.posterImg)
+                        a(href=`/movies/${movie.id}`).movie_title= movie.name

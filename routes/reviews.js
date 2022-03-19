@@ -1,38 +1,43 @@
 const express = require("express");
 
 const router = express.Router();
-const db = require('../db/models');
-const { csrfProtection, asyncHandler } = require('./utils');
-const path = require('path');
-const { requireAuth } = require('../auth');
-const { check, validationResult } = require('express-validator');
-const { Movie } = require('../db/models')
+const db = require("../db/models");
+const { csrfProtection, asyncHandler } = require("./utils");
+const path = require("path");
+const { requireAuth } = require("../auth");
+const { check, validationResult } = require("express-validator");
+const { Movie } = require("../db/models");
 
 router.get(
-    "/:id(\\d+)",
-    asyncHandler(async (req, res) => {
-      const movieId = parseInt(req.params.id, 10);
-      console.log(res);
-      const reviews = await db.Review.findAll({
-        include: db.User,
-        where: { movieId: movieId },
-      });
-      const jsonReviews = JSON.stringify(reviews);
-      res.json(jsonReviews);
-    })
-  );
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const movieId = parseInt(req.params.id, 10);
+    const { auth } = req.session;
+
+    const reviews = await db.Review.findAll({
+      include: db.User,
+      where: { movieId: movieId },
+    });
+    // console.log(reviews);
+    const jsonReviews = JSON.stringify({ userId: auth.userId, reviews });
+
+    res.json(jsonReviews);
+  })
+);
 
 const reviewValidation = [
-    check('content')
+  check("content")
     .exists({ checkFalsey: true })
-    .withMessage('Please fill out the texbox.')
-]
+    .withMessage("Please fill out the texbox."),
+];
 
-router.post('/new/movies/:id(\\d+)', asyncHandler(async (req, res) => {
-  const movieId = parseInt(req.params.id, 10);
-  console.log(movieId)
-    const { content } = req.body
-    const { userId } = req.session.auth
+router.post(
+  "/new/movies/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const movieId = parseInt(req.params.id, 10);
+    console.log(movieId);
+    const { content } = req.body;
+    const { userId } = req.session.auth;
     //  console.log(req.body)
     // console.log(req.session.auth)
 
@@ -44,16 +49,14 @@ router.post('/new/movies/:id(\\d+)', asyncHandler(async (req, res) => {
     //const jsonReviews = JSON.stringify({ userId: auth.userId, reviews });
 
     const review = await db.Review.build({
-        content,
-        userId,
-        movieId
+      content,
+      userId,
+      movieId,
     });
-      await review.save();
-      res.json({message: "Success"})
-
-
-
-}))
+    await review.save();
+    res.json({ message: "Success" });
+  })
+);
 
 router.delete(
   "/:id(\\d+)",
@@ -72,18 +75,21 @@ router.delete(
   })
 );
 
-router.patch('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const reviewId = parseInt(req.params.id, 10);
-  const review = await db.Review.findByPk(reviewId);
-  console.log(reviewId)
+router.patch(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const reviewId = parseInt(req.params.id, 10);
+    const review = await db.Review.findByPk(reviewId);
+    console.log(reviewId);
 
-  if (review) {
-    review.content = req.body.content;
-    await review.save();
-    res.json({ message: 'Review has been updated', review })
-  } else {
-    res.json({ message: 'Post does not exist' })
-  }
-}))
+    if (review) {
+      review.content = req.body.content;
+      await review.save();
+      res.json({ message: "Review has been updated", review });
+    } else {
+      res.json({ message: "Post does not exist" });
+    }
+  })
+);
 
 module.exports = router;

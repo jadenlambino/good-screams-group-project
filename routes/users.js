@@ -13,24 +13,20 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-router.get(
-  "/signup",
-  csrfProtection,
-  (req, res) => {
-    const newUser = db.User.build();
-    res.render("sign-up-form2", {
-      title: "Signup",
-      newUser,
-      csrfToken: req.csrfToken(),
-    });
+router.get("/signup", csrfProtection, (req, res) => {
+  const newUser = db.User.build();
+  res.render("sign-up", {
+    title: "Signup",
+    newUser,
+    csrfToken: req.csrfToken(),
   });
+});
 
 router.post(
   "/signup",
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res) => {
-    //console.log(req.body);
     const { firstName, lastName, email, hashedPassword } = req.body;
 
     const newUser = db.User.build({
@@ -38,6 +34,7 @@ router.post(
       lastName,
       email,
     });
+
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
@@ -45,6 +42,11 @@ router.post(
       newUser.hashedPassword = hashed;
       await newUser.save();
       loginUser(req, res, newUser);
+      const defaultList = db.List.build({
+        name: "Want to Watch",
+        userId: newUser.id,
+      });
+      await defaultList.save();
       res.redirect("/home");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);

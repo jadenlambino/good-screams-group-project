@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
 
     Movie.belongsToMany(models.List, {
-      through: "MovieList",
+      through: "MoviesList",
       foreignKey: "movieId",
       otherKey: "listId",
     });

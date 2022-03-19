@@ -65,14 +65,6 @@ window.addEventListener("load", async (event) => {
     reviewsDiv.appendChild(div);
   }
 
-  addReview.addEventListener("click", async () => {
-    const res = await fetch("/reviews", {
-      method: "POST",
-      header: { "Content-Type": "application/json" },
-      body: JSON.stringify({ test: "test" }),
-    });
-  });
-
   const deleteBtn = document.querySelectorAll(".deletebtn");
 
   for (let i = 0; i < deleteBtn.length; i++) {
@@ -144,4 +136,40 @@ window.addEventListener("load", async (event) => {
       }
     });
   }
+
+  const movieReviewsContainer = document.querySelector(".review_container");
+  movieReviewsContainer.addEventListener("click", (e) => {
+    const reviewButton = e.target.className.split("_")[2];
+    const form = document.querySelector("#new-review");
+
+    if (reviewButton === "btn") {
+      form.classList.remove("hidden");
+    }
+  });
+
+  const revButton = document.getElementById("submit-review");
+  revButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    //revButton.classList.add = `submit-button-userId-${}`
+    const textContentButton = document.getElementById("textarea");
+    const desc = document.getElementById("textarea").value;
+    console.log(desc);
+
+    const res = await fetch(
+      `/reviews/new/movies/${currentMovieId[currentMovieId.length - 1]}`,
+      {
+        method: "POST",
+        body: JSON.stringify({ content: desc }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+
+    const response = await res.json();
+
+    if (response.message === "Success") {
+      revButton.classList.add("hidden");
+      textContentButton.classList.add("hidden");
+    }
+  });
 });

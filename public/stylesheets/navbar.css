@@ -2,11 +2,10 @@
 body {
     margin: 0;
     background-color: lightgrey;
-    font-weight: bold;
 }
 
 header {
-    background-color: white;
+    background-color: #590202;
     height: 4em;
     font-family: 'Creepster';
 }
@@ -17,7 +16,7 @@ header {
     /* align-items: center; */
     /* justify-content: space-evenly; */
     /* padding: 20px; */
-    color: red;
+    color: white;
     margin: 0 auto;
 }
 
@@ -29,6 +28,7 @@ a {
     font-size: 32px;
     float: left;
     padding: 10px 0;
+    -webkit-text-stroke: 1px black;
 }
 
 nav {
@@ -67,8 +67,8 @@ span a {
     padding: 10px;
 }
 
-li a:hover {
-    color: #FF0000;
+.click:hover {
+    color: white;
     transition: all .25s ease;
     animation: drip 2s forwards;
 }
@@ -76,13 +76,15 @@ li a:hover {
 @keyframes drip {
     to {
         text-shadow:
-       2px 4px 1px #300000,
-       2px 6px 1px #400000,
-       2px 8px 1px #500000,
-       2px 10px 1px #600000,
-       2px 12px 1px #700000,
-       2px 12px 1px #800000,
-       2px 16px 1px #900000,
-       2px 18px 1px #A00000
+        2px 4px 1px #0D0D0D,
+        2px 6px 1px #171717,
+        2px 8px 1px #262626,
+        2px 10px 1px #363636,
+        2px 12px 1px #595959,
+        2px 12px 1px #595959,
+        2px 16px 1px #666666,
+        2px 18px 1px #737373,
+        2px 20px 1px #878787,
+        2px 22px 1px #BFBFBF
     }
 }

@@ -18,10 +18,12 @@ block content
                 div(class='movie_description') Description:&nbsp #{movie.description}
         div(class='movie_review_container')
             div(class='review_container')
+                h3 Reviews
                 form(class='hidden' id='new-review')
                     label(for='content')
-                    textarea(name='content' id='textarea')
-                    button(class='submit_review_btn' type='submit' id='submit-review') Submit Review
+                    div(class='submit_review_container')
+                        textarea(name='content' id='textarea')
+                        button(class='submit_review_btn' type='submit' id='submit-review') Submit Review
                 div(class='reviews_description')
                     each review in movie.Reviews
                         div(class=`single-review-container` id=`div-reviewId-${review.id}`)

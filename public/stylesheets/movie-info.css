@@ -53,6 +53,7 @@
   font-family: "Creepster";
   font-size: 50px;
   margin: 5px;
+  letter-spacing: 1.5px;
 }
 
 .release_date {
@@ -62,7 +63,6 @@
   font-size: 20px;
   margin: 5px;
   color: #ffffff;
-  letter-spacing: 1px;
 }
 
 .movie_description::-webkit-scrollbar{
@@ -84,6 +84,7 @@
   padding-right: 20px;
   line-height: 1.5em;
   flex-flow: row wrap;
+  font-weight: bold;
 }
 
 .movie_description_container {
@@ -115,11 +116,13 @@
     font-size: 16px;
     cursor: pointer;
     border: none;
-    font-family: 'Acme';
-
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
-
+.submit_review_container{
+  display: flex;
+}
 
 .movie_review_container {
   display: flex;
@@ -130,13 +133,19 @@
 
 }
 
+h3 {
+  font-family: 'Creepster';
+  font-size: 36px;
+  letter-spacing: 1.5px;
+}
 
 .review_container {
   display: flex;
+  flex-direction: column;
   background-color: black;
   border: 2px solid black;
   border-radius: 16px;
-  padding: 58px;
+  padding: 40px;
   box-sizing: border-box;
 }
 
@@ -151,9 +160,9 @@
     width: 470px;
     height: 300px;
     color: white;
-    font-family: 'Acme';
+    font-family: Arial, Helvetica, sans-serif;
     overflow-y: scroll;
-
+    font-weight: bold;
 }
 
 .single-review-container{
@@ -161,6 +170,8 @@
    border-radius: 16px;
    margin: 10px;
    padding: 0px 10px 10px 10px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
  }
 
 
@@ -169,7 +180,8 @@
     height: 36px;
     background-color: #8C4250;
     border-radius: 5px;
-    font-family: 'Acme';
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     margin: 10px;
     padding: 5px;
     color: white;
@@ -224,22 +236,25 @@
  cursor: pointer;
 }
 
+
 .submit_review_btn{
   background-color: #8C4250;
   border: none;
   color: white;
   margin: 2px;
-  font-family: 'Acme';
-  border-radius: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
   width: 120px;
-  height: 22px;
+  height: 34px;
   font-size: 14px;
   cursor: pointer;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .reviews-owner{
   letter-spacing: .2px;
+  font-weight: bold;
 }
 
 .reviews-content{

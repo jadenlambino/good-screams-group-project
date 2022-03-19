@@ -54,7 +54,7 @@ router.post(
       movieId,
     });
     await review.save();
-    res.json({ message: "Success" });
+    res.json({ message: "Success", review });
   })
 );
 

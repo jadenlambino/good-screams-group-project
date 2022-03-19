@@ -43,3 +43,8 @@
 .list_form_btn {
   width: 70px;
 }
+
+.remove_icon {
+  display: flex;
+  flex-direction: column;
+}

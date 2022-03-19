@@ -23,6 +23,16 @@ block content
                     textarea(name='content' id='textarea')
                     button(class='submit_review_btn' type='submit' id='submit-review') Submit Review
                 div(class='reviews_description')
+                    each review in movie.Reviews
+                        div(class=`single-review-container` id=`div-reviewId-${review.id}`)
+                            p(class =`reviews-content userid-${review.userId} reviewId-${review.id}` id = `reviewId-${review.id}`)= review.content
+                            li(class = `reviews-owner userid-${review.userId} reviewId-${review.id}`)= `By: ${review.userId}`
+                            form(class=`edit-form hidden edit-form-reviewId-${review.id} reviewId-${review.id}`)
+                                textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}`)
+                                button(class=`submitEditBtn editBtn-reviewId-${review.id} reviewId-${review.id}` id =`submitEditbtn-reviewId-${review.id}`) Update Review
+                            if userId === review.userId
+                                button(class=`editbtn userid-${review.userId} reviewId-${review.id}` id =`editbtn-reviewId-${review.id}`) Edit
+                                button(class=`deletebtn userid-${review.userId} reviewId-${review.id}` id=`deletebtn-reviewId-${review.id}`) Delete
             div(class='review_btn_container')
                 button(class='add_review_btn') Write a review
 

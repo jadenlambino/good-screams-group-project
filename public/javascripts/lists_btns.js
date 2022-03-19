@@ -5,7 +5,6 @@ function dynamicClick() {
     const listName = listsNames[i];
 
     listName.addEventListener("click", async (e) => {
-      console.log(listsNames);
       const title = document.getElementById("list_title");
       title.innerText = listName.innerText;
       const listId = listName.className.split(" ")[1].split("-")[3];
@@ -104,7 +103,6 @@ window.addEventListener("load", async (event) => {
     const renameForm = document.querySelector(".rename_container");
     const title = document.getElementById("list_title");
     const listTableName = document.querySelector(`.a-tag-list-${listId}`);
-    console.log(listTableName);
 
     const res = await fetch(`/mylists/${listId}`, {
       method: "PATCH",
@@ -129,7 +127,6 @@ window.addEventListener("load", async (event) => {
     const res = await fetch(`/mylists/${listId}`, { method: "DELETE" });
     const response = await res.json();
 
-    console.log(response);
     if (response.message === "success") {
       window.location.reload();
     }

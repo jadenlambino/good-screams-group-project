@@ -27,7 +27,6 @@ router.post(
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res) => {
-    //console.log(req.body);
     const { firstName, lastName, email, hashedPassword } = req.body;
 
     const newUser = db.User.build({

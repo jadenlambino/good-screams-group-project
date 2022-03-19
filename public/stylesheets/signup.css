@@ -4,10 +4,11 @@ body {
     align-items: center;
     height: auto;
     background-color: #0b0b0d;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .signup-container {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 400px;
     height: 460px;
     display: flex;
@@ -21,7 +22,7 @@ body {
     /* padding-bottom: 35px; */
     background-color: #c4c4c4;
     border-radius: 8px;
-    border: rgba(139, 16, 16, 0.75) solid 1px;
+    border: rgba(139, 16, 16, 0.8) solid 2px;
     box-shadow: 5px 5px 20px rgb(139, 16, 16);
 }
 
@@ -78,7 +79,7 @@ h2 {
     border-radius: 5px;
     border: 3px solid rgb(55, 5, 61);
     height: 25px;
-    width: 261px;
+    width: 270px;
     background-color: rgba(150, 80, 80, 0.75);
 }
 
@@ -96,7 +97,7 @@ h2 {
     margin: 10px;
     border-radius: 5px;
     border: 3px solid rgb(55, 5, 61);
-    width: 238px;
+    width: 240px;
     height: 25px;
     background-color: rgba(150, 80, 80, 0.75);
 }
@@ -118,12 +119,31 @@ h2 {
     background-color: rgba(150, 80, 80, 0.75);
 }
 
-#button-container {
+.button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#cancel-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    align-self: center;
+    justify-self: center;
+    border-radius: 5px;
+    background-color: rgba(168, 17, 17, 0.75);
+    box-shadow: 2px 2px 2px black;
+}
+
+#cancel-button:hover {
+    background-color: rgb(122, 12, 12);
+    color: white;
 }
 
 #signup-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
     margin-top: 10px;
     padding: 8px;
     align-self: center;
@@ -149,12 +169,16 @@ h2 {
 }
 
 #errors {
-    position: fixed;
-    top: 16px;
+    position: absolute;
+    width: 300px;
+    /* top: 500px; */
+    right: 520px;
+    margin-bottom: 20px;
     font-size: 18px;
     color: rgb(139, 16, 16);
     background-color: #c4c4c4;
     border-radius: 8px;
     border: rgba(139, 16, 16, 0.75) solid 1px;
-    box-shadow: 5px 5px 10px rgb(139, 16, 16);
+    box-shadow: 5px 5px 20px rgb(139, 16, 16);
+    box-sizing:border-box;
 }

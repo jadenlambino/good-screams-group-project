@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
   );
   Media.associate = function (models) {
     // associations can be defined here
+    Media.belongsTo(models.Movie, { foreignKey: "movieId" });
+    Media.belongsTo(models.Site, { foreignKey: "siteId" });
+    Media.belongsTo(models.Type, { foreignKey: "typeId" });
   };
   return Media;
 };

@@ -1,93 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 body {
-    margin: 0;
-    /* background-color: lightgrey; */
-    background-color: #0b0b0d;
+  margin: 0;
+  /* background-color: lightgrey; */
+  background-color: #0b0b0d;
 }
 
 header {
-    background-color: #590202;
-    height: 4em;
-    font-family: 'Creepster';
+  background-color: #590202;
+  height: 4em;
+  font-family: "Creepster";
 }
 
 .navbar {
-    /* display: flex; */
-    width: 90%;
-    /* align-items: center; */
-    /* justify-content: space-evenly; */
-    /* padding: 20px; */
-    color: white;
-    margin: 0 auto;
+  /* display: flex; */
+  width: 90%;
+  /* align-items: center; */
+  /* justify-content: space-evenly; */
+  /* padding: 20px; */
+  color: white;
+  margin: 0 auto;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-#title{
-    /* font-size: 32px; */
-    font-size: 70px;
-    float: left;
-    padding: 10px 0;
-    -webkit-text-stroke: 1px black;
-    font-family: "zombies_rebornregular";
+#title {
+  /* font-size: 32px; */
+  font-size: 70px;
+  float: left;
+  padding: 10px 0;
+  -webkit-text-stroke: 1px black;
+  font-family: "zombies_rebornregular";
 }
 
 nav {
-    float: right;
+  float: right;
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 nav li {
-    display: inline-block;
-    margin-left: 40px;
-    padding-top: 20px;
-    position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  padding-top: 20px;
+  position: relative;
 }
 
-.bar{
-    border: auto;
-    border-radius: 10px;
-    text-align: center;
-    height: auto;
+.bar {
+  border: auto;
+  border-radius: 10px;
+  text-align: center;
+  height: auto;
 }
 
 .searchbutton {
-    position: relative;
-    float: right;
-    height: 20px;
-    padding: 8px;
-    margin-left: 5px;
+  position: relative;
+  float: right;
+  height: 20px;
+  padding: 8px;
+  margin-left: 5px;
 }
 
 span a {
-    padding: 10px;
+  padding: 10px;
 }
 
 .click:hover {
-    color: white;
-    transition: all .25s ease;
-    animation: drip 2s forwards;
+  color: white;
+  transition: all 0.25s ease;
+  animation: drip 2s forwards;
 }
 
 @keyframes drip {
-    to {
-        text-shadow:
-        2px 4px 1px #0D0D0D,
-        2px 6px 1px #171717,
-        2px 8px 1px #262626,
-        2px 10px 1px #363636,
-        2px 12px 1px #595959,
-        2px 12px 1px #595959,
-        2px 16px 1px #666666,
-        2px 18px 1px #737373,
-        2px 20px 1px #878787,
-        2px 22px 1px #BFBFBF
-    }
+  to {
+    text-shadow: 2px 4px 1px #0d0d0d, 2px 6px 1px #171717, 2px 8px 1px #262626,
+      2px 10px 1px #363636, 2px 12px 1px #595959, 2px 12px 1px #595959,
+      2px 16px 1px #666666, 2px 18px 1px #737373, 2px 20px 1px #878787,
+      2px 22px 1px #bfbfbf;
+  }
 }

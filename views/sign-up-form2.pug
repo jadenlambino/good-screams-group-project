@@ -1,0 +1,29 @@
+link(rel='stylesheet', href='/stylesheets/signup.css')
+
+div(class='signup-container')
+    img(id='blood-dripping-img' src='../images/blood-dripping.png')
+    form(action="/users/signup" method="post")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        h2 Sign Up...
+        div(id="firstname-container")
+            label(for="firstName") First Name:
+            input(type="text" name="firstName" id="firstName" value=newUser.firstName)
+        div(id="lastname-container")
+            label(for="lastName") Last Name:
+            input(type="text" name="lastName" id="lastName" value = newUser.lastName)
+        div(id="email-container")
+            label(for="email") Email:
+            input(type="email" name="email" id="email" value = newUser.email)
+        div(id="pass-container")
+            label(for="hashedPassword") Password:
+            input(type="password" name="hashedPassword" id="hashedPassword")
+        div(id="passconf-container")
+            label(for="confirmPassword") Confirm Password:
+            input(type="password" name="confirmPassword" id="confirmPassword")
+        div(id="button-container")
+            button(id='signup-button') Submit
+div(id='errors')
+    if errors
+        ul
+            each error in errors
+                li= error

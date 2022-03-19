@@ -1,74 +1,11 @@
-window.addEventListener("load", async (event) => {
-  const currentMovieId = window.location.href.split("/");
-
-  const addReview = document.getElementsByClassName("add_review_btn")[0];
-  const reviewsDiv = document.getElementsByClassName("reviews_description")[0];
-
-  const reviewsData = await fetch(
-    `/reviews/${currentMovieId[currentMovieId.length - 1]}`
-  );
-  const jsonReviewsData = JSON.parse(await reviewsData.json());
-  const { reviews, userId } = jsonReviewsData;
-
-  for (let el of reviews) {
-    const div = document.createElement("div");
-    const pTag = document.createElement("p");
-    const liTag = document.createElement("li");
-
-    const deleteBtn = document.createElement("button");
-
-    const editBtn = document.createElement("button");
-    const editForm = document.createElement("form");
-    const reviewTextarea = document.createElement("textarea");
-    const submitEditBtn = document.createElement("button");
-
-    div.className = `single-review-container div-reviewId-${el.id}`;
-
-    pTag.className = `reviews-content userid-${el.userId} reviewId-${el.id}`;
-    pTag.setAttribute("id", `reviewId-${el.id}`);
-    pTag.innerText = el.content;
-
-    liTag.className = `reviews-owner userid-${el.userId} reviewId-${el.id}`;
-    liTag.innerText = `By: ${el.User.firstName} ${el.User.lastName}`;
-
-    editForm.className = `edit-form hidden edit-form-reviewId-${el.id} reviewId-${el.id}`;
-    editForm.action = `/reviews/${el.id}`;
-    editForm.method = `patch`;
-
-    reviewTextarea.className = `reviews-edit-content edit-content-reviewId-${el.id} reviewId-${el.id}`;
-    reviewTextarea.name = "content";
-
-    submitEditBtn.className = `submitEditBtn editBtn-reviewId-${el.id} reviewId-${el.id}`;
-    submitEditBtn.innerText = `Update Review`;
-    submitEditBtn.setAttribute("id", `submitEditbtn-reviewId-${el.id}`);
-
-    editBtn.className = `editbtn userid-${el.userId} reviewId-${el.id}`;
-    editBtn.innerText = "Edit";
-    editBtn.setAttribute("id", `editbtn-reviewId-${el.id}`);
-
-    editForm.appendChild(reviewTextarea);
-    editForm.appendChild(submitEditBtn);
-
-    deleteBtn.className = `deletebtn userid-${el.userId} reviewId-${el.id}`;
-    deleteBtn.setAttribute("id", `deletebtn-reviewId-${el.id}`);
-    deleteBtn.innerText = "Delete";
-
-    div.appendChild(pTag);
-    div.appendChild(liTag);
-    div.appendChild(editForm);
-
-    if (userId === el.userId) {
-      div.appendChild(editBtn);
-      div.appendChild(deleteBtn);
-    }
-
-    reviewsDiv.appendChild(div);
-  }
-
+async function deleteBtn() {
   const deleteBtn = document.querySelectorAll(".deletebtn");
 
   for (let i = 0; i < deleteBtn.length; i++) {
     const delBtn = deleteBtn[i];
+    const reviewsDiv = document.getElementsByClassName(
+      "reviews_description"
+    )[0];
 
     delBtn.addEventListener("click", async (e) => {
       const reviewsId = e.target.id.split("-")[2];
@@ -77,8 +14,9 @@ window.addEventListener("load", async (event) => {
       });
 
       const data = await res.json();
+
       if (data.message === "Success") {
-        const container = document.getElementById(`reviewId-${reviewsId}`);
+        const container = document.getElementById(`div-reviewId-${reviewsId}`);
         container.remove();
       } else {
         const pTag = document.createElement("p");
@@ -87,8 +25,11 @@ window.addEventListener("load", async (event) => {
       }
     });
   }
+}
 
+async function editBtn() {
   const editsBtn = document.querySelectorAll(".editbtn");
+  const submitEditBtn = document.querySelectorAll(".submitEditBtn");
 
   for (let i = 0; i < editsBtn.length; i++) {
     const editBtn = editsBtn[i];
@@ -104,8 +45,6 @@ window.addEventListener("load", async (event) => {
       }
     });
   }
-
-  const submitEditBtn = document.querySelectorAll(".submitEditBtn");
 
   for (let i = 0; i < submitEditBtn.length; i++) {
     const editbtn = submitEditBtn[i];
@@ -133,75 +72,167 @@ window.addEventListener("load", async (event) => {
         const review = document.getElementById(`reviewId-${reviewId}`);
         review.innerHTML = final.review.content;
         form.classList.add("hidden");
+        currentTextarea.value = "";
       }
     });
   }
+}
 
-  const movieReviewsContainer = document.querySelector(".review_container");
-  movieReviewsContainer.addEventListener("click", (e) => {
-    const reviewButton = e.target.className.split("_")[2];
-    const form = document.querySelector("#new-review");
-
-    if (reviewButton === "btn") {
-      form.classList.remove("hidden");
+async function dropDownList(movieId) {
+  const myListBtn = document.querySelector(".drop_btn");
+  myListBtn.addEventListener("click", async (event) => {
+    const listContainer = document.getElementById("my_drop_down");
+    const className = listContainer.className.split(" ")[1];
+    if (className !== "show") {
+      listContainer.classList.add("show");
+    } else {
+      listContainer.classList.remove("show");
     }
   });
 
-  const revButton = document.getElementById("submit-review");
-  revButton.addEventListener("click", async (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    //revButton.classList.add = `submit-button-userId-${}`
-    const textContentButton = document.getElementById("textarea");
-    const desc = document.getElementById("textarea").value;
-    console.log(desc);
-
-    const res = await fetch(
-      `/reviews/new/movies/${currentMovieId[currentMovieId.length - 1]}`,
-      {
+  const listNames = document.querySelectorAll(".add_to_list_name");
+  for (let i = 0; i < listNames.length; i++) {
+    const listName = listNames[i];
+    listName.addEventListener("click", async (event) => {
+      const listId = event.target.id.split("_")[3];
+      const res = await fetch(`/movies/${movieId}/add`, {
         method: "POST",
-        body: JSON.stringify({ content: desc }),
+        body: JSON.stringify({ listId }),
         headers: { "Content-Type": "application/json" },
+      });
+
+      const response = await res.json();
+      if (response.message === "Success") {
+        const listContainer = document.getElementById("my_drop_down");
+        listContainer.classList.remove("show");
       }
-    );
+    });
+  }
+}
+
+async function makeReview(movieId) {
+  const reviewBtn = document.querySelector(".add_review_btn");
+  const newReviewForm = document.querySelector("#new-review");
+
+  reviewBtn.addEventListener("click", async (e) => {
+    if (newReviewForm.className === "hidden") {
+      newReviewForm.classList.remove("hidden");
+    } else {
+      newReviewForm.classList.add("hidden");
+    }
+  });
+
+  const submitbtn = document.getElementById("submit-review");
+
+  submitbtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const textContentButton = document.getElementById("textarea");
+
+    const res = await fetch(`/reviews/new/movies/${movieId}`, {
+      method: "POST",
+      body: JSON.stringify({ content: textContentButton.value }),
+      headers: { "Content-Type": "application/json" },
+    });
 
     const response = await res.json();
 
     if (response.message === "Success") {
-      revButton.classList.add("hidden");
-      textContentButton.classList.add("hidden");
+      textContentButton.value = "";
+      newReviewForm.classList.add("hidden");
+      addReviewDynamic(response.review);
+      deleteBtn();
+      editBtn();
     }
   });
+}
 
-  const myListBtn = document.querySelector('.drop_btn');
-  myListBtn.addEventListener('click', async (event) => {
-    const listContainer = document.getElementById('my_drop_down');
-    const className = listContainer.className.split(' ')[1]
-    if (className !== 'show') {
-      listContainer.classList.add('show')
-    } else {
-      listContainer.classList.remove('show')
-    }
-  })
+function addReviewDynamic(newReview) {
+  const reviewContainer = document.querySelector(".reviews_description");
+  const divEle = document.createElement("div");
+  const pEle = document.createElement("p");
+  const liEle = document.createElement("li");
+  const formEle = document.createElement("form");
+  const textareaEle = document.createElement("textarea");
+  const buttonform = document.createElement("button");
+  const buttonedit = document.createElement("button");
+  const buttondelete = document.createElement("button");
 
-  const listNames = document.querySelectorAll('.add_to_list_name')
-  for (let i = 0; i < listNames.length; i++) {
-    const listName = listNames[i];
-    listName.addEventListener('click', async (event) => {
-      const listId = event.target.id.split('_')[3];
-      const res = await fetch(`/movies/${currentMovieId[currentMovieId.length - 1]}/add`,
-        {
-          method: "POST",
-          body: JSON.stringify({ listId }),
-          headers: { 'Content-Type': 'application/json' }
-        }
-      )
+  divEle.classList.add("single-review-container");
+  divEle.setAttribute("id", `div-reviewId-${newReview.id}`);
 
-      const response = await res.json();
-      if (response.message === "Success") {
-        const listContainer = document.getElementById('my_drop_down');
-        listContainer.classList.remove('show')
-      }
-    })
-  }
+  pEle.classList.add(
+    `reviews-content`,
+    `userid-${newReview.userId}`,
+    `reviewId-${newReview.id}`
+  );
+  pEle.setAttribute("id", `reviewId-${newReview.id}`);
+  pEle.innerText = newReview.content;
+
+  liEle.classList.add(
+    `reviews-owner`,
+    `userid-${newReview.userId}`,
+    `reviewId-${newReview.id}`
+  );
+  liEle.innerText = `By: ${newReview.userId}`;
+
+  formEle.classList.add(
+    `edit-form`,
+    `hidden`,
+    `edit-form-reviewId-${newReview.id}`,
+    `reviewId-${newReview.id}`
+  );
+
+  textareaEle.classList.add(
+    `reviews-edit-content`,
+    `edit-content-reviewId-${newReview.id}`,
+    `reviewId-${newReview.id}`
+  );
+  textareaEle.setAttribute("name", "content");
+
+  buttonform.classList.add(
+    `submitEditBtn`,
+    `editBtn-reviewId-${newReview.id}`,
+    `reviewId-${newReview.id}`
+  );
+  buttonform.setAttribute("id", `submitEditbtn-reviewId-${newReview.id}`);
+  buttonform.innerText = "Update Review";
+
+  buttonedit.classList.add(
+    `editbtn`,
+    `userid-${newReview.userId}`,
+    `reviewId-${newReview.id}`
+  );
+  buttonedit.setAttribute("id", `editbtn-reviewId-${newReview.id}`);
+  buttonedit.innerText = "Edit";
+
+  buttondelete.classList.add(
+    `deletebtn`,
+    `userid-${newReview.userId}`,
+    `reviewId-${newReview.id}`
+  );
+  buttondelete.setAttribute("id", `deletebtn-reviewId-${newReview.id}`);
+  buttondelete.innerText = "Delete";
+
+  formEle.appendChild(textareaEle);
+  formEle.appendChild(buttonform);
+
+  divEle.appendChild(pEle);
+  divEle.appendChild(liEle);
+  divEle.appendChild(formEle);
+  divEle.appendChild(buttonedit);
+  divEle.appendChild(buttondelete);
+  reviewContainer.appendChild(divEle);
+}
+
+window.addEventListener("load", async (event) => {
+  const pathArr = window.location.href.split("/");
+  const currentMovieId = pathArr[pathArr.length - 1];
+
+  dropDownList(currentMovieId);
+
+  makeReview(currentMovieId);
+
+  deleteBtn();
+  editBtn();
 });

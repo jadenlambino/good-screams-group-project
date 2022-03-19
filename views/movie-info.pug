@@ -6,7 +6,11 @@ block content
             div(class='movie_img_container')
                 img(class='movie_img' src=movie.posterImg)
             div(class='list_button_container')
-                button(class='list_button' type='submit') Want To Watch
+                div(class='drop_down')
+                    button(class='list_button drop_btn' type='submit') My List
+                    div(id='my_drop_down' class='drop_down_content')
+                        each list in lists 
+                            a(class='add_to_list_name' id=`add_to_listId_${list.id}`)= list.name
             div(class='movie_description_container')
                 p(class='movie_info_title')= movie.name
                 p(class='release_date') Release date: #{movie.releaseDate.getMonth() + 1} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}

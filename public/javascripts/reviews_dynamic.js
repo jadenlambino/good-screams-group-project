@@ -172,4 +172,36 @@ window.addEventListener("load", async (event) => {
       textContentButton.classList.add("hidden");
     }
   });
+
+  const myListBtn = document.querySelector('.drop_btn');
+  myListBtn.addEventListener('click', async (event) => {
+    const listContainer = document.getElementById('my_drop_down');
+    const className = listContainer.className.split(' ')[1]
+    if (className !== 'show') {
+      listContainer.classList.add('show')
+    } else {
+      listContainer.classList.remove('show')
+    }
+  })
+
+  const listNames = document.querySelectorAll('.add_to_list_name')
+  for (let i = 0; i < listNames.length; i++) {
+    const listName = listNames[i];
+    listName.addEventListener('click', async (event) => {
+      const listId = event.target.id.split('_')[3];
+      const res = await fetch(`/movies/${currentMovieId[currentMovieId.length - 1]}/add`,
+        {
+          method: "POST",
+          body: JSON.stringify({ listId }),
+          headers: { 'Content-Type': 'application/json' }
+        }
+      )
+
+      const response = await res.json();
+      if (response.message === "Success") {
+        const listContainer = document.getElementById('my_drop_down');
+        listContainer.classList.remove('show')
+      }
+    })
+  }
 });

@@ -7,7 +7,7 @@ div.lists_container
                     input#rename_input(type= "text")
                     button#rename_btn(class= `input-listid-${lists[0].id}`) Rename
             div
-                button#delete_btn Delete List
+                button(class=`delete-button-listid-${lists[0].id}`)#delete_btn Delete List
                 button#edit_btn Edit List
         div.movies_container#dynamic_container
             each movie in lists[0].Movies

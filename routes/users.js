@@ -15,7 +15,7 @@ router.get("/", function (req, res, next) {
 
 router.get("/signup", csrfProtection, (req, res) => {
   const newUser = db.User.build();
-  res.render("sign-up", {
+  res.render("sign-up-form2", {
     title: "Signup",
     newUser,
     csrfToken: req.csrfToken(),

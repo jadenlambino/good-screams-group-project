@@ -11,10 +11,11 @@ div(class='login-container')
         div(id="pass-container")
             label(for="hashedPassword") Password:
             input(type="password" name="hashedPassword" id="hashedPassword" required)
-        div(id="button-container")
+        div(class="button-container")
+            button(id='cancel-button') Cancel
             button(id="login-button") Submit
-        div(id="error-container")
-            if errors
-                ul
-                    each error in errors
-                        li= error
+    if errors
+        div(id="errors")
+            ul
+                each error in errors
+                    li(class='er')= error

@@ -1,5 +1,6 @@
 link(rel='stylesheet', href='/stylesheets/signup.css')
-
+//- div(class="button-container")
+//-     button(id='cancel-button') Cancel
 div(class='signup-container')
     img(id='blood-dripping-img' src='../images/blood-dripping.png')
     form(action="/users/signup" method="post")
@@ -20,10 +21,11 @@ div(class='signup-container')
         div(id="passconf-container")
             label(for="confirmPassword") Confirm Password:
             input(type="password" name="confirmPassword" id="confirmPassword")
-        div(id="button-container")
+        div(class="button-container")
+            button(id='cancel-button') Cancel
             button(id='signup-button') Submit
-div(id='errors')
     if errors
-        ul
-            each error in errors
-                li= error
+        div(id='errors')
+            ul
+                each error in errors
+                    li= error

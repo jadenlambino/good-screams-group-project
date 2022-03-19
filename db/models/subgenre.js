@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     SubGenre.belongsToMany(models.User, {
       through: "FavGenre",
       otherKey: "userId",
-      foreignKey: "subgenreId",
+      foreignKey: "subGenreId",
     });
   };
   return SubGenre;

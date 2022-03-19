@@ -1,14 +1,7 @@
 extends layout.pug
 
 block content
-    section
-        div(class='discover-container')
-            span(class='discover-text') DISCOVER AND WATCH MORE
-            div(class='deez')
-                ul(class='button-list')
-                    li
-                        button(class='discover-button' type='button' onclick='location.href="/users/signup"') SIGN UP
-                    li
-                        button(class='discover-button' type='button' onclick='location.href="/users/login"') LOG IN
-                    li
-                        button(class='discover-button' type='button' onclick='location.href="/users/home"') DEMO USER
+    include includes/fav-genre-table.pug
+
+
+     script(src='/javascripts/home_dynamic.js' type='module')

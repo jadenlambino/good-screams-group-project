@@ -1,14 +1,21 @@
 div.genre_container
     h2.genre_title_movies My FavGenre
     div.genre_container_text#list_container
-        if favgenres
-        for favgenre in favgenres
-            a= favgenre
-    div.edit_favgenre_form
-        form(method="post" action="/users/id/favegenres/edit")
-            for genre in genres
-                div
-                    input(type="checkbox" name=`subGenreId-${genre.id}` value=`${genre.name}`)
-                    label(for=`subGenreId-${genre.id}`)= genre.name
-            button(type="submit") Confirm
-    button.add_to_lists#edit_favgenre_btn edit
+        if faveGenres
+            for faveGenre in faveGenres
+                for genre in genres
+                    if faveGenre.subGenreId === genre.id
+                        a= genre.name
+                        button#hidden(class=`delete_from_db delete_from_db_${genre.id}`) delete
+
+
+        //-     for userInfo in usersInfo[0].SubGenres
+        //-         for genre in userInfo
+        //-             a= genre.name
+    div.edit_favgenre_form#hidden
+        form(method="post" action="/home")
+            select(name="update").select_option_list
+                for genre in genres
+                    option(value=genre.id)=genre.name
+            button(type="submit").update_btn_edit_form Add
+    button.add_to_lists#edit_favgenre_btn Edit

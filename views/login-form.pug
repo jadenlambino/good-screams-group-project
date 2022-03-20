@@ -12,6 +12,7 @@ div(class='login-container')
             label(for="hashedPassword") Password:
             input(type="password" name="hashedPassword" id="hashedPassword" required)
         div(class="button-container")
+            button(id='demo-button') Demo
             button(id="login-button") Submit
             button(id='cancel-button') Cancel
     if errors
@@ -21,3 +22,4 @@ div(class='login-container')
                     li(class='er')= error
 
 script(src='/javascripts/cancel_btns.js' type='module')
+script(src="/javascripts/demo-user.js" type='module')

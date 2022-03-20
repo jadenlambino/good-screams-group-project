@@ -1,0 +1,9 @@
+#id01.modal
+  span.close(onclick="document.getElementById('id01').style.display='none'" title='Close Modal') &times;
+  form.modal-content(action='/action_page.php')
+    .container
+      h1.delete_title Delete
+      p.delete_message Are you sure you want to delete?
+      .clearfix
+        button.cancelbtn(type='button' onclick="document.getElementById('id01').style.display='none'") Cancel
+        button.deletebtn#style_model_btn(type='button') Delete

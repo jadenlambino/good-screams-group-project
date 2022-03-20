@@ -20,13 +20,17 @@ window.addEventListener("load", async (event) => {
     }
   });
 
+  const optionSelected = document.querySelector(".option_list_dup");
+
+  optionSelected.addEventListener("click", (e) => {
+    console.log(optionSelected.value);
+  });
+
   const updateBtn = document.querySelector(".update_btn_edit_form ");
 
   updateBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     const select = document.querySelector(".select_option_list");
-
-    console.log(select.value);
 
     const res = await fetch(`/home`, {
       method: "POST",

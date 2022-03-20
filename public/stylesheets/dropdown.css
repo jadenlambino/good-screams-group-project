@@ -1,40 +1,54 @@
-/* .drop_btn {
-    color: white;
-    padding: 16 px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-} */
+@import url(https://fonts.googleapis.com/css?family=Creepster:regular);
 
-.drop_btn:hover, .drop_btn:focus {
-    background-color: rgb(100, 13, 13);
+.drop_btn:hover,
+.drop_btn:focus {
+  background-color: rgb(100, 13, 13);
 }
 
 .drop_down {
-    position: relative;
-    display: inline-block;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
 }
 
 .drop_down_content {
     display: none;
-    position: absolute;
+    flex-direction: column;
+    position: relative;
+    top: .5px;
     background-color: #f1f1f1;
-    min-width: 160px;
+
+    width: 162px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    border-radius: 6px;
 }
 
 .drop_down_content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    border-radius: 2px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 5px;
 }
 
 .drop_down_content a:hover {
-    background-color: #ddd;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    font-family: 'Creepster';
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .show {
-    display: block;
+  display: block;
 }

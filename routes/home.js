@@ -2,6 +2,9 @@ const express = require("express");
 const db = require("../db/models");
 const { csrfProtection, asyncHandler, getRandomInt } = require("./utils");
 const { requireAuth, restoreUser } = require("../auth");
+const { Sequelize } = require("../db/models");
+
+const Op = Sequelize.Op;
 
 const router = express.Router();
 
@@ -22,11 +25,19 @@ router.get(
     });
 
     const faveGenres = await db.FavGenre.findAll({
+      // include: db.SubGenre,
       where: {
-        userId: userId,
+        userId,
       },
       order: [["id", "ASC"]],
     });
+
+    // const notfaveGenres = await db.FavGenre.findAll({
+    //   where: {
+    //     userId: { [Op.ne]: userId },
+    //   },
+    //   order: [["id", "ASC"]],
+    // });
 
     for (let i = 0; i < 4; i++) {
       if (fourMedia.size < 4) {
@@ -35,7 +46,7 @@ router.get(
     }
 
     const fourArr = Array.from(fourMedia);
-    console.log(fourArr);
+    console.log(faveGenres);
     res.render("home", { title: "Home", faveGenres, genres, fourArr });
   })
 );
@@ -45,7 +56,6 @@ router.post(
   asyncHandler(async (req, res) => {
     const { subGenreId } = req.body;
     const { userId } = req.session.auth;
-    console.log("=====", userId, subGenreId);
 
     const favGenre = await db.FavGenre.build({
       subGenreId,
@@ -80,9 +90,6 @@ router.delete(
       await favGenre.destroy();
       res.json({ message: "Successful" });
     }
-    // } else {
-    //   res.json({ message: "Delete Failed" });
-    // }
   })
 );
 

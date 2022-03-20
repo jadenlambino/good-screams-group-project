@@ -43,7 +43,6 @@ app.use(
   })
 );
 
-
 // create Session table if it doesn't already exist
 store.sync();
 app.use(restoreUser);
@@ -56,50 +55,40 @@ app.use("/reviews", reviewsRouter);
 app.use("/mylists", listsRouter);
 app.use("/search", searchRouter)
 
-
-
 app.use((req, res, next) => {
-  const err = new Error('The requested page couldn\'t be found.');
+  const err = new Error("The requested page couldn't be found.");
   err.status = 404;
   next(err);
 });
 
-
 app.use((err, req, res, next) => {
-  if (environment === 'production' || environment === 'test') {
-
+  if (environment === "production" || environment === "test") {
   } else {
     console.error(err);
   }
   next(err);
 });
 
-
-
 app.use((err, req, res, next) => {
   if (err.status === 404) {
     res.status(404);
-    res.render('page-not-found', {
-      title: 'Page Not Found',
+    res.render("page-not-found", {
+      title: "Page Not Found",
     });
   } else {
     next(err);
   }
 });
 
-
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  const isProduction = environment === 'production';
-  res.render('error', {
-    title: 'Server Error',
+  const isProduction = environment === "production";
+  res.render("error", {
+    title: "Server Error",
     message: isProduction ? null : err.message,
-    stack: isProduction ? null : err.stack
+    stack: isProduction ? null : err.stack,
   });
 });
-
-
-
 
 // catch 404 and forward to error handler
 // app.use((req, res, next) => {

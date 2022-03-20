@@ -81,7 +81,9 @@ async function editBtn() {
 async function dropDownList(movieId) {
   const myListBtn = document.querySelector(".drop_btn");
   myListBtn.addEventListener("click", async (event) => {
+    console.log("testing");
     const listContainer = document.getElementById("my_drop_down");
+    console.log(listContainer);
     const className = listContainer.className.split(" ")[1];
     if (className !== "show") {
       listContainer.classList.add("show");
@@ -95,6 +97,7 @@ async function dropDownList(movieId) {
     const listName = listNames[i];
     listName.addEventListener("click", async (event) => {
       const listId = event.target.id.split("_")[3];
+      ``;
       const res = await fetch(`/movies/${movieId}/add`, {
         method: "POST",
         body: JSON.stringify({ listId }),
@@ -140,14 +143,14 @@ async function makeReview(movieId) {
     if (response.message === "Success") {
       textContentButton.value = "";
       newReviewForm.classList.add("hidden");
-      addReviewDynamic(response.review);
+      addReviewDynamic(response.review, response.userInfo);
       deleteBtn();
       editBtn();
     }
   });
 }
 
-function addReviewDynamic(newReview) {
+function addReviewDynamic(newReview, userInfo) {
   const reviewContainer = document.querySelector(".reviews_description");
   const divEle = document.createElement("div");
   const pEle = document.createElement("p");
@@ -174,7 +177,7 @@ function addReviewDynamic(newReview) {
     `userid-${newReview.userId}`,
     `reviewId-${newReview.id}`
   );
-  liEle.innerText = `By: ${newReview.userId}`;
+  liEle.innerText = `By: ${userInfo.firstName} ${userInfo.lastName}`;
 
   formEle.classList.add(
     `edit-form`,
@@ -222,7 +225,7 @@ function addReviewDynamic(newReview) {
   divEle.appendChild(formEle);
   divEle.appendChild(buttonedit);
   divEle.appendChild(buttondelete);
-  reviewContainer.appendChild(divEle);
+  reviewContainer.prepend(divEle);
 }
 
 window.addEventListener("load", async (event) => {

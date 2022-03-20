@@ -15,6 +15,8 @@ html
         link(rel="stylesheet", href="/stylesheets/page-not-found.css")
         link(rel="stylesheet", href="/stylesheets/main.css")
         link(rel="stylesheet", href="/stylesheets/index.css")
+        link(rel="stylesheet", href="/stylesheets/model.css")
+        link(rel="stylesheet", href="/stylesheets/search-dropdown.css")
 
 
   body
@@ -32,7 +34,7 @@ html
                 a(href='/mylists' class='click') My Movies
               li
                 div(class='search')
-                  form(action='')
+                  form(action='' autocomplete = "off")
                     input(class='bar', type="search", name="search", placeholder='Search Movies')
                     include includes/drop-down.pug
               li

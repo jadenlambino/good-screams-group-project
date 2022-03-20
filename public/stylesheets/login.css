@@ -1,90 +1,91 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    background-color: #0b0b0d;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #0b0b0d;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .login-container {
-    width: 400px;
-    height: 400px;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-right: 50px;
-    padding-left: 50px;
-    padding-top: 35px;
-    /* padding-bottom: 35px; */
-    background-color: #c4c4c4;
-    border-radius: 8px;
-    border: rgba(139, 16, 16, 0.75) solid 2px;
-    box-shadow: 5px 5px 20px rgb(139, 16, 16);
+  width: 400px;
+  height: 400px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 35px;
+  /* padding-bottom: 35px; */
+  background-color: #c4c4c4;
+  border-radius: 8px;
+  border: rgba(139, 16, 16, 0.75) solid 2px;
+  box-shadow: 5px 5px 20px rgb(139, 16, 16);
 }
 
 h2 {
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 #email-container {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #email {
-    /* margin-top: 10px;
+  /* margin-top: 10px;
     margin-bottom: 10px; */
-    margin: 10px;
-    border-radius: 5px;
-    border: 3px solid rgb(55, 5, 61);
-    height: 25px;
-    width: 200px;
-    background-color: rgba(150, 80, 80, 0.75);
+  margin: 10px;
+  border-radius: 5px;
+  border: 3px solid rgb(55, 5, 61);
+  height: 25px;
+  width: 200px;
+  background-color: rgba(150, 80, 80, 0.75);
 }
 
 #hashedPassword {
-    /* margin-top: 10px;
+  /* margin-top: 10px;
     margin-bottom: 10px; */
-    margin: 10px;
-    border-radius: 5px;
-    border: 3px solid rgb(55, 5, 61);
-    height: 25px;
-    background-color: rgba(150, 80, 80, 0.75);
+  margin: 10px;
+  border-radius: 5px;
+  border: 3px solid rgb(55, 5, 61);
+  height: 25px;
+  background-color: rgba(150, 80, 80, 0.75);
 }
 
 #pass-container {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100px; */
 }
 
 .button-container {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
 }
 
 #cancel-button {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    margin-top: 10px;
-    padding: 8px;
-    align-self: center;
-    justify-self: center;
-    border-radius: 5px;
-    background-color: rgba(168, 17, 17, 0.75);
-    box-shadow: 2px 2px 2px black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 8px;
+  align-self: center;
+  justify-self: center;
+  border-radius: 5px;
+  background-color: rgba(168, 17, 17, 0.75);
+  box-shadow: 2px 2px 2px black;
 }
 
 #cancel-button:hover {
-    background-color: rgb(122, 12, 12);
-    color: white;
+  background-color: rgb(122, 12, 12);
+  color: white;
 }
 
 #login-button,
@@ -100,34 +101,46 @@ h2 {
     box-shadow: 2px 2px 2px black;
 }
 
+#login-button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 8px;
+  align-self: center;
+  justify-self: center;
+  border-radius: 5px;
+  background-color: rgba(83, 56, 102, 0.842);
+  box-shadow: 2px 2px 2px black;
+}
+
 #login-button:hover {
-    background-color: rgb(55, 5, 61);
-    color: white;
+  background-color: rgb(55, 5, 61);
+  color: white;
 }
 
 #blood-dripping-img {
-    position: absolute;
-    top: 0px;
-    width: 500px;
-    height: auto;
-    z-index: 100;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+  position: absolute;
+  top: 0px;
+  width: 500px;
+  height: auto;
+  z-index: 100;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 #errors {
-    position: absolute;
-    width: 240px;
-    /* top: 460px; */
-    right: 520px;
-    font-size: 18px;
-    color: rgb(139, 16, 16);
-    background-color: #c4c4c4;
-    border-radius: 8px;
-    border: rgba(139, 16, 16, 0.75) solid 1px;
-    box-shadow: 5px 5px 20px rgb(139, 16, 16);
+  position: absolute;
+  width: 240px;
+  /* top: 460px; */
+  right: 520px;
+  font-size: 18px;
+  color: rgb(139, 16, 16);
+  background-color: #c4c4c4;
+  border-radius: 8px;
+  border: rgba(139, 16, 16, 0.75) solid 1px;
+  box-shadow: 5px 5px 20px rgb(139, 16, 16);
 }
 
 .er {
-    padding: 10px;
+  padding: 10px;
 }

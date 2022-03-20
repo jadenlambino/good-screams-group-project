@@ -78,7 +78,7 @@ function addMovieDynamic(divContainer, movies, listId) {
      </div>`;
 }
 
-function dynamicClick() {
+async function dynamicClick() {
   const listsNames = document.querySelectorAll(".list-names");
 
   for (let i = 0; i < listsNames.length; i++) {
@@ -206,14 +206,44 @@ async function deleteList() {
   const deleteBtn = document.getElementById("delete_btn");
 
   deleteBtn.addEventListener("click", async (e) => {
+    const modelDeletebutton = document.querySelector(".deletebtn");
+    const deleteMessage = document.querySelector(".delete_message");
+    const modelPopUp = document.querySelector("#id01");
+    const modelTitle = document.querySelector(".delete_title");
     const listId = deleteBtn.className.split("-")[3];
+    modelPopUp.style.display = "block";
+    modelTitle.innerText = "Delete List";
+    deleteMessage.innerText = "Are you sure you want to delete?";
+    modelDeletebutton.setAttribute("class", "deletebtn");
+    modelDeletebutton.classList.add(`delete-button-listid-${listId}`);
+  });
+}
 
+async function deleteBtnModel() {
+  const deleteBtn = document.querySelector(".deletebtn");
+
+  deleteBtn.addEventListener("click", async (e) => {
+    const listId = deleteBtn.className.split("-")[3];
+    console.log(deleteBtn.className);
+    console.log(listId);
+    const deleteMessage = document.querySelector(".delete_message");
     const res = await fetch(`/mylists/${listId}`, { method: "DELETE" });
     const response = await res.json();
-
     if (response.message === "success") {
       window.location.reload();
+    } else if (response.message === 'Cannot Delete "Want to Watch"') {
+      // console.log(response.message);
+      deleteMessage.innerText = response.message;
     }
+  });
+}
+
+function closeModel() {
+  const modelPopUp = document.querySelector("#id01");
+  const confirmModel = document.querySelector(".cancelbtn");
+
+  confirmModel.addEventListener("click", (e) => {
+    modelPopUp.style.display = "none";
   });
 }
 
@@ -245,10 +275,12 @@ async function deleteMovieFromList() {
 }
 
 window.addEventListener("load", async (event) => {
-  deleteMovieFromList();
+  // deleteMovieFromList();
+  // closeModel();
+  deleteBtnModel();
   addToList();
   dynamicClick();
   renameList();
   deleteList();
-  console.log('testing!!!!!!!!!!1')
+  console.log("testing!!!!!!!!!!1");
 });

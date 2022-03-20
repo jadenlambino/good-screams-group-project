@@ -1,6 +1,6 @@
 const express = require("express");
 const { csrfProtection, asyncHandler } = require("./utils");
-const userValidators = require("./validation");
+const userValidators = require("./signup-validation");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { loginUser } = require("../auth");
@@ -15,7 +15,7 @@ router.get("/", function (req, res, next) {
 
 router.get("/signup", csrfProtection, (req, res) => {
   const newUser = db.User.build();
-  res.render("sign-up", {
+  res.render("sign-up-form2", {
     title: "Signup",
     newUser,
     csrfToken: req.csrfToken(),
@@ -51,7 +51,7 @@ router.post(
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       console.log(errors);
-      res.render("sign-up", {
+      res.render("sign-up-form2", {
         title: "Signup",
         errors,
         newUser,

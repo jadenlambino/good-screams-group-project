@@ -4,6 +4,7 @@ body {
     align-items: center;
     height: auto;
     background-color: #0b0b0d;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .login-container {
@@ -20,7 +21,7 @@ body {
     /* padding-bottom: 35px; */
     background-color: #c4c4c4;
     border-radius: 8px;
-    border: rgba(139, 16, 16, 0.75) solid 1px;
+    border: rgba(139, 16, 16, 0.75) solid 2px;
     box-shadow: 5px 5px 20px rgb(139, 16, 16);
 }
 
@@ -64,12 +65,31 @@ h2 {
     /* height: 100px; */
 }
 
-#button-container {
+.button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#cancel-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    align-self: center;
+    justify-self: center;
+    border-radius: 5px;
+    background-color: rgba(168, 17, 17, 0.75);
+    box-shadow: 2px 2px 2px black;
+}
+
+#cancel-button:hover {
+    background-color: rgb(122, 12, 12);
+    color: white;
 }
 
 #login-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
     margin-top: 10px;
     padding: 8px;
     align-self: center;
@@ -93,6 +113,20 @@ h2 {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
-/* #errors-container {
-    color: rgb(128, 12, 12)
-} */
+
+#errors {
+    position: absolute;
+    width: 240px;
+    /* top: 460px; */
+    right: 520px;
+    font-size: 18px;
+    color: rgb(139, 16, 16);
+    background-color: #c4c4c4;
+    border-radius: 8px;
+    border: rgba(139, 16, 16, 0.75) solid 1px;
+    box-shadow: 5px 5px 20px rgb(139, 16, 16);
+}
+
+.er {
+    padding: 10px;
+}

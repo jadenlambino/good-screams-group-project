@@ -12,7 +12,7 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     let { userId } = req.session.auth;
-    console.log(userId);
+    ``;
     const lists = await db.List.findAll({
       include: db.Movie,
       where: {
@@ -29,7 +29,6 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res) => {
     let { userId } = req.session.auth;
-    console.log(userId);
     const lists = await db.List.findAll({
       include: db.Movie,
       where: {
@@ -85,6 +84,7 @@ router.delete(
 
     if (list) {
       await list.destroy();
+      console.log("+++++++++>");
       res.json({ message: "success" });
     }
   })

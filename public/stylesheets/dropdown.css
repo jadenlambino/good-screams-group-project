@@ -1,11 +1,10 @@
-.drop_btn {
-    /* background-color: #3498db; */
+/* .drop_btn {
     color: white;
     padding: 16 px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-}
+} */
 
 .drop_btn:hover, .drop_btn:focus {
     background-color: rgb(100, 13, 13);

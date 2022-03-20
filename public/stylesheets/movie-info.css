@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Acme:regular);
 @import url(https://fonts.googleapis.com/css?family=Creepster:regular);
 
 
@@ -9,45 +8,39 @@
 
 .main_movie_container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
 }
 
 .movie_info_container {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-end; */
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 634px;
   height: 964px;
   background-color: black;
   border: 2px solid black;
-  border-radius: 8px;
-  padding: 29px;
-  margin: 50px;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px;
 }
 
 .movie_img_container {
   margin: 9px;
-  padding: 5px;
   display: flex;
-  flex-direction: column;
-  /* align-items: flex-end; */
-  justify-content: flex-start;
-  width: 400px;
-  height: 288px;
 }
 
 .movie_img {
-  width: 218.15px;
-  height: 338px;
-  border-radius: 8px;
-  box-shadow: 3px 3px 5px #b8a2a2;
-  /* padding: 5px; */
-  margin: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 250px;
+  height: 386px;
+  border-radius: 16px;
 }
 
 .movie_rating {
-  font-family: "Acme";
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -60,10 +53,11 @@
   font-family: "Creepster";
   font-size: 50px;
   margin: 5px;
+  letter-spacing: 1.5px;
 }
 
 .release_date {
-  font-family: "Acme";
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -75,52 +69,60 @@
   display: none;
 }
 
+.movie_description_container::-webkit-scrollbar{
+  display: none;
+}
+
 .movie_description {
-  font-family: "Acme";
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   color: #ffffff;
   margin: 5px;
   overflow-y: scroll;
-  /* background-color: aqua; */
   padding-right: 20px;
+  line-height: 1.5em;
+  flex-flow: row wrap;
+  font-weight: bold;
 }
 
 .movie_description_container {
   display: flex;
   flex-direction: column;
-  /* align-items: start;
-  justify-content: flex-end; */
   margin: 3px;
-  padding: 2px;
+  padding: 10x;
+  width: 450px;
+  overflow-y: scroll;
 }
+
 
 .list_button_container {
- /* display: flex; */
-  /* margin: 5px; */
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: orange;
+  justify-content: flex-start;
 }
 
-.move_img_box{
-  display: flex;
-}
+
 
 .list_button {
-  /* justify-content: center;
-  align-items: center; */
     width: 162px;
     height: 36px;
     background-color: #8C4250;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px #b8a2a2;
     padding: 5px;
     margin: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
+.submit_review_container{
+  display: flex;
+}
 
 .movie_review_container {
   display: flex;
@@ -128,49 +130,146 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
+
 }
 
-.review_container::-webkit-scrollbar{
-  display: none;
+h3 {
+  font-family: 'Creepster';
+  font-size: 36px;
+  letter-spacing: 1.5px;
 }
 
 .review_container {
-    display: flex;
-    width: 684px;
-    height: 400px;
-    background-color: black;
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 58px;
-    box-sizing: border-box;
-    overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 16px;
+  padding: 40px;
+  box-sizing: border-box;
+}
 
+.reviews_description::-webkit-scrollbar{
+  display: none;
 }
 
 .reviews_description {
-    /* flex-direction: column;
-    align-items: flex-start; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 470px;
     height: 300px;
     color: white;
-    font-family: 'Acme';
-
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: scroll;
+    font-weight: bold;
 }
+
+.single-review-container{
+   border: 1px solid white;
+   border-radius: 16px;
+   margin: 10px;
+   padding: 0px 10px 10px 10px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+ }
+
 
 .add_review_btn {
     width: 162px;
     height: 36px;
     background-color: #8C4250;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px #b8a2a2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     margin: 10px;
     padding: 5px;
-
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
 }
 
 .review_btn_container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: blue;
+
+}
+
+.editbtn{
+ background-color: #8C4250;
+ border: none;
+ color: white;
+ margin: 2px;
+ font-family: 'Acme';
+ border-radius: 2px;
+ width: 33px;
+ height: 19px;
+ font-size: 14px;
+ cursor: pointer;
+}
+
+.deletebtn{
+ background-color: #8C4250;
+ border: none;
+ color: white;
+ margin: 2px;
+ font-family: 'Acme';
+ border-radius: 2px;
+ width: 47px;
+ height: 19px;
+ font-size: 14px;
+ cursor: pointer;
+}
+
+.submitEditBtn {
+ background-color: #8C4250;
+ border: none;
+ color: white;
+ margin: 2px;
+ font-family: 'Acme';
+ border-radius: 2px;
+ width: 101px;
+ height: 22px;
+ font-size: 14px;
+ cursor: pointer;
+}
+
+
+.submit_review_btn{
+  background-color: #8C4250;
+  border: none;
+  color: white;
+  margin: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+  width: 120px;
+  height: 34px;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.reviews-owner{
+  letter-spacing: .2px;
+  font-weight: bold;
+}
+
+.reviews-content{
+  letter-spacing: .5px;
+  padding: 0;
+}
+
+ li {
+   list-style-type: none;
+ }
+
+.content {
+border-radius: 16px;
+}
+
+#textarea {
+  border-radius: 16px;
 }

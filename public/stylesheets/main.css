@@ -16,7 +16,7 @@ body {
 }
 
 .holder {
-    padding-bottom: 3rem;
+padding-bottom: 3rem;
 }
 
 header {
@@ -150,4 +150,9 @@ span a {
 
 .dropmenu:hover .drop-content {
     display: inline-block;
+}
+
+.github-holder a{
+  background: url('../images/GitHub.png');
+  background-size: cover;
 }

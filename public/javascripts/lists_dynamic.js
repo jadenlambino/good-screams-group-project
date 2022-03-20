@@ -86,13 +86,22 @@ async function dynamicClick() {
 
     listName.addEventListener("click", async (e) => {
       const title = document.getElementById("list_title");
-      title.innerText = listName.innerText;
       const listId = listName.className.split(" ")[1].split("-")[3];
 
       const moviesContainer = document.getElementById("dynamic_container");
 
       const delBtn = document.getElementById("delete_btn");
       const renameBtn = document.getElementById("rename_btn");
+
+      listsNames.forEach((lN) => {
+        console.log(lN);
+        lN.style.fontWeight = "normal";
+        lN.style.fontSize = "16px";
+      });
+
+      listName.style.fontWeight = "bolder";
+      listName.style.fontSize = "20px";
+      title.innerText = listName.innerText;
 
       renameBtn.removeAttribute("class");
       renameBtn.setAttribute("class", `input-listid-${listId}`);

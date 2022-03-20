@@ -20,7 +20,8 @@ img {
 .genre_container {
   display: flex;
   flex-direction: column;
-  border: 3px solid white;
+  border: 1px solid white;
+  background-color: black;
   width: 169px;
   height: 298px;
   border-radius: 16px;

@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Creepster:regular);
 
-.drop_btn:hover, .drop_btn:focus {
-    background-color: rgb(100, 13, 13);
+.drop_btn:hover,
+.drop_btn:focus {
+  background-color: rgb(100, 13, 13);
 }
 
 .drop_down {
@@ -49,5 +50,5 @@
 }
 
 .show {
-    display: block;
+  display: block;
 }

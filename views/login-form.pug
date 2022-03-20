@@ -2,7 +2,7 @@ link(rel='stylesheet', href='/stylesheets/login.css')
 //- img(id='blood-dripping-img' src="../images/blood-dripping.png")
 div(class='login-container')
     img(id='blood-dripping-img' src="../images/blood-dripping.png")
-    form(action="/users/login" method="post")         
+    form(action="/users/login" method="post")
         input(type="hidden" name="_csrf" value=csrfToken)
         h2 Log In...
         div(id="email-container")
@@ -12,8 +12,9 @@ div(class='login-container')
             label(for="hashedPassword") Password:
             input(type="password" name="hashedPassword" id="hashedPassword" required)
         div(class="button-container")
-            button(id='cancel-button') Cancel
+            button(id='demo-button') Demo
             button(id="login-button") Submit
+            button(id='cancel-button') Cancel
     if errors
         div(id="errors")
             ul
@@ -21,3 +22,4 @@ div(class='login-container')
                     li(class='er')= error
 
 script(src='/javascripts/cancel_btns.js' type='module')
+script(src="/javascripts/demo-user.js" type='module')

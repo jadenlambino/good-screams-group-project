@@ -16,6 +16,8 @@ const listsRouter = require("./routes/lists");
 const { environment, sessionSecret } = require("./config");
 const { restoreUser } = require("./auth");
 const { csrfProtection, asyncHandler } = require("./routes/utils");
+const searchRouter = require('./routes/searchbar');
+
 const cors = require("cors");
 const app = express();
 
@@ -41,8 +43,12 @@ app.use(
   })
 );
 
+<<<<<<< HEAD
 
 
+=======
+// create Session table if it doesn't already exist
+>>>>>>> main
 store.sync();
 app.use(restoreUser);
 app.use("/", indexRouter);
@@ -52,48 +58,62 @@ app.use("/home", homeRouter);
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/mylists", listsRouter);
-
-
+app.use("/search", searchRouter)
 
 app.use((req, res, next) => {
-  const err = new Error('The requested page couldn\'t be found.');
+  const err = new Error("The requested page couldn't be found.");
   err.status = 404;
   next(err);
 });
 
-
 app.use((err, req, res, next) => {
-  if (environment === 'production' || environment === 'test') {
-
+  if (environment === "production" || environment === "test") {
   } else {
     console.error(err);
   }
   next(err);
 });
 
-
-
 app.use((err, req, res, next) => {
   if (err.status === 404) {
     res.status(404);
-    res.render('page-not-found', {
-      title: 'Page Not Found',
+    res.render("page-not-found", {
+      title: "Page Not Found",
     });
   } else {
     next(err);
   }
 });
 
-
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  const isProduction = environment === 'production';
-  res.render('error', {
-    title: 'Server Error',
+  const isProduction = environment === "production";
+  res.render("error", {
+    title: "Server Error",
     message: isProduction ? null : err.message,
-    stack: isProduction ? null : err.stack
+    stack: isProduction ? null : err.stack,
   });
 });
 
+<<<<<<< HEAD
+=======
+// catch 404 and forward to error handler
+// app.use((req, res, next) => {
+//   const err = new Error('The requested page couldn\'t be found');
+//   err.status = 404;
+//   next(err);
+// });
+
+// error handler
+// app.use(function (err, req, res, next) {
+// set locals, only providing error in development
+// res.locals.message = err.message;
+// res.locals.error = req.app.get("env") === "development" ? err : {};
+
+// render the error page
+//   res.status(err.status || 500);
+//   res.render("error");
+// });
+>>>>>>> main
 
 module.exports = app;

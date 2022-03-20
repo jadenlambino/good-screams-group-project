@@ -7,18 +7,24 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/movies.css')
         link(rel='stylesheet' href='/stylesheets/movie-info.css')
-        link(rel='stylesheet' href='/stylesheets/navbar.css')
         link(rel="stylesheet", href="/stylesheets/home.css")
         link(rel="stylesheet", href="/stylesheets/lists.css")
         link(rel="stylesheet", href="/stylesheets/dropdown.css")
+        script(src='/javascripts/searchbar_dynamic.js' type='module')
         link(rel="stylesheet", href="/stylesheets/error.css")
         link(rel="stylesheet", href="/stylesheets/page-not-found.css")
+        link(rel="stylesheet", href="/stylesheets/main.css")
+        link(rel="stylesheet", href="/stylesheets/index.css")
+        link(rel="stylesheet", href="/stylesheets/model.css")
+        link(rel="stylesheet", href="/stylesheets/search-dropdown.css")
 
 
   body
-    header
-      div(class='navbar')
-          a(id='title' href="/home") GOOD SCREAMS
+    div(class='full-container')
+      div(class='holder')
+        header
+          div(class='navbar')
+              a(id='title' href="/home") GOOD SCREAMS
 
           nav
             ul
@@ -28,9 +34,9 @@ html
                 a(href='/mylists' class='click') My Movies
               li
                 div(class='search')
-                  form(action='')
-                    input(class='bar', type="text", name="search", placeholder='Search Movies')
-                    button(class='searchbutton')
+                  form(action='' autocomplete = "off")
+                    input(class='bar', type="search", name="search", placeholder='Search Movies')
+                    include includes/drop-down.pug
               li
                 if locals.authenticated
                   form(class='click' action='/users/logout' method='post')
@@ -40,4 +46,27 @@ html
                     a(class='click' href='/users/login') LOG IN
                     a(class='click' href='/users/signup') SIGN UP
 
-    block content
+        block content
+          div(class='push')
+
+        footer
+          ul(class='person-holder')
+            li(class='dropmenu')
+              button(class='drop') Jesus
+              div(class='drop-content')
+                a(href="https://www.linkedin.com/in/jesus-elizalde-83282118b/") Linkedin
+            li(class='dropmenu')
+              button(class='drop') Kristen
+              div(class='drop-content')
+                a(href="https://www.linkedin.com/in/kristen-reid-a4b499202") Linkedin
+            li(class='dropmenu')
+              button(class='drop') Arianna
+              div(class='drop-content')
+                a(href="https://www.linkedin.com/in/arianna-robinson") Linkedin
+            li(class='dropmenu')
+              button(class='drop') Jaden
+              div(class='drop-content')
+                a(href="https://www.linkedin.com/in/jesus-elizalde-83282118b/") Linkedin
+            li(class='github-holder')
+              a(href="https://github.com/jadenlambino/good-screams-group-project/tree/main")
+                img(src="../public/images/GitHub-Mark-64px.png", alt="github repo")

@@ -22,13 +22,17 @@ router.get(
     const { userId } = req.session.auth;
     const id = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(id, {
-      include: [db.Review],
+      include: {
+        model: db.Review,
+        include: db.User,
+      },
     });
     const lists = await db.List.findAll({
       where: { userId },
       order: [["id", "ASC"]],
     });
 
+    console.log(movie.Reviews);
     if (movie) {
       res.render("movie-info", { title: movie.name, movie, lists, userId });
     }
@@ -67,6 +71,5 @@ router.delete(
     }
   })
 );
-
 
 module.exports = router;

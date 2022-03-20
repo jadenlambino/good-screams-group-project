@@ -15,9 +15,15 @@ div.lists_container
 
         div.movies_container#dynamic_container
             if lists[0]
+                if (!lists[0].Movies.length)
+                  div.movie_container(style="width:560px")
+                        p(style = "color:white") Empty List....
+                        p(style = "color:white") Go to a Movie Description to Add to a List by
+                        a(href= "/movies" style="font-family: Creepster ;color:red; font-size:45px ") Movies Tab
+                        p(style = "color:white") or Search Bar
                 each movie in lists[0].Movies
                     div.movie_container(id =`remove-btn-moiveId-${movie.id}`)
                             div.remove_icon
-                                img(src="/svg/noun-delete-16504.svg" class= `remove_icon_btn remove_icon_btn_movieId_${movie.id} remove_icon_btn_listId_${listId}`)#removeIconsvg
+                                img(src="/svg/noun-delete-16504.svg" class= `remove_icon_btn remove_icon_btn_movieId_${movie.id} remove_icon_btn_listId_${lists[0].id}`)#removeIconsvg
                                 img(class='posterImg' src=movie.posterImg)
                             a(href=`/movies/${movie.id}`).movie_title= movie.name

@@ -21,6 +21,8 @@ router.get(
       order: [["id", "ASC"]],
     });
 
+    console.log(lists[0]);
+
     res.render("lists", { title: "Lists", lists, id: userId });
   })
 );

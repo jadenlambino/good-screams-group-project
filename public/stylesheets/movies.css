@@ -23,13 +23,13 @@ img {
   border: 1px solid white;
   background-color: black;
   width: 169px;
-  height: 298px;
+  height: 350px;
   border-radius: 16px;
   color: white;
-  align-items: center;
   font-size: xx-large;
   position: sticky;
   top: 35px;
+  margin-left: 10px;
 }
 
 .genre_title_movies {
@@ -91,4 +91,19 @@ img {
 
 .blood_drop {
   color: white;
+}
+
+.add-list-btn {
+  width: 15px;
+}
+
+.genre_table_scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  height: 150px;
+}
+.genre_table_scroll::-webkit-scrollbar {
+  display: none;
 }

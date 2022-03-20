@@ -2,34 +2,34 @@ window.addEventListener('load', async (event) => {
     const searchBar = document.querySelector('.bar')
     // console.log(searchBar)
     searchBar.addEventListener('input', async (e) => {
-        let inputValue = e.target.value;
-
-        const res = await fetch(`/search`, {
-            method: "POST",
-            body: JSON.stringify({ enteredName: inputValue }),
-            headers: { 'Content-Type': 'application/json' }
+        const clearDropDown = document.querySelectorAll('.result-drop-down')
+        clearDropDown.forEach(results => {
+            results.remove()
         })
-        const response = await res.json()
+        let inputValue = e.target.value;
+        console.log(inputValue)
+        if (inputValue) {
 
-
-        if (response.message === "Success") {
-            console.log(response.searchResult)
-            const dropDown = document.querySelector('#my_drop_down');
-            const aTag = document.createElement('a');
-            response.searchResult.forEach(result => {
-                aTag.innerText = result.name;
-                aTag.setAttribute('href', `/movies/${result.id}`)
-                dropDown.appendChild(aTag);
+            const res = await fetch(`/search`, {
+                method: "POST",
+                body: JSON.stringify({ enteredName: inputValue }),
+                headers: { 'Content-Type': 'application/json' }
             })
-            dropDown.classList.add('show');
+            const response = await res.json()
 
 
-
-        } else {
-            console.log("no, you dummy")
+            if (response.message === "Success") {
+                console.log(response.searchResult)
+                const dropDown = document.querySelector('#my_drop_down');
+                response.searchResult.forEach(result => {
+                    const aTag = document.createElement('a');
+                    aTag.innerText = result.name;
+                    aTag.setAttribute('href', `/movies/${result.id}`)
+                    aTag.setAttribute('class', 'result-drop-down')
+                    dropDown.appendChild(aTag);
+                })
+                dropDown.classList.add('show');
+            }
         }
-        // if (response.searchResult === inputValue) {
-
-        // }
     })
 })

@@ -18,6 +18,6 @@ div.lists_container
                 each movie in lists[0].Movies
                     div.movie_container(id =`remove-btn-moiveId-${movie.id}`)
                             div.remove_icon
-                                img(src="/svg/noun-delete-16504.svg" class= `remove_icon_btn remove_icon_btn_movieId_${movies.id} remove_icon_btn_listId_${listId}`).removeIconsvg
+                                img(src="/svg/noun-delete-16504.svg" class= `remove_icon_btn remove_icon_btn_movieId_${movie.id} remove_icon_btn_listId_${listId}`)#removeIconsvg
                                 img(class='posterImg' src=movie.posterImg)
                             a(href=`/movies/${movie.id}`).movie_title= movie.name

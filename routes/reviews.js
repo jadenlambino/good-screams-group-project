@@ -38,15 +38,8 @@ router.post(
     console.log(movieId);
     const { content } = req.body;
     const { userId } = req.session.auth;
-    //  console.log(req.body)
-    // console.log(req.session.auth)
 
-    // const reviews = await db.Review.findAll({
-    //   include: db.User,
-    //   where: { movieId: movieId },
-    // });
-    // console.log(reviews);
-    //const jsonReviews = JSON.stringify({ userId: auth.userId, reviews });
+    const userInfo = await db.User.findByPk(userId);
 
     const review = await db.Review.build({
       content,
@@ -54,7 +47,7 @@ router.post(
       movieId,
     });
     await review.save();
-    res.json({ message: "Success", review });
+    res.json({ message: "Success", review, userInfo });
   })
 );
 

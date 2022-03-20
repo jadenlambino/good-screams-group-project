@@ -29,7 +29,7 @@ html
                 a(href='/mylists' class='click') My Movies
               li
                 div(class='search')
-                  form(action='')
+                  form(action='' autocomplete = "off")
                     input(class='bar', type="search", name="search", placeholder='Search Movies')
                     include includes/drop-down.pug
                     button(class='searchbutton')

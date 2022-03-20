@@ -97,6 +97,7 @@ async function dropDownList(movieId) {
     const listName = listNames[i];
     listName.addEventListener("click", async (event) => {
       const listId = event.target.id.split("_")[3];
+      ``;
       const res = await fetch(`/movies/${movieId}/add`, {
         method: "POST",
         body: JSON.stringify({ listId }),

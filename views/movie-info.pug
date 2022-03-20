@@ -21,11 +21,6 @@ block content
         div(class='movie_review_container')
             div(class='review_container')
                 h3 Reviews
-                form(class='hidden' id='new-review')
-                    label(for='content')
-                    div(class='submit_review_container')
-                        textarea(name='content' id='textarea')
-                        button(class='submit_review_btn' type='submit' id='submit-review') Submit Review
                 div(class='reviews_description')
                     each review in movie.Reviews.reverse()
                         div(class=`single-review-container` id=`div-reviewId-${review.id}`)
@@ -34,11 +29,16 @@ block content
                             div(class='edit_form_container')
                                 form(class=`edit-form hidden edit-form-reviewId-${review.id} reviewId-${review.id}`)
                                     div(class='submitEditBtn_container')
-                                        textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}`)
+                                        textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}` placeholder='Edit Review Here')
                                         button(class=`submitEditBtn editBtn-reviewId-${review.id} reviewId-${review.id}` id =`submitEditbtn-reviewId-${review.id}`) Update Review
-                            if userId === review.userId
-                                button(class=`editbtn userid-${review.userId} reviewId-${review.id}` id =`editbtn-reviewId-${review.id}`) Edit
-                                button(class=`deletebtn userid-${review.userId} reviewId-${review.id}` id=`deletebtn-reviewId-${review.id}`) Delete
+                                if userId === review.userId
+                                    button(class=`editbtn userid-${review.userId} reviewId-${review.id}` id =`editbtn-reviewId-${review.id}`) Edit
+                                    button(class=`deletebtn userid-${review.userId} reviewId-${review.id}` id=`deletebtn-reviewId-${review.id}`) Delete
+                form(class='hidden' id='new-review')
+                    label(for='content')
+                    div(class='submit_review_container')
+                        textarea(name='content' id='textarea' placeholder='Add Review')
+                        button(class='submit_review_btn' type='submit' id='submit-review') Submit Review
             div(class='review_btn_container')
                 button(class='add_review_btn') Write a review
 

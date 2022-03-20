@@ -128,7 +128,8 @@
 
 .submit_review_container{
   display: flex;
-  margin: 5px;
+  margin: 10px;
+  align-items: flex-end;
 }
 
 .movie_review_container {
@@ -176,7 +177,7 @@ h3 {
 .single-review-container{
    border: 1px solid white;
    border-radius: 16px;
-   margin: 10px;
+   margin: 10px 0px 10px 0px;
    padding: 0px 10px 10px 10px;
    font-family: Arial, Helvetica, sans-serif;
    font-weight: bold;
@@ -235,7 +236,8 @@ h3 {
 
 .submitEditBtn_container{
   display: flex;
-  margin: 5px;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .reviews-edit-content{
@@ -296,6 +298,64 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
+  transition: all .8s ease-in-out;
+  background-color: black;
+  border: 1.5px white solid;
+}
+
+#textarea:hover {
+  cursor: pointer;
+}
+
+#textarea:focus {
+  cursor: text;
+  background-color: white;
+  color: black;
+  width: 183px;
+  height: 70px;
+  /* width: 250px;
+  height: 50px; */
+  border: black 2px solid;
+}
+
+#textarea::-webkit-scrollbar{
+  display: none;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, .7);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.edit_form_container {
+  display: flex;
+  align-items: flex-end;
+   margin: 5px;
+}
+
+
+.reviews-edit-content:focus {
+  cursor: text;
+  background-color: white;
+  color: black;
+  width: 183px;
+  height: 70px;
+  border: black 2px solid;
+}
+
+.reviews-edit-content:hover {
+  cursor: pointer;
+}
+
+.reviews-edit-content {
+  border-radius:6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all .8s ease-in-out;
+  background-color: black;
+  border: 1.5px white solid;
 }
 
 @media screen and (max-width: 650px) {
@@ -304,8 +364,4 @@ h3 {
     flex-wrap: wrap;
     flex: 1;
   }
-}
-
-.edit_form_container {
-  display: flex;
 }

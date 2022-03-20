@@ -16,9 +16,10 @@ const listsRouter = require("./routes/lists");
 const { environment, sessionSecret } = require("./config");
 const { restoreUser } = require("./auth");
 const { csrfProtection, asyncHandler } = require("./routes/utils");
-
+const cors = require("cors");
 const app = express();
 
+app.use(cors());
 // view engine setup
 app.set("view engine", "pug");
 

@@ -1,8 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Creepster:regular);
 
+.error_title{
+    display: flex;
+    justify-content: center;
+    width: 1416px;
+}
 
 h1 {
+    text-align: center;
     color: white;
     font-family: 'Creepster';
-    font-size: 32px;
+    font-size: 25px;
+    letter-spacing: 1.5px;
 }

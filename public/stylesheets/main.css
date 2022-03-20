@@ -1,8 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+html,
+body {
+    height: 100vh;
+}
+
 body {
   margin: 0;
   /* background-color: lightgrey; */
   background-color: #0b0b0d;
+}
+
+.full-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.holder {
+padding-bottom: 3rem;
 }
 
 header {
@@ -21,6 +35,23 @@ header {
   margin: 0 auto;
 }
 
+footer {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    height: 3rem;
+    background-color: #0b0b0d;
+    flex: 1 0 auto;
+    width: 100%;
+}
+
+.person-holder {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 a {
   text-decoration: none;
 }
@@ -36,6 +67,7 @@ a {
 
 nav {
   float: right;
+  margin-right: 5%;
 }
 
 nav ul {
@@ -58,14 +90,6 @@ nav li {
   height: auto;
 }
 
-.searchbutton {
-  position: relative;
-  float: right;
-  height: 20px;
-  padding: 8px;
-  margin-left: 5px;
-}
-
 span a {
   padding: 10px;
 }
@@ -83,4 +107,49 @@ span a {
       2px 16px 1px #666666, 2px 18px 1px #737373, 2px 20px 1px #878787,
       2px 22px 1px #bfbfbf;
   }
+}
+
+.drop {
+    font-family: "Creepster";
+    background-color: #0b0b0d;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.dropmenu {
+    position: relative;
+    display: inline-block;
+}
+
+.drop-content {
+    font-family: "Creepster";
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+}
+
+.drop-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: small;
+}
+
+.drop-content a:hover {
+    background-color: #ddd;
+}
+
+.dropmenu:hover .drop-content {
+    display: inline-block;
+}
+
+.github-holder a{
+  background: url('../images/GitHub.png');
+  background-size: cover;
+}
+
+.search {
+  border-radius: 0%;
 }

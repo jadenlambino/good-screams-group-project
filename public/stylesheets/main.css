@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 html,
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 body {
@@ -11,17 +11,17 @@ body {
 }
 
 .full-container {
-    position: relative;
-    min-height: 100vh;
+  position: relative;
+  min-height: 100vh;
 }
 
 .holder {
-padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 header {
   background-color: #590202;
-  height: 4em;
+  height: 4rem;
   font-family: "Creepster";
 }
 
@@ -36,20 +36,20 @@ header {
 }
 
 footer {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    height: 3rem;
-    background-color: #0b0b0d;
-    flex: 1 0 auto;
-    width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
+  background-color: #0b0b0d;
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 .person-holder {
-    text-decoration: none;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 a {
@@ -110,43 +110,43 @@ span a {
 }
 
 .drop {
-    font-family: "Creepster";
-    background-color: #0b0b0d;
-    color: white;
-    border: none;
-    padding: 10px;
+  font-family: "Creepster";
+  background-color: #0b0b0d;
+  color: white;
+  border: none;
+  padding: 10px;
 }
 
 .dropmenu {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .drop-content {
-    font-family: "Creepster";
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
+  font-family: "Creepster";
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
 }
 
 .drop-content a {
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    font-size: small;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  font-size: small;
 }
 
 .drop-content a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .dropmenu:hover .drop-content {
-    display: inline-block;
+  display: inline-block;
 }
 
-.github-holder a{
-  background: url('../images/GitHub.png');
+.github-holder a {
+  background: url("../images/GitHub.png");
   background-size: cover;
 }
 

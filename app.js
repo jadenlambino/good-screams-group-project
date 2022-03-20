@@ -16,6 +16,7 @@ const listsRouter = require("./routes/lists");
 const { sessionSecret } = require("./config");
 const { restoreUser } = require("./auth");
 const { csrfProtection, asyncHandler } = require("./routes/utils");
+const searchRouter = require('./routes/searchbar');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use("/home", homeRouter);
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/mylists", listsRouter);
+app.use("/search", searchRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

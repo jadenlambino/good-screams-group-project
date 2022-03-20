@@ -250,4 +250,5 @@ window.addEventListener("load", async (event) => {
   dynamicClick();
   renameList();
   deleteList();
+  console.log('testing!!!!!!!!!!1')
 });

@@ -16,6 +16,8 @@ const listsRouter = require("./routes/lists");
 const { environment, sessionSecret } = require("./config");
 const { restoreUser } = require("./auth");
 const { csrfProtection, asyncHandler } = require("./routes/utils");
+const searchRouter = require('./routes/searchbar');
+
 const cors = require("cors");
 const app = express();
 
@@ -52,6 +54,7 @@ app.use("/home", homeRouter);
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/mylists", listsRouter);
+app.use("/search", searchRouter)
 
 
 
@@ -107,11 +110,11 @@ app.use((err, req, res, next) => {
 
 // error handler
 // app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  // res.locals.message = err.message;
-  // res.locals.error = req.app.get("env") === "development" ? err : {};
+// set locals, only providing error in development
+// res.locals.message = err.message;
+// res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  // render the error page
+// render the error page
 //   res.status(err.status || 500);
 //   res.render("error");
 // });

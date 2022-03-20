@@ -43,12 +43,7 @@ app.use(
   })
 );
 
-<<<<<<< HEAD
-
-
-=======
 // create Session table if it doesn't already exist
->>>>>>> main
 store.sync();
 app.use(restoreUser);
 app.use("/", indexRouter);
@@ -95,25 +90,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-<<<<<<< HEAD
-=======
-// catch 404 and forward to error handler
-// app.use((req, res, next) => {
-//   const err = new Error('The requested page couldn\'t be found');
-//   err.status = 404;
-//   next(err);
-// });
-
-// error handler
-// app.use(function (err, req, res, next) {
-// set locals, only providing error in development
-// res.locals.message = err.message;
-// res.locals.error = req.app.get("env") === "development" ? err : {};
-
-// render the error page
-//   res.status(err.status || 500);
-//   res.render("error");
-// });
->>>>>>> main
 
 module.exports = app;

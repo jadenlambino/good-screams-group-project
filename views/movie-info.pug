@@ -30,19 +30,12 @@ block content
                     each review in movie.Reviews.reverse()
                         div(class=`single-review-container` id=`div-reviewId-${review.id}`)
                             p(class =`reviews-content userid-${review.userId} reviewId-${review.id}` id = `reviewId-${review.id}`)= review.content
-<<<<<<< HEAD
                             li(class = `reviews-owner userid-${review.userId} reviewId-${review.id}`)= `By: ${review.userId}`
                             div(class='edit_form_container')
                                 form(class=`edit-form hidden edit-form-reviewId-${review.id} reviewId-${review.id}`)
                                     div(class='submitEditBtn_container')
                                         textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}`)
                                         button(class=`submitEditBtn editBtn-reviewId-${review.id} reviewId-${review.id}` id =`submitEditbtn-reviewId-${review.id}`) Update Review
-=======
-                            li(class = `reviews-owner userid-${review.userId} reviewId-${review.id}`)= `By: ${review.User.firstName} ${review.User.lastName}`
-                            form(class=`edit-form hidden edit-form-reviewId-${review.id} reviewId-${review.id}`)
-                                textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}`)
-                                button(class=`submitEditBtn editBtn-reviewId-${review.id} reviewId-${review.id}` id =`submitEditbtn-reviewId-${review.id}`) Update Review
->>>>>>> main
                             if userId === review.userId
                                 button(class=`editbtn userid-${review.userId} reviewId-${review.id}` id =`editbtn-reviewId-${review.id}`) Edit
                                 button(class=`deletebtn userid-${review.userId} reviewId-${review.id}` id=`deletebtn-reviewId-${review.id}`) Delete

@@ -35,7 +35,6 @@ html
                   form(action='')
                     input(class='bar', type="search", name="search", placeholder='Search Movies')
                     include includes/drop-down.pug
-                    button(class='searchbutton')
               li
                 if locals.authenticated
                   form(class='click' action='/users/logout' method='post')
@@ -69,4 +68,3 @@ html
             li(class='github-holder')
               a(href="https://github.com/jadenlambino/good-screams-group-project/tree/main")
                 img(src="../public/images/GitHub-Mark-64px.png", alt="github repo")
-

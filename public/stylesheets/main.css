@@ -67,6 +67,7 @@ a {
 
 nav {
   float: right;
+  margin-right: 5%;
 }
 
 nav ul {
@@ -87,14 +88,6 @@ nav li {
   border-radius: 10px;
   text-align: center;
   height: auto;
-}
-
-.searchbutton {
-  position: relative;
-  float: right;
-  height: 20px;
-  padding: 8px;
-  margin-left: 5px;
 }
 
 span a {
@@ -155,4 +148,8 @@ span a {
 .github-holder a{
   background: url('../images/GitHub.png');
   background-size: cover;
+}
+
+.search {
+  border-radius: 0%;
 }

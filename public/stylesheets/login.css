@@ -97,7 +97,10 @@ h2 {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/kristen
 #login-button,
 #demo-button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -111,7 +114,10 @@ h2 {
   box-shadow: 2px 2px 2px black;
 }
 
+<<<<<<< HEAD
 >>>>>>> main
+=======
+>>>>>>> origin/kristen
 #login-button {
   width: 120px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -123,6 +129,7 @@ h2 {
   align-self: center;
   justify-self: center;
   border-radius: 5px;
+<<<<<<< HEAD
   background-color: #2e1d4d;
   border-color: #2e1d4d;
   /* background-color: #03342e;
@@ -131,6 +138,10 @@ h2 {
   border-color: #004e48; */
   /* border-color: rgba(83, 56, 102, 1);
   background-color: rgba(83, 56, 102, 1); */
+=======
+  border-color: rgba(83, 56, 102, 1);
+  background-color: rgba(83, 56, 102, 1);
+>>>>>>> origin/kristen
   /* border-color: rgba(83, 56, 102, 0.842);
   background-color: rgba(83, 56, 102, 0.96); */
   box-shadow: 2px 2px 2px black;

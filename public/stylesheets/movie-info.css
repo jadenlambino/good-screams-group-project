@@ -140,6 +140,7 @@ h3 {
 
 .review_container {
   display: flex;
+
   flex-direction: column;
   background-color: black;
   border: 2px solid black;
@@ -165,6 +166,7 @@ h3 {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .single-review-container {
   border: 1px solid white;
   border-radius: 16px;
@@ -173,6 +175,20 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+=======
+.single-review-container{
+   border: 1px solid white;
+   border-radius: 16px;
+   margin: 10px 0px 10px 0px;
+   padding: 0px 10px 10px 10px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+ }
+
+>>>>>>> origin/kristen
 
 .add_review_btn {
   width: 162px;
@@ -237,6 +253,7 @@ h3 {
 }
 
 .submitEditBtn {
+<<<<<<< HEAD
   background-color: #8c4250;
   border: none;
   color: white;
@@ -248,6 +265,20 @@ h3 {
   height: 35px;
   font-size: 14px;
   cursor: pointer;
+=======
+ background-color: #8C4250;
+ border: none;
+ color: white;
+ margin: 0px 0px 4px 5px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: bold;
+ border-radius: 5px;
+ width: 101px;
+ height: 35px;
+ font-size: 14px;
+ cursor: pointer;
+
+>>>>>>> origin/kristen
 }
 
 .submit_review_btn {
@@ -273,6 +304,7 @@ h3 {
 .reviews-content {
   letter-spacing: 0.5px;
   padding: 0;
+  word-wrap: break-word;
 }
 
 li {
@@ -298,9 +330,7 @@ li {
   background-color: white;
   color: black;
   width: 183px;
-  height: 70px;
-  /* width: 250px;
-  height: 50px; */
+  height: 38px;
   border: black 2px solid;
 }
 
@@ -315,8 +345,13 @@ li {
 
 .edit_form_container {
   display: flex;
+<<<<<<< HEAD
   align-items: flex-end;
   margin: 5px;
+=======
+  align-items: flex-start;
+   margin: 5px;
+>>>>>>> origin/kristen
 }
 
 .reviews-edit-content:focus {
@@ -324,7 +359,7 @@ li {
   background-color: white;
   color: black;
   width: 183px;
-  height: 70px;
+  height: 38px;
   border: black 2px solid;
 }
 

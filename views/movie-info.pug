@@ -3,14 +3,16 @@ extends layout.pug
 block content
     div(class='main_movie_container')
         div(class='movie_info_container')
-            div(class='movie_img_container')
-                img(class='movie_img' src=movie.posterImg)
-            div(class='list_button_container')
-                div(class='drop_down')
-                    button(class='list_button drop_btn' type='submit') My List
-                    div(id='my_drop_down' class='drop_down_content')
-                        each list in lists
-                            a(class='add_to_list_name' id=`add_to_listId_${list.id}`)= list.name
+            div(class='poster_add_btn')
+                div(class='movie_img_container')
+                    img(class='movie_img' src=movie.posterImg)
+                div(class='list_button_container')
+                    div(class='drop_down')
+                        button(class='list_button drop_btn' type='submit') My List
+                        div(class='drop_down_container')
+                            div(id='my_drop_down' class='drop_down_content')
+                                each list in lists
+                                    a(class='add_to_list_name' id=`add_to_listId_${list.id}`)= list.name
             div(class='movie_description_container')
                 div(class='movie_info_title')= movie.name
                 div(class='release_date') Release date:&nbsp #{movie.releaseDate.getMonth() + 1} - #{movie.releaseDate.getDay()} - #{movie.releaseDate.getFullYear()}
@@ -30,8 +32,9 @@ block content
                             p(class =`reviews-content userid-${review.userId} reviewId-${review.id}` id = `reviewId-${review.id}`)= review.content
                             li(class = `reviews-owner userid-${review.userId} reviewId-${review.id}`)= `By: ${review.userId}`
                             form(class=`edit-form hidden edit-form-reviewId-${review.id} reviewId-${review.id}`)
-                                textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}`)
-                                button(class=`submitEditBtn editBtn-reviewId-${review.id} reviewId-${review.id}` id =`submitEditbtn-reviewId-${review.id}`) Update Review
+                                div(class='submitEditBtn_container')
+                                    textarea(name="content" class=`reviews-edit-content edit-content-reviewId-${review.id} reviewId-${review.id}`)
+                                    button(class=`submitEditBtn editBtn-reviewId-${review.id} reviewId-${review.id}` id =`submitEditbtn-reviewId-${review.id}`) Update Review
                             if userId === review.userId
                                 button(class=`editbtn userid-${review.userId} reviewId-${review.id}` id =`editbtn-reviewId-${review.id}`) Edit
                                 button(class=`deletebtn userid-${review.userId} reviewId-${review.id}` id=`deletebtn-reviewId-${review.id}`) Delete

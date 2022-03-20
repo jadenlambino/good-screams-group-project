@@ -1,5 +1,5 @@
 div.genre_container
-    h2.genre_title_movies My FavGenre
+    h2.genre_title_movies FavGenre
     div.genre_container_text#list_container
         if faveGenres
             for faveGenre in faveGenres
@@ -16,6 +16,6 @@ div.genre_container
         form(method="post" action="/home")
             select(name="update").select_option_list
                 for genre in genres
-                    option(value=genre.id)=genre.name
+                    option(value=genre.id).option_list_dup=genre.name
             button(type="submit").update_btn_edit_form Add
     button.add_to_lists#edit_favgenre_btn Edit

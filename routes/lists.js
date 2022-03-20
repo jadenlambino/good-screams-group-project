@@ -83,9 +83,13 @@ router.delete(
     console.log(list);
 
     if (list) {
-      await list.destroy();
-      console.log("+++++++++>");
-      res.json({ message: "success" });
+      if (list.name !== "Want to Watch") {
+        await list.destroy();
+
+        res.json({ message: "success" });
+      } else {
+        res.json({ message: 'Cannot Delete "Want to Watch"' });
+      }
     }
   })
 );

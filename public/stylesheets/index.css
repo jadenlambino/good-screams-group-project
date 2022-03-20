@@ -1,3 +1,34 @@
-h1 {
-    color: #555555;
+h1,
+h2,
+h3 {
+    color: white;
+    font-family: "Creepster";
+    text-align: center;
+    margin-right: 43%;
+    width: 100%;
+    margin-top: 20px;
+}
+
+body{
+    background: url('../images/background2.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.everything-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3 a {
+    font-size: larger;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 10%;
+}
+
+h3 a:hover {
+    background-color: grey;
+    border: 2px solid grey;
 }

@@ -1,9 +1,14 @@
-extends layout
+extends layout.pug
 
-append head
-  //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
+//- append head
+//-   //- add page specific styles by appending to the head
+//-   link(rel="stylesheet" href="/stylesheets/index.css")
+//-   //- add page specific js
+//-   script(src="/javascripts/index.js" type="module" defer)
 
 block content
+  div(class='everything-wrapper')
+    h1 Good Screams, your all in one hub of horror!
+    h2 Good Screams gives you access to all the hottest and scariest movies all in one place! Come and seek the horrors within.
+    h3
+      a(href="/users/login") Enter

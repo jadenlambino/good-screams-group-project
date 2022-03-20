@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+html,
+body {
+  height: 100vh;
+}
+
 body {
   margin: 0;
   /* background-color: lightgrey; */
@@ -7,7 +12,7 @@ body {
 
 header {
   background-color: #590202;
-  height: 4em;
+  height: 4rem;
   font-family: "Creepster";
 }
 
@@ -19,6 +24,23 @@ header {
   /* padding: 20px; */
   color: white;
   margin: 0 auto;
+}
+
+footer {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  height: 4rem;
+  background-color: pink;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.person-holder {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 a {

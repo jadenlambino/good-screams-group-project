@@ -3,7 +3,7 @@
   form.modal-content(action='/action_page.php')
     .container
       h1.delete_title Delete
-      p Are you sure you want to delete?
+      p.delete_message Are you sure you want to delete?
       .clearfix
         button.cancelbtn(type='button' onclick="document.getElementById('id01').style.display='none'") Cancel
-        button.deletebtn(type='button') Delete
+        button.deletebtn#style_model_btn(type='button') Delete

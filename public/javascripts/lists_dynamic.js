@@ -207,18 +207,15 @@ async function deleteList() {
 
   deleteBtn.addEventListener("click", async (e) => {
     const modelDeletebutton = document.querySelector(".deletebtn");
+    const deleteMessage = document.querySelector(".delete_message");
     const modelPopUp = document.querySelector("#id01");
     const modelTitle = document.querySelector(".delete_title");
     const listId = deleteBtn.className.split("-")[3];
     modelPopUp.style.display = "block";
     modelTitle.innerText = "Delete List";
+    deleteMessage.innerText = "Are you sure you want to delete?";
+    modelDeletebutton.setAttribute("class", "deletebtn");
     modelDeletebutton.classList.add(`delete-button-listid-${listId}`);
-
-    // const res = await fetch(`/mylists/${listId}`, { method: "DELETE" });
-    // const response = await res.json();
-    // if (response.message === "success") {
-    //   window.location.reload();
-    // }
   });
 }
 
@@ -227,10 +224,16 @@ async function deleteBtnModel() {
 
   deleteBtn.addEventListener("click", async (e) => {
     const listId = deleteBtn.className.split("-")[3];
+    console.log(deleteBtn.className);
+    console.log(listId);
+    const deleteMessage = document.querySelector(".delete_message");
     const res = await fetch(`/mylists/${listId}`, { method: "DELETE" });
     const response = await res.json();
     if (response.message === "success") {
       window.location.reload();
+    } else if (response.message === 'Cannot Delete "Want to Watch"') {
+      // console.log(response.message);
+      deleteMessage.innerText = response.message;
     }
   });
 }
@@ -274,10 +277,10 @@ async function deleteMovieFromList() {
 window.addEventListener("load", async (event) => {
   // deleteMovieFromList();
   // closeModel();
-  // deleteBtnModel();
+  deleteBtnModel();
   addToList();
   dynamicClick();
   renameList();
-  // deleteList();
+  deleteList();
   console.log("testing!!!!!!!!!!1");
 });

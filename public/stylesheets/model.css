@@ -1,6 +1,6 @@
 /* Float cancel and delete buttons and add an equal width */
 .cancelbtn,
-.deletebtn {
+#style_model_btn {
   width: 50%;
 }
 
@@ -11,7 +11,7 @@
 }
 
 /* Add a color to the delete button */
-.deletebtn {
+#style_model_btn {
   background-color: #f44336;
 }
 

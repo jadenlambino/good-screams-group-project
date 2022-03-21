@@ -25,14 +25,19 @@ router.get(
     });
 
     const faveGenres = await db.FavGenre.findAll({
-      
+      // include: db.SubGenre,
       where: {
         userId,
       },
       order: [["id", "ASC"]],
     });
 
-
+    // const notfaveGenres = await db.FavGenre.findAll({
+    //   where: {
+    //     userId: { [Op.ne]: userId },
+    //   },
+    //   order: [["id", "ASC"]],
+    // });
 
     for (let i = 0; i < 4; i++) {
       if (fourMedia.size < 4) {
@@ -78,7 +83,6 @@ router.delete(
         subGenreId: parseInt(subGenreId, 10),
       },
     });
-
 
     if (favGenre) {
       await favGenre.destroy();

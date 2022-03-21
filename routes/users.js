@@ -8,7 +8,7 @@ const { loginUser } = require("../auth");
 const db = require("../db/models");
 const { validationResult } = require("express-validator");
 
-
+/* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
@@ -50,7 +50,7 @@ router.post(
       res.redirect("/home");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      console.log(errors);
+
       res.render("sign-up-form2", {
         title: "Signup",
         errors,

@@ -20,12 +20,6 @@ window.addEventListener("load", async (event) => {
     }
   });
 
-  const optionSelected = document.querySelector(".option_list_dup");
-
-  optionSelected.addEventListener("click", (e) => {
-    console.log(optionSelected.value);
-  });
-
   const updateBtn = document.querySelector(".update_btn_edit_form ");
 
   updateBtn.addEventListener("click", async (e) => {
@@ -40,12 +34,9 @@ window.addEventListener("load", async (event) => {
 
     const response = await res.json();
     if (response.message === "Successful") {
-
       window.location.reload();
     }
   });
-
-
 
   const deleteConnection = document.querySelectorAll(".delete_from_db");
 
@@ -61,7 +52,6 @@ window.addEventListener("load", async (event) => {
 
       const response = await res.json();
       if (response.message === "Successful") {
-      
         window.location.reload();
       }
     });

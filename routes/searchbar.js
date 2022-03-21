@@ -16,10 +16,9 @@ router.post('/', asyncHandler(async (req, res) => {
             }
         },
     })
-    console.log(searchResults)
+
     if (searchResults) {
         res.json({ message: "Success", searchResult: searchResults })
-        // res.json({ result: searchResults })
     } else {
         res.json({ message: "No results found" })
     }

@@ -57,7 +57,7 @@ async function editBtn() {
         `.edit-content-reviewId-${reviewId}`
       );
       const content = currentTextarea.value;
-
+      console.log(content);
 
       const res = await fetch(`/reviews/${reviewId}`, {
         method: "PATCH",
@@ -67,7 +67,7 @@ async function editBtn() {
 
       const final = await res.json();
       const form = document.querySelector(`.edit-form-reviewId-${reviewId}`);
-     
+      console.log(final);
       if (final.message === "Review has been updated") {
         const review = document.getElementById(`reviewId-${reviewId}`);
         review.innerHTML = final.review.content;
@@ -81,7 +81,7 @@ async function editBtn() {
 async function dropDownList(movieId) {
   const myListBtn = document.querySelector(".drop_btn");
   myListBtn.addEventListener("click", async (event) => {
-
+    console.log("testing");
     const listContainer = document.getElementById("my_drop_down");
     console.log(listContainer);
     const className = listContainer.className.split(" ")[1];

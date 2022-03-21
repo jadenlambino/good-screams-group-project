@@ -1,13 +1,13 @@
 window.addEventListener("load", async (event) => {
   const searchBar = document.querySelector(".bar");
-
+  // console.log(searchBar)
   searchBar.addEventListener("input", async (e) => {
     const clearDropDown = document.querySelectorAll(".Sresult-drop-down");
     clearDropDown.forEach((results) => {
       results.remove();
     });
     let inputValue = e.target.value;
-
+    console.log(inputValue);
     if (inputValue) {
       const res = await fetch(`/search`, {
         method: "POST",
@@ -17,7 +17,7 @@ window.addEventListener("load", async (event) => {
       const response = await res.json();
 
       if (response.message === "Success") {
-        
+        console.log(response.searchResult);
         const dropDown = document.querySelector("#Smy_drop_down");
         response.searchResult.forEach((result) => {
           const aTag = document.createElement("a");

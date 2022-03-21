@@ -25,14 +25,19 @@ router.get(
     });
 
     const faveGenres = await db.FavGenre.findAll({
-      
+      // include: db.SubGenre,
       where: {
         userId,
       },
       order: [["id", "ASC"]],
     });
 
-
+    // const notfaveGenres = await db.FavGenre.findAll({
+    //   where: {
+    //     userId: { [Op.ne]: userId },
+    //   },
+    //   order: [["id", "ASC"]],
+    // });
 
     for (let i = 0; i < 4; i++) {
       if (fourMedia.size < 4) {
@@ -41,7 +46,7 @@ router.get(
     }
 
     const fourArr = Array.from(fourMedia);
-
+    console.log(faveGenres);
     res.render("home", { title: "Home", faveGenres, genres, fourArr });
   })
 );
@@ -79,6 +84,7 @@ router.delete(
       },
     });
 
+    console.log("=======", favGenre);
 
     if (favGenre) {
       await favGenre.destroy();

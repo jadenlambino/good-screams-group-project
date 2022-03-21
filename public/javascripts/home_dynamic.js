@@ -40,12 +40,16 @@ window.addEventListener("load", async (event) => {
 
     const response = await res.json();
     if (response.message === "Successful") {
-
+      console.log("worked");
       window.location.reload();
     }
   });
 
+  // const deleteBtn = document.querySelector("#delete_favgenre_btn");
 
+  // deleteBtn.addEventListener("click", (e) => {
+  //   console.log(e.target);
+  // });
 
   const deleteConnection = document.querySelectorAll(".delete_from_db");
 
@@ -61,7 +65,7 @@ window.addEventListener("load", async (event) => {
 
       const response = await res.json();
       if (response.message === "Successful") {
-      
+        console.log("worked");
         window.location.reload();
       }
     });

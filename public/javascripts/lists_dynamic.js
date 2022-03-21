@@ -56,6 +56,7 @@ async function dynamicClick() {
       const renameBtn = document.getElementById("rename_btn");
 
       listsNames.forEach((lN) => {
+        console.log(lN);
         lN.style.fontWeight = "normal";
         lN.style.fontSize = "16px";
         lN.style.color = "white";
@@ -131,6 +132,7 @@ async function addToList() {
       listContainer.appendChild(lDiv);
       form.setAttribute("id", "hidden");
       inputContent.value = "";
+      // window.location.reload();
       dynamicClick();
     }
   });
@@ -200,7 +202,8 @@ async function deleteBtnModel() {
 
   deleteBtn.addEventListener("click", async (e) => {
     const listId = deleteBtn.className.split("-")[3];
-
+    console.log(deleteBtn.className);
+    console.log(listId);
     const deleteMessage = document.querySelector(".delete_message");
     const res = await fetch(`/mylists/${listId}`, { method: "DELETE" });
     const response = await res.json();
@@ -259,9 +262,11 @@ async function deleteMovieFromList() {
 window.addEventListener("load", async (event) => {
   reloadGenreTableText();
   deleteMovieFromList();
+  // closeModel();
   deleteBtnModel();
   addToList();
   dynamicClick();
   renameList();
   deleteList();
+  console.log("testing!!!!!!!!!!1");
 });

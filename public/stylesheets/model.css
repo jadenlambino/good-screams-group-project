@@ -4,8 +4,10 @@
 }
 
 .cancelbtn {
-  background-color: #ccc;
+  background-color: #8c4250;
   color: black;
+  border: none;
+  border-radius: 5px;
 }
 
 #style_model_btn {

@@ -40,7 +40,7 @@ html
               li
                 if locals.authenticated
                   form(class='click' action='/users/logout' method='post')
-                    button(class='btn' type='submit') LOGOUT
+                    button(class='logout-btn' type='submit') LOGOUT
                 else
                   span(class='userSpan')
                     a(class='click' href='/users/login') LOG IN

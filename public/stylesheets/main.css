@@ -156,3 +156,17 @@ span a {
 .search {
   border-radius: 0%;
 }
+
+.logout-btn {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    font-family: "Creepster";
+    font-size: larger;
+    color: white;
+}
+
+.click {
+  color: white;
+}

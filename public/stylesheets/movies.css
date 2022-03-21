@@ -30,6 +30,7 @@ img {
   position: sticky;
   top: 35px;
   margin-left: 10px;
+  align-items: center;
 }
 
 .genre_title_movies {

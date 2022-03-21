@@ -94,3 +94,7 @@
 #rename_btn {
   background-color: rgb(100, 13, 13);
 }
+
+#edit_favgenre_btn {
+  width: 50px;
+}

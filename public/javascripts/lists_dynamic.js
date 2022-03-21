@@ -26,6 +26,20 @@ function reloadGenreTableText() {
   listsNames[0].style.color = "red";
 }
 
+function errorDefaultModel(response) {
+  const model = document.querySelector("#id01");
+  const modelMessage = document.querySelector(".delete_message");
+  const modelDeleteTitle = document.querySelector(".delete_title");
+  const modelDeleteBtn = document.querySelector(".deletebtn");
+
+  model.style.display = "block";
+  modelDeleteTitle.innerText = "Error";
+  modelMessage.innerText = response.message;
+  modelMessage.style.color = "red";
+  modelMessage.style.fontWeight = "bolder";
+  modelDeleteBtn.style.display = "none";
+}
+
 async function dynamicClick() {
   const listsNames = document.querySelectorAll(".list-names");
 
@@ -158,6 +172,8 @@ async function renameList() {
       title.innerText = renameInput;
       renameForm.setAttribute("id", "hidden");
       listTableName.innerText = renameInput;
+    } else if (response.message === `Cannot Edit "Want to Watch" name`) {
+      errorDefaultModel(response);
     }
   });
 }
@@ -174,6 +190,8 @@ async function deleteList() {
     modelPopUp.style.display = "block";
     modelTitle.innerText = "Delete List";
     deleteMessage.innerText = "Are you sure you want to delete?";
+    deleteMessage.style.color = "white";
+    modelDeletebutton.style.removeProperty("display");
     modelDeletebutton.setAttribute("class", "deletebtn");
     modelDeletebutton.classList.add(`delete-button-listid-${listId}`);
   });
@@ -192,8 +210,8 @@ async function deleteBtnModel() {
     if (response.message === "success") {
       window.location.reload();
     } else if (response.message === 'Cannot Delete "Want to Watch"') {
-      // console.log(response.message);
       deleteMessage.innerText = response.message;
+      deleteMessage.style.color = "red";
     }
   });
 }

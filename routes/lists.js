@@ -67,14 +67,12 @@ router.patch(
 
     const list = await db.List.findByPk(listId);
 
-    if (list && list.name !== "Want to Watch") {
+    if (list) {
       list.name = req.body.name;
       await list.save();
       res.json({ message: "Successful" });
-    } else if (list.name === "Want to Watch") {
-      res.json({ message: `Cannot Edit "Want to Watch" name` });
     } else {
-      res.json({ message: "List was not found" });
+      res.json({ message: "List does not exist" });
     }
   })
 );

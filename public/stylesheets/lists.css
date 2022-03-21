@@ -26,7 +26,6 @@
   font-family: "Creepster";
   font-size: 30px;
   color: white;
-  margin-left: 10px;
 }
 
 .add_form {
@@ -48,55 +47,4 @@
 .remove_icon {
   display: flex;
   flex-direction: column;
-}
-
-#add-list-btn,
-#delete_btn,
-#edit_btn,
-#confirm_btn,
-#rename_btn {
-  background-color: #8c4250;
-  border-radius: 5px;
-  color: white;
-  border: none;
-  font-family: "Arial, Helvetica, sans-serifArial, Helvetica, sans-serif";
-  font-weight: bold;
-}
-
-#delete_btn,
-#edit_btn {
-  margin: 2.5px;
-}
-
-#input_content,
-#rename_input {
-  border-radius: 10px;
-  text-align: center;
-}
-#rename_input {
-  margin-right: 0.5px;
-}
-
-#input_content,
-#confirm_btn {
-  margin: 2px;
-}
-
-#add-list-btn:hover {
-  background-color: rgb(100, 13, 13);
-}
-
-#delete_btn:hover {
-  background-color: red;
-}
-
-#edit_btn:hover {
-  background-color: rgb(100, 13, 13);
-}
-#rename_btn:hover {
-  background-color: rgb(100, 13, 13);
-}
-
-#confirm_btn:hover {
-  background-color: rgb(100, 13, 13);
 }

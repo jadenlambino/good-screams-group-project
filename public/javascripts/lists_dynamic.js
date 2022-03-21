@@ -56,7 +56,6 @@ async function dynamicClick() {
       const renameBtn = document.getElementById("rename_btn");
 
       listsNames.forEach((lN) => {
-
         lN.style.fontWeight = "normal";
         lN.style.fontSize = "16px";
         lN.style.color = "white";
@@ -208,10 +207,6 @@ async function deleteBtnModel() {
     if (response.message === "success") {
       window.location.reload();
     } else if (response.message === 'Cannot Delete "Want to Watch"') {
-<<<<<<< HEAD
-=======
-
->>>>>>> main
       deleteMessage.innerText = response.message;
       deleteMessage.style.color = "red";
     }

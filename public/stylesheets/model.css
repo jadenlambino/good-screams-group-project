@@ -10,27 +10,15 @@
   border-radius: 5px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 #style_model_btn {
   background-color: #f44336;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 .container {
   padding: 16px;
   text-align: center;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 .modal {
   display: none;
   position: fixed;
@@ -44,10 +32,6 @@
   padding-top: 50px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 .modal-content {
   background-color: black;
   color: white;
@@ -58,19 +42,11 @@
   width: 250px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 .close {
   position: absolute;
   right: 35px;
@@ -86,20 +62,12 @@ hr {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 @media screen and (max-width: 300px) {
   .cancelbtn,
   .deletebtn {

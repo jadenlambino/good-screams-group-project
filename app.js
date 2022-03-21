@@ -16,12 +16,12 @@ const listsRouter = require("./routes/lists");
 const { environment, sessionSecret } = require("./config");
 const { restoreUser } = require("./auth");
 const { csrfProtection, asyncHandler } = require("./routes/utils");
-const searchRouter = require('./routes/searchbar');
+const searchRouter = require("./routes/searchbar");
 
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "http://play.google.com" }));
 
 app.set("view engine", "pug");
 
@@ -30,7 +30,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, "public")));
-
 
 const store = new SequelizeStore({ db: sequelize });
 
@@ -53,7 +52,7 @@ app.use("/home", homeRouter);
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/mylists", listsRouter);
-app.use("/search", searchRouter)
+app.use("/search", searchRouter);
 
 app.use((req, res, next) => {
   const err = new Error("The requested page couldn't be found.");
@@ -89,6 +88,5 @@ app.use((err, req, res, next) => {
     stack: isProduction ? null : err.stack,
   });
 });
-
 
 module.exports = app;

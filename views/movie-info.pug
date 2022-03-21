@@ -25,7 +25,7 @@ block content
                     each review in movie.Reviews.reverse()
                         div(class=`single-review-container` id=`div-reviewId-${review.id}`)
                             p(class =`reviews-content userid-${review.userId} reviewId-${review.id}` id = `reviewId-${review.id}`)= review.content
-                            li(class = `reviews-owner userid-${review.userId} reviewId-${review.id}`)= `By: ${review.userId}`
+                            li(class = `reviews-owner userid-${review.userId} reviewId-${review.id}`)= `By: ${review.User.firstName} ${review.User.lastName}`
                             div(class='edit_form_container')
                                 form(class=`edit-form hidden edit-form-reviewId-${review.id} reviewId-${review.id}`)
                                     div(class='submitEditBtn_container')

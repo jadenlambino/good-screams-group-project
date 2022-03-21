@@ -12,9 +12,13 @@ div(class='login-container')
             label(for="hashedPassword") Password:
             input(type="password" name="hashedPassword" id="hashedPassword" required)
         div(class="button-container")
-            button(id='demo-button') Demo
             button(id="login-button") Submit
             button(id='cancel-button') Cancel
+        div(class='other-button-container')
+            div(class='redirect-container')
+                p(id='no-account') Not a member?
+                button(id='sign-up-redirect-button'): a(href="/users/signup" id='sign-up-redirect-link') Sign Up
+                button(id='demo-button') Demo 
     if errors
         div(id="errors")
             ul

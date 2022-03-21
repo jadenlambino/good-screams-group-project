@@ -23,6 +23,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 5px;
 }
 
 .Sdrop_down_content a {
@@ -48,8 +49,10 @@
   background-color: black;
   color: white;
   font-size: 18px;
-  font-family: 'Creepster';
+  font-family: "Creepster";
   letter-spacing: 1.5px;
+  border-radius: 5px;
+
   /* display: flex;
   justify-content: center;
   text-align: center; */
@@ -60,14 +63,18 @@
 }
 
 /* added */
-.Sdrop_down_content::-webkit-scrollbar{
+.Sdrop_down_content::-webkit-scrollbar {
   background-color: rgb(36, 33, 33);
   border-radius: 2px;
 }
 
 .Sdrop_down_content::-webkit-scrollbar-thumb {
-background: black;
-border: white .01px solid;
-border-radius: 2px;
+  background: black;
+  border: white 0.01px solid;
+  border-radius: 2px;
+}
 
+.searchbarmoving {
+  display: flex;
+  flex-direction: column;
 }

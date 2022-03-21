@@ -36,8 +36,9 @@ html
               li
                 div(class='search')
                   form(action='' autocomplete = "off")
-                    input(class='bar', type="search", name="search", placeholder='Search Movies')
-                    include includes/drop-down.pug
+                    div.searchbarmoving
+                      input(class='bar', type="search", name="search", placeholder='Search Movies')
+                      include includes/drop-down.pug
               li
                 if locals.authenticated
                   div(class='gooduser')

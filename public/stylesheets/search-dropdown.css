@@ -11,10 +11,10 @@
   background-color: rgb(100, 13, 13);
 }
 
-.Sdrop_down {
+/* .Sdrop_down {
   position: relative;
   display: inline-block;
-}
+} */
 
 .Sdrop_down_content {
   display: none;
@@ -24,6 +24,8 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 
 .Sdrop_down_content a {

@@ -26,10 +26,10 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-let counter = 140;
+let counter = 139;
 
 for (let i = 1; i <= counter; i++) {
-  const rand = getRandomInt(1, 5);
+  const rand = getRandomInt(2, 6);
   for (let j = 0; j < rand; j++) {
     results.push({
       content: reviewArr[getRandomInt(0, 15)],

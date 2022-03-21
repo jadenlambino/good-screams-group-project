@@ -110,7 +110,9 @@ async function addToList() {
     const inputContent = document.getElementById("input_content");
     const form = document.querySelector(".add_form");
 
-    if (inputContent.value !== "Want to Watch") {
+    if (!inputContent.value) {
+      errorDefaultModel({ message: `List Name can NOT be Empty` });
+    } else if (inputContent.value !== "Want to Watch") {
       const res = await fetch("/mylists/new", {
         method: "POST",
         headers: {
@@ -135,8 +137,6 @@ async function addToList() {
         // window.location.reload();
         dynamicClick();
       }
-    } else if (!inputContent.value) {
-      errorDefaultModel({ message: `List Name can NOT be Empty` });
     } else if (inputContent.value === "Want to Watch") {
       errorDefaultModel({
         message: `Cannot Create a List with the name "Want to Watch"`,

@@ -21,7 +21,7 @@ router.get(
       order: [["id", "ASC"]],
     });
 
-    console.log(lists[0]);
+    
 
     res.render("lists", { title: "Lists", lists, id: userId });
   })
@@ -84,7 +84,7 @@ router.delete(
   asyncHandler(async (req, res) => {
     const listId = parseInt(req.params.id, 10);
     const list = await db.List.findByPk(listId);
-    console.log(list);
+
 
     if (list) {
       if (list.name !== "Want to Watch") {

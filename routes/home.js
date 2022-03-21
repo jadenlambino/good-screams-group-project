@@ -46,7 +46,7 @@ router.get(
     }
 
     const fourArr = Array.from(fourMedia);
-    console.log(faveGenres);
+
     res.render("home", { title: "Home", faveGenres, genres, fourArr });
   })
 );
@@ -83,8 +83,6 @@ router.delete(
         subGenreId: parseInt(subGenreId, 10),
       },
     });
-
-    console.log("=======", favGenre);
 
     if (favGenre) {
       await favGenre.destroy();

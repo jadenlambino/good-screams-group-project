@@ -50,7 +50,7 @@ router.post(
       res.redirect("/home");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      console.log(errors);
+
       res.render("sign-up-form2", {
         title: "Signup",
         errors,

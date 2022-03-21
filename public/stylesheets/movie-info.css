@@ -118,7 +118,11 @@
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .list_button:hover {
+=======
+.list_button:hover{
+>>>>>>> main
   background-color: rgb(100, 13, 13);
   font-size: 18px;
 }
@@ -153,14 +157,22 @@ h3 {
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .reviews_description::-webkit-scrollbar {
+=======
+.reviews_description::-webkit-scrollbar{
+>>>>>>> main
   background-color: rgb(29, 27, 27);
   border-radius: 5px;
 }
 
 .reviews_description::-webkit-scrollbar-thumb {
   background: black;
+<<<<<<< HEAD
   border: white 0.01px solid;
+=======
+  border: white .01px solid;
+>>>>>>> main
   border-radius: 5px;
 }
 
@@ -204,7 +216,11 @@ h3 {
   border: none;
 }
 
+<<<<<<< HEAD
 .add_review_btn:hover {
+=======
+.add_review_btn:hover{
+>>>>>>> main
   background-color: rgb(100, 13, 13);
   font-size: 18px;
 }
@@ -229,7 +245,11 @@ h3 {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .editbtn:hover {
+=======
+.editbtn:hover{
+>>>>>>> main
   background-color: rgb(100, 13, 13);
   font-size: 15px;
 }
@@ -248,7 +268,11 @@ h3 {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .deletebtn:hover {
+=======
+.deletebtn:hover{
+>>>>>>> main
   background-color: red;
   font-size: 15px;
 }
@@ -267,6 +291,7 @@ h3 {
 }
 
 .submitEditBtn {
+<<<<<<< HEAD
   background-color: #8c4250;
   border: none;
   color: white;
@@ -278,6 +303,24 @@ h3 {
   height: 38px;
   font-size: 14px;
   cursor: pointer;
+=======
+ background-color: #8C4250;
+ border: none;
+ color: white;
+ margin: 0px 0px 4px 5px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight: bold;
+ border-radius: 5px;
+ width: 101px;
+ height: 38px;
+ font-size: 14px;
+ cursor: pointer;
+}
+
+.submitEditBtn:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 16px;
+>>>>>>> main
 }
 
 .submitEditBtn:hover {
@@ -300,7 +343,11 @@ h3 {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .submit_review_btn:hover {
+=======
+.submit_review_btn:hover{
+>>>>>>> main
   background-color: rgb(100, 13, 13);
   font-size: 16px;
 }
@@ -325,7 +372,7 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all 0.8s ease-in-out;
+  transition: all .8s ease-in-out;
   background-color: black;
   border: 1.5px white solid;
 }
@@ -380,7 +427,7 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all 0.8s ease-in-out;
+  transition: all .8s ease-in-out;
   background-color: black;
   border: 1.5px white solid;
 }

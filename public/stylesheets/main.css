@@ -64,7 +64,7 @@ a {
   font-size: 70px;
   float: left;
   /* padding: 10px 0; */
-  -webkit-text-stroke: 1px black;
+  /* -webkit-text-stroke: 1px black; */
   font-family: "zombies_rebornregular";
 }
 
@@ -162,6 +162,7 @@ span a {
   height: 28px;
   border-color: #400404;
   box-shadow: 5px 5px 5px black;
+  /* position: relative; */
 }
 
 .bar::placeholder {

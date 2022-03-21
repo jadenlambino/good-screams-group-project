@@ -17,7 +17,7 @@ router.get(
 router.get(
   "/:id(\\d+)",
   requireAuth,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     const { userId } = req.session.auth;
     const id = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(id, {
@@ -33,7 +33,7 @@ router.get(
 
     if (movie) {
       res.render("movie-info", { title: movie.name, movie, lists, userId });
-    }
+    } else next();
   })
 );
 

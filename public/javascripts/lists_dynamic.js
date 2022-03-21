@@ -107,35 +107,46 @@ async function addToList() {
   const confirmBtn = document.getElementById("confirm_btn");
 
   confirmBtn.addEventListener("click", async (e) => {
+    const sameName = false;
     const inputContent = document.getElementById("input_content");
     const form = document.querySelector(".add_form");
 
     if (!inputContent.value) {
       errorDefaultModel({ message: `List Name can NOT be Empty` });
     } else if (inputContent.value !== "Want to Watch") {
-      const res = await fetch("/mylists/new", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: inputContent.value }),
-      });
-      const response = await res.json();
+      const listNamesTable = document.querySelectorAll(".list-names");
 
-      if (response.message === "List was added") {
-        const listContainer = document.getElementById("list_container");
-        const lDiv = document.createElement("div");
-        const aTag = document.createElement("a");
-        aTag.innerText = inputContent.value;
-        aTag.classList.add("list-names");
-        aTag.classList.add(`a-tag-list-${response.listId}`);
-        aTag.classList.add(".hovergenreText");
-        lDiv.appendChild(aTag);
-        listContainer.appendChild(lDiv);
-        form.setAttribute("id", "hidden");
-        inputContent.value = "";
-        // window.location.reload();
-        dynamicClick();
+      listNamesTable.forEach((ele) => {
+        if (ele.innerText === inputContent.value) {
+          errorDefaultModel({ message: `List Already Exists` });
+          sameName = true;
+        }
+      });
+      if (!sameName) {
+        const res = await fetch("/mylists/new", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name: inputContent.value }),
+        });
+        const response = await res.json();
+
+        if (response.message === "List was added") {
+          const listContainer = document.getElementById("list_container");
+          const lDiv = document.createElement("div");
+          const aTag = document.createElement("a");
+          aTag.innerText = inputContent.value;
+          aTag.classList.add("list-names");
+          aTag.classList.add(`a-tag-list-${response.listId}`);
+          aTag.classList.add(".hovergenreText");
+          lDiv.appendChild(aTag);
+          listContainer.appendChild(lDiv);
+          form.setAttribute("id", "hidden");
+          inputContent.value = "";
+          // window.location.reload();
+          dynamicClick();
+        }
       }
     } else if (inputContent.value === "Want to Watch") {
       errorDefaultModel({

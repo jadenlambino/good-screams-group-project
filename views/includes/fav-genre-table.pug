@@ -2,11 +2,12 @@ div.genre_container
     h2.genre_title_movies FavGenre
     div.genre_container_text#list_container
         if faveGenres
-            for faveGenre in faveGenres
-                for genre in genres
-                    if faveGenre.subGenreId === genre.id
-                        a= genre.name
-                        button#hidden(class=`delete_from_db delete_from_db_${genre.id}`) Delete
+                 div.genre_table_scroll#list_container
+                    for faveGenre in faveGenres
+                        for genre in genres
+                            if faveGenre.subGenreId === genre.id
+                                    a= genre.name
+                                    button#hidden(class=`delete_from_db delete_from_db_${genre.id}`) Delete
 
 
         //-     for userInfo in usersInfo[0].SubGenres
@@ -18,4 +19,4 @@ div.genre_container
                 for genre in genres
                     option(value=genre.id).option_list_dup=genre.name
             button(type="submit").update_btn_edit_form Add
-    button.add_to_lists#edit_favgenre_btn Edit
+    button.add_to_lists#edit_favgenre_btn Add/Delete

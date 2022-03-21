@@ -61,7 +61,7 @@ a {
   /* font-size: 32px; */
   font-size: 70px;
   float: left;
-  padding: 10px 0;
+  padding: 3px 0;
   -webkit-text-stroke: 1px black;
   font-family: "zombies_rebornregular";
 }
@@ -115,7 +115,8 @@ span a {
     background-color: #0b0b0d;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 .dropmenu {

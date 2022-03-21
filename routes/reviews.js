@@ -28,7 +28,7 @@ router.get(
 const reviewValidation = [
   check("content")
     .exists({ checkFalsey: true })
-    .withMessage("Please fill out the texbox."),
+    .withMessage("Please fill out the textbox."),
 ];
 
 router.post(
@@ -54,6 +54,7 @@ router.post(
 router.delete(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
+
     const reviewId = parseInt(req.params.id, 10);
     const review = await db.Review.findByPk(reviewId, {});
 

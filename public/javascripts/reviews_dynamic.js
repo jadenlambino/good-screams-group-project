@@ -21,7 +21,6 @@ async function deleteBtn() {
       } else {
         const pTag = document.createElement("p");
         pTag.innerText = "Error";
-        pTag.style.color = "red";
         reviewsDiv.appendChild(pTag);
       }
     });
@@ -59,37 +58,21 @@ async function editBtn() {
       );
       const content = currentTextarea.value;
 
-      const reviewID = currentTextarea.classList[2].split("-")[1];
 
-      const reviewContainerError = document.querySelector(
-        `#div-reviewId-${reviewID}`
-      );
-      const errorMessage = document.querySelector(".ErrorMessageForEditReview");
-      if (errorMessage) {
-        errorMessage.remove();
-      }
+      const res = await fetch(`/reviews/${reviewId}`, {
+        method: "PATCH",
+        body: JSON.stringify({ content: content }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-      if (content) {
-        const res = await fetch(`/reviews/${reviewId}`, {
-          method: "PATCH",
-          body: JSON.stringify({ content: content }),
-          headers: { "Content-Type": "application/json" },
-        });
-
-        const final = await res.json();
-        const form = document.querySelector(`.edit-form-reviewId-${reviewId}`);
-        if (final.message === "Review has been updated") {
-          const review = document.getElementById(`reviewId-${reviewId}`);
-          review.innerHTML = final.review.content;
-          form.classList.add("hidden");
-          currentTextarea.value = "";
-        }
-      } else {
-        const pTag = document.createElement("p");
-        pTag.innerText = "Review can not be empty";
-        pTag.style.color = "red";
-        pTag.classList.add("ErrorMessageForEditReview");
-        reviewContainerError.appendChild(pTag);
+      const final = await res.json();
+      const form = document.querySelector(`.edit-form-reviewId-${reviewId}`);
+     
+      if (final.message === "Review has been updated") {
+        const review = document.getElementById(`reviewId-${reviewId}`);
+        review.innerHTML = final.review.content;
+        form.classList.add("hidden");
+        currentTextarea.value = "";
       }
     });
   }
@@ -98,7 +81,9 @@ async function editBtn() {
 async function dropDownList(movieId) {
   const myListBtn = document.querySelector(".drop_btn");
   myListBtn.addEventListener("click", async (event) => {
+
     const listContainer = document.getElementById("my_drop_down");
+    console.log(listContainer);
     const className = listContainer.className.split(" ")[1];
     if (className !== "show") {
       listContainer.classList.add("show");
@@ -144,40 +129,25 @@ async function makeReview(movieId) {
 
   submitbtn.addEventListener("click", async (e) => {
     e.preventDefault();
-    const errorMessage = document.querySelector(".ErrorMessageForMakingReview");
-    if (errorMessage) {
-      errorMessage.remove();
-    }
 
     const textContentButton = document.getElementById("textarea");
 
-    if (textContentButton.value) {
-      const res = await fetch(`/reviews/new/movies/${movieId}`, {
-        method: "POST",
-        body: JSON.stringify({ content: textContentButton.value }),
-        headers: { "Content-Type": "application/json" },
-      });
+    const res = await fetch(`/reviews/new/movies/${movieId}`, {
+      method: "POST",
+      body: JSON.stringify({ content: textContentButton.value }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      const response = await res.json();
+    const response = await res.json();
 
-      if (response.message === "Success") {
-        textContentButton.value = "";
-        newReviewForm.classList.add("hidden");
-        editBtn();
-        deleteBtn();
-        window.location.reload();
-      }
+    if (response.message === "Success") {
+      textContentButton.value = "";
+      newReviewForm.classList.add("hidden");
+      editBtn();
+      deleteBtn();
+      window.location.reload();
     } else {
-      const errorPostContainer = document.querySelector(
-        ".submit_review_container"
-      );
-
-      const pTag = document.createElement("p");
-      pTag.innerText = "Review can not be empty";
-      pTag.style.color = "red";
-      pTag.style.paddingLeft = "8px";
-      pTag.classList.add("ErrorMessageForMakingReview");
-      errorPostContainer.appendChild(pTag);
+      console.log("error");
     }
   });
 }

@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
 }
 
 .type_title {
@@ -14,38 +13,8 @@
 .movie_column_container_video {
   width: 1080px;
   height: 475px;
-  display: flex;
 }
 .video_conatiner {
-  margin: 15px;
+  margin: 5px;
   padding: 5px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 150px;
-}
-
-#edit_favgenre_btn {
-  width: 50px;
-}
-
-.delete_from_db,
-.update_btn_edit_form,
-.add_to_lists {
-  background-color: #8c4250;
-  border: none;
-  border-radius: 2px;
-  color: white;
-  font-family: "Arial, Helvetica, sans-serif";
-  font-weight: "bolder";
-}
-
-.delete_from_db:hover {
-  background-color: red;
-}
-.update_btn_edit_form:hover {
-  background-color: rgb(100, 13, 13);
-}
-.add_to_lists:hover {
-  background-color: rgb(100, 13, 13);
 }

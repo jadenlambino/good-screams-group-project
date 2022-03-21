@@ -107,7 +107,7 @@ async function addToList() {
   const confirmBtn = document.getElementById("confirm_btn");
 
   confirmBtn.addEventListener("click", async (e) => {
-    const sameName = false;
+    let sameName = false;
     const inputContent = document.getElementById("input_content");
     const form = document.querySelector(".add_form");
 

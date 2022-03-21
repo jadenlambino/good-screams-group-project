@@ -140,7 +140,6 @@ h3 {
 
 .review_container {
   display: flex;
-
   flex-direction: column;
   background-color: black;
   border: 2px solid black;
@@ -157,9 +156,8 @@ h3 {
 .reviews_description::-webkit-scrollbar-thumb {
   background: black;
   border: white .01px solid;
+  border-radius: 5px;
 }
-
-
 
 .reviews_description {
   display: flex;
@@ -177,7 +175,7 @@ h3 {
 .single-review-container {
   border: 1px solid white;
   border-radius: 16px;
-  margin: 10px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
   padding: 0px 10px 10px 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -298,7 +296,7 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  /* transition: all .8s ease-in-out; */
+  transition: all .8s ease-in-out;
   background-color: black;
   border: 1.5px white solid;
 }
@@ -344,12 +342,16 @@ li {
   cursor: pointer;
 }
 
+.reviews-edit-content::-webkit-scrollbar {
+  display: none;
+}
+
 .reviews-edit-content {
   border-radius: 6px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  /* transition: all .8s ease-in-out; */
+  transition: all .8s ease-in-out;
   background-color: black;
   border: 1.5px white solid;
 }

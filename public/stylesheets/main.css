@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 html,
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 body {
@@ -11,12 +11,12 @@ body {
 }
 
 .full-container {
-    position: relative;
-    min-height: 100vh;
+  position: relative;
+  min-height: 100vh;
 }
 
 .holder {
-padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 header {
@@ -38,13 +38,13 @@ header {
 }
 
 footer {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    height: 3rem;
-    background-color: #0b0b0d;
-    flex: 1 0 auto;
-    width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
+  background-color: #0b0b0d;
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 .person-holder {
@@ -52,6 +52,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    margin-top: 8px;
 }
 
 a {
@@ -117,40 +118,42 @@ span a {
     background-color: #0b0b0d;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 8px;
+    font-size: 16px;
 }
 
 .dropmenu {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .drop-content {
-    font-family: "Creepster";
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
+  font-family: "Creepster";
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
 }
 
 .drop-content a {
-    /* color: black; */
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    font-size: small;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  font-size: small;
 }
 
 .drop-content a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .dropmenu:hover .drop-content {
-    display: inline-block;
+  display: inline-block;
 }
 
-.github-holder a{
-  background: url('../images/GitHub.png');
-  background-size: cover;
+.github-picture {
+  height: 25px;
+  width: 25px;
+  margin-top: 5px;
 }
 
 .search {
@@ -174,5 +177,30 @@ span a {
 .bar::placeholder:focus {
   font-family: "Creepster";
   font-size: 16px;
-  color: rgb(114, 51, 51)
+  color: rgb(114, 51, 51);
+}
+
+.logout-btn {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    font-family: "Creepster";
+    font-size: 20px;
+    color: white;
+}
+
+.click {
+  color: white;
+  font-size: 20px;
+}
+
+.gooduser {
+  display: flex;
+}
+
+.hello {
+  padding-right: 20px;
+  font-size: 20px;
+  color: white;
 }

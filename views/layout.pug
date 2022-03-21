@@ -17,6 +17,7 @@ html
         link(rel="stylesheet", href="/stylesheets/index.css")
         link(rel="stylesheet", href="/stylesheets/model.css")
         link(rel="stylesheet", href="/stylesheets/search-dropdown.css")
+        link(rel="stylesheet", href="/stylesheets/svgicon.css")
 
 
   body
@@ -39,8 +40,10 @@ html
                     include includes/drop-down.pug
               li
                 if locals.authenticated
-                  form(class='click' action='/users/logout' method='post')
-                    button(class='btn' type='submit') LOGOUT
+                  div(class='gooduser')
+                    span(class='hello') Welcome #{user.firstName}!
+                    form(class='click' action='/users/logout' method='post')
+                      button(class='logout-btn' type='submit') LOGOUT
                 else
                   span(class='userSpan')
                     a(class='click' href='/users/login') LOG IN
@@ -69,4 +72,4 @@ html
                 a(href="https://www.linkedin.com/in/jesus-elizalde-83282118b/") Linkedin
             li(class='github-holder')
               a(href="https://github.com/jadenlambino/good-screams-group-project/tree/main")
-                img(src="../public/images/GitHub-Mark-64px.png", alt="github repo")
+                img(src="../images/GitHub-Mark-Light-32px.png", alt="github repo", class='github-picture')

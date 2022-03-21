@@ -1,13 +1,15 @@
 div.genre_container
     h2.genre_title_movies My Lists
-    div.genre_container_text#list_container
-       each list in lists
-            if id === list.userId
-                div
-                    a(class=`list-names a-tag-list-${list.id}`)= list.name
-                    //- input#hidden(type="text" class=`input-list-${list.id}`)
-                    //- button#hidden(class=`button-list-${list.id}`) confirm
+    div.genre_container_text
+        div.genre_table_scroll#list_container
+            each list in lists
+                if id === list.userId
+                    div
+                        a(class=`list-names a-tag-list-${list.id}`)= list.name
+                        //- input#hidden(type="text" class=`input-list-${list.id}`)
+                        //- button#hidden(class=`button-list-${list.id}`) confirm
     div.add_form#hidden
         input.list_input_field#input_content(type="text")
-        button.list_form_btn#confirm_btn confirm
-    button.add_to_lists#add-list-btn add
+        button.list_form_btn#confirm_btn Confirm
+    div(style = "width:100%;display:flex;justify-content:center")
+        button.add_to_lists#add-list-btn Add a List

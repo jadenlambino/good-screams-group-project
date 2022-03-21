@@ -18,7 +18,7 @@ router.get(
       include: db.User,
       where: { movieId: movieId },
     });
-    // console.log(reviews);
+
     const jsonReviews = JSON.stringify({ userId: auth.userId, reviews });
 
     res.json(jsonReviews);
@@ -35,7 +35,7 @@ router.post(
   "/new/movies/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const movieId = parseInt(req.params.id, 10);
-    console.log(movieId);
+
     const { content } = req.body;
     const { userId } = req.session.auth;
 
@@ -54,14 +54,12 @@ router.post(
 router.delete(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    console.log("you have arrived at the route handler");
     const reviewId = parseInt(req.params.id, 10);
     const review = await db.Review.findByPk(reviewId, {});
 
     if (review) {
       await review.destroy();
       res.json({ message: "Success" });
-      console.log(res.json());
     } else {
       res.json({ message: "Failure" });
     }
@@ -73,7 +71,6 @@ router.patch(
   asyncHandler(async (req, res) => {
     const reviewId = parseInt(req.params.id, 10);
     const review = await db.Review.findByPk(reviewId);
-    console.log(reviewId);
 
     if (review) {
       review.content = req.body.content;

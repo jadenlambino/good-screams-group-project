@@ -21,6 +21,7 @@ async function deleteBtn() {
       } else {
         const pTag = document.createElement("p");
         pTag.innerText = "Error";
+        pTag.style.color = "red";
         reviewsDiv.appendChild(pTag);
       }
     });
@@ -57,22 +58,38 @@ async function editBtn() {
         `.edit-content-reviewId-${reviewId}`
       );
       const content = currentTextarea.value;
-      console.log(content);
 
-      const res = await fetch(`/reviews/${reviewId}`, {
-        method: "PATCH",
-        body: JSON.stringify({ content: content }),
-        headers: { "Content-Type": "application/json" },
-      });
+      const reviewID = currentTextarea.classList[2].split("-")[1];
 
-      const final = await res.json();
-      const form = document.querySelector(`.edit-form-reviewId-${reviewId}`);
-      console.log(final);
-      if (final.message === "Review has been updated") {
-        const review = document.getElementById(`reviewId-${reviewId}`);
-        review.innerHTML = final.review.content;
-        form.classList.add("hidden");
-        currentTextarea.value = "";
+      const reviewContainerError = document.querySelector(
+        `#div-reviewId-${reviewID}`
+      );
+      const errorMessage = document.querySelector(".ErrorMessageForEditReview");
+      if (errorMessage) {
+        errorMessage.remove();
+      }
+
+      if (content) {
+        const res = await fetch(`/reviews/${reviewId}`, {
+          method: "PATCH",
+          body: JSON.stringify({ content: content }),
+          headers: { "Content-Type": "application/json" },
+        });
+
+        const final = await res.json();
+        const form = document.querySelector(`.edit-form-reviewId-${reviewId}`);
+        if (final.message === "Review has been updated") {
+          const review = document.getElementById(`reviewId-${reviewId}`);
+          review.innerHTML = final.review.content;
+          form.classList.add("hidden");
+          currentTextarea.value = "";
+        }
+      } else {
+        const pTag = document.createElement("p");
+        pTag.innerText = "Review can not be empty";
+        pTag.style.color = "red";
+        pTag.classList.add("ErrorMessageForEditReview");
+        reviewContainerError.appendChild(pTag);
       }
     });
   }
@@ -81,9 +98,7 @@ async function editBtn() {
 async function dropDownList(movieId) {
   const myListBtn = document.querySelector(".drop_btn");
   myListBtn.addEventListener("click", async (event) => {
-    console.log("testing");
     const listContainer = document.getElementById("my_drop_down");
-    console.log(listContainer);
     const className = listContainer.className.split(" ")[1];
     if (className !== "show") {
       listContainer.classList.add("show");
@@ -129,104 +144,140 @@ async function makeReview(movieId) {
 
   submitbtn.addEventListener("click", async (e) => {
     e.preventDefault();
+    const errorMessage = document.querySelector(".ErrorMessageForMakingReview");
+    if (errorMessage) {
+      errorMessage.remove();
+    }
 
     const textContentButton = document.getElementById("textarea");
 
-    const res = await fetch(`/reviews/new/movies/${movieId}`, {
-      method: "POST",
-      body: JSON.stringify({ content: textContentButton.value }),
-      headers: { "Content-Type": "application/json" },
-    });
+    if (textContentButton.value) {
+      const res = await fetch(`/reviews/new/movies/${movieId}`, {
+        method: "POST",
+        body: JSON.stringify({ content: textContentButton.value }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    const response = await res.json();
+      const response = await res.json();
 
-    if (response.message === "Success") {
-      textContentButton.value = "";
-      newReviewForm.classList.add("hidden");
-      addReviewDynamic(response.review, response.userInfo);
-      deleteBtn();
-      editBtn();
+      if (response.message === "Success") {
+        textContentButton.value = "";
+        newReviewForm.classList.add("hidden");
+        editBtn();
+        deleteBtn();
+        window.location.reload();
+      }
+    } else {
+      const errorPostContainer = document.querySelector(
+        ".submit_review_container"
+      );
+
+      const pTag = document.createElement("p");
+      pTag.innerText = "Review can not be empty";
+      pTag.style.color = "red";
+      pTag.style.paddingLeft = "8px";
+      pTag.classList.add("ErrorMessageForMakingReview");
+      errorPostContainer.appendChild(pTag);
     }
   });
 }
 
-function addReviewDynamic(newReview, userInfo) {
-  const reviewContainer = document.querySelector(".reviews_description");
-  const divEle = document.createElement("div");
-  const pEle = document.createElement("p");
-  const liEle = document.createElement("li");
-  const formEle = document.createElement("form");
-  const textareaEle = document.createElement("textarea");
-  const buttonform = document.createElement("button");
-  const buttonedit = document.createElement("button");
-  const buttondelete = document.createElement("button");
+// function addReviewDynamic(newReview, userInfo) {
+//   const reviewContainer = document.querySelector(".reviews_description");
+//   const divEle = document.createElement("div");
+//   const pEle = document.createElement("p");
+//   const liEle = document.createElement("li");
+//   const editFormEle = document.createElement("div");
+//   const formEle = document.createElement("form");
+//   const submitBtnEle = document.createElement("div");
+//   const textareaEle = document.createElement("textarea");
+//   const buttonform = document.createElement("button");
+//   const buttonedit = document.createElement("button");
+//   const buttondelete = document.createElement("button");
 
-  divEle.classList.add("single-review-container");
-  divEle.setAttribute("id", `div-reviewId-${newReview.id}`);
+//   divEle.classList.add("single-review-container");
+//   divEle.setAttribute("id", `div-reviewId-${newReview.id}`);
 
-  pEle.classList.add(
-    `reviews-content`,
-    `userid-${newReview.userId}`,
-    `reviewId-${newReview.id}`
-  );
-  pEle.setAttribute("id", `reviewId-${newReview.id}`);
-  pEle.innerText = newReview.content;
+//   pEle.classList.add(
+//     `reviews-content`,
+//     `userid-${newReview.userId}`,
+//     `reviewId-${newReview.id}`
+//   );
+//   pEle.setAttribute("id", `reviewId-${newReview.id}`);
+//   pEle.innerText = newReview.content;
 
-  liEle.classList.add(
-    `reviews-owner`,
-    `userid-${newReview.userId}`,
-    `reviewId-${newReview.id}`
-  );
-  liEle.innerText = `By: ${userInfo.firstName} ${userInfo.lastName}`;
+//   liEle.classList.add(
+//     `reviews-owner`,
+//     `userid-${newReview.userId}`,
+//     `reviewId-${newReview.id}`
+//   );
+//   liEle.innerText = `By: ${userInfo.firstName} ${userInfo.lastName}`;
 
-  formEle.classList.add(
-    `edit-form`,
-    `hidden`,
-    `edit-form-reviewId-${newReview.id}`,
-    `reviewId-${newReview.id}`
-  );
+//   editFormEle.classList.add("edit_form_container");
 
-  textareaEle.classList.add(
-    `reviews-edit-content`,
-    `edit-content-reviewId-${newReview.id}`,
-    `reviewId-${newReview.id}`
-  );
-  textareaEle.setAttribute("name", "content");
+//   formEle.classList.add(
+//     `edit-form`,
+//     `hidden`,
+//     `edit-form-reviewId-${newReview.id}`,
+//     `reviewId-${newReview.id}`
+//   );
 
-  buttonform.classList.add(
-    `submitEditBtn`,
-    `editBtn-reviewId-${newReview.id}`,
-    `reviewId-${newReview.id}`
-  );
-  buttonform.setAttribute("id", `submitEditbtn-reviewId-${newReview.id}`);
-  buttonform.innerText = "Update Review";
+//   submitBtnEle.classList.add("submitEditBtn_container");
 
-  buttonedit.classList.add(
-    `editbtn`,
-    `userid-${newReview.userId}`,
-    `reviewId-${newReview.id}`
-  );
-  buttonedit.setAttribute("id", `editbtn-reviewId-${newReview.id}`);
-  buttonedit.innerText = "Edit";
+//   textareaEle.classList.add(
+//     `reviews-edit-content`,
+//     `edit-content-reviewId-${newReview.id}`,
+//     `reviewId-${newReview.id}`
+//   );
+//   textareaEle.setAttribute("name", "content");
+//   textareaEle.placeholder = "Edit Review Here";
 
-  buttondelete.classList.add(
-    `deletebtn`,
-    `userid-${newReview.userId}`,
-    `reviewId-${newReview.id}`
-  );
-  buttondelete.setAttribute("id", `deletebtn-reviewId-${newReview.id}`);
-  buttondelete.innerText = "Delete";
+//   buttonform.classList.add(
+//     `submitEditBtn`,
+//     `editBtn-reviewId-${newReview.id}`,
+//     `reviewId-${newReview.id}`
+//   );
+//   buttonform.setAttribute("id", `submitEditbtn-reviewId-${newReview.id}`);
+//   buttonform.innerText = "Update Review";
 
-  formEle.appendChild(textareaEle);
-  formEle.appendChild(buttonform);
+//   buttonedit.classList.add(
+//     `editbtn`,
+//     `userid-${newReview.userId}`,
+//     `reviewId-${newReview.id}`
+//   );
+//   buttonedit.setAttribute("id", `editbtn-reviewId-${newReview.id}`);
+//   buttonedit.innerText = "Edit";
 
-  divEle.appendChild(pEle);
-  divEle.appendChild(liEle);
-  divEle.appendChild(formEle);
-  divEle.appendChild(buttonedit);
-  divEle.appendChild(buttondelete);
-  reviewContainer.prepend(divEle);
-}
+//   buttondelete.classList.add(
+//     `deletebtn`,
+//     `userid-${newReview.userId}`,
+//     `reviewId-${newReview.id}`
+//   );
+//   buttondelete.setAttribute("id", `deletebtn-reviewId-${newReview.id}`);
+//   buttondelete.innerText = "Delete";
+
+//   submitBtnEle.appendChild(textareaEle);
+//   submitBtnEle.appendChild(buttonform);
+
+//   formEle.appendChild(submitBtnEle);
+
+//   editFormEle.appendChild(formEle);
+
+//   divEle.appendChild(pEle);
+//   divEle.appendChild(liEle);
+//   divEle.appendChild(editFormEle);
+
+//   divEle.appendChild(buttonedit);
+//   divEle.appendChild(buttondelete);
+
+//   // formEle.appendChild(textareaEle);
+//   // formEle.appendChild(buttonform);
+
+//   // divEle.appendChild(pEle);
+//   // divEle.appendChild(liEle);
+//   // divEle.appendChild(formEle);
+//   reviewContainer.prepend(divEle);
+// }
 
 window.addEventListener("load", async (event) => {
   const pathArr = window.location.href.split("/");
@@ -234,8 +285,7 @@ window.addEventListener("load", async (event) => {
 
   dropDownList(currentMovieId);
 
-  makeReview(currentMovieId);
-
   deleteBtn();
   editBtn();
+  makeReview(currentMovieId);
 });

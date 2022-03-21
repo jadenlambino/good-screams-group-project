@@ -17,6 +17,7 @@ html
         link(rel="stylesheet", href="/stylesheets/index.css")
         link(rel="stylesheet", href="/stylesheets/model.css")
         link(rel="stylesheet", href="/stylesheets/search-dropdown.css")
+        link(rel="stylesheet", href="/stylesheets/svgicon.css")
 
 
   body
@@ -39,8 +40,10 @@ html
                     include includes/drop-down.pug
               li
                 if locals.authenticated
-                  form(class='click' action='/users/logout' method='post')
-                    button(class='logout-btn' type='submit') LOGOUT
+                  div(class='gooduser')
+                    span(class='hello') Welcome #{user.firstName}!
+                    form(class='click' action='/users/logout' method='post')
+                      button(class='logout-btn' type='submit') LOGOUT
                 else
                   span(class='userSpan')
                     a(class='click' href='/users/login') LOG IN

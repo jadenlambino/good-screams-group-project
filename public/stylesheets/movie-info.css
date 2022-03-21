@@ -159,8 +159,16 @@ h3 {
 }
 
 .reviews_description::-webkit-scrollbar{
-  display: none;
+  background-color: rgb(29, 27, 27);
+  border-radius: 5px;
 }
+
+.reviews_description::-webkit-scrollbar-thumb {
+  background: black;
+  border: white .01px solid;
+}
+
+
 
 .reviews_description {
     display: flex;
@@ -260,7 +268,7 @@ h3 {
  font-weight: bold;
  border-radius: 5px;
  width: 101px;
- height: 35px;
+ height: 38px;
  font-size: 14px;
  cursor: pointer;
 
@@ -275,7 +283,7 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 5px;
   width: 120px;
-  height: 34px;
+  height: 38px;
   font-size: 14px;
   cursor: pointer;
   letter-spacing: 1px;
@@ -303,7 +311,7 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all .8s ease-in-out;
+  /* transition: all .8s ease-in-out; */
   background-color: black;
   border: 1.5px white solid;
 }
@@ -356,7 +364,7 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all .8s ease-in-out;
+  /* transition: all .8s ease-in-out; */
   background-color: black;
   border: 1.5px white solid;
 }

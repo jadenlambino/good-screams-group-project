@@ -17,11 +17,20 @@
     position: relative;
     top: .5px;
     background-color: #f1f1f1;
-
+    overflow-y: scroll;
     width: 162px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 6px;
+}
+
+.drop_down_content::-webkit-scrollbar{
+    background-color: rgb(36, 33, 33);
+}
+
+.drop_down_content::-webkit-scrollbar-thumb {
+  background: black;
+  border: white .01px solid;
 }
 
 .drop_down_content a {

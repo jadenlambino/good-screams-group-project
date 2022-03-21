@@ -174,6 +174,7 @@ async function renameList() {
       listTableName.innerText = renameInput;
     } else if (response.message === `Cannot Edit "Want to Watch" List Name`) {
       errorDefaultModel(response);
+      renameForm.setAttribute("id", "hidden");
     }
   });
 }

@@ -6,6 +6,8 @@
 .cancelbtn {
   background-color: #ccc;
   color: black;
+  border-radius: 5px;
+  border: none;
 }
 
 #style_model_btn {
@@ -31,7 +33,7 @@
 }
 
 .modal-content {
-  background-color: #400404;
+  background-color: black;
   color: white;
   margin: 5% auto 15% auto;
   border: 1px solid #888;

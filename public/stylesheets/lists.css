@@ -26,6 +26,7 @@
   font-family: "Creepster";
   font-size: 30px;
   color: white;
+  margin-left: 10px;
 }
 
 .add_form {
@@ -76,4 +77,20 @@
 #input_content,
 #confirm_btn {
   margin: 2px;
+}
+
+#add-list-btn:hover {
+  background-color: rgb(100, 13, 13);
+}
+#delete_btn:hover {
+  background-color: red;
+}
+#edit_btn:hover {
+  background-color: rgb(100, 13, 13);
+}
+#confirm_btn:hover {
+  background-color: rgb(100, 13, 13);
+}
+#rename_btn {
+  background-color: rgb(100, 13, 13);
 }

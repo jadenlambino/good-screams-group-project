@@ -20,9 +20,11 @@ body {
 }
 
 header {
-  background-color: #590202;
-  height: 4rem;
+  /* background-color: #590202; */
+  background-color: #400404;
+  height: 4em;
   font-family: "Creepster";
+  margin-bottom: 20px;
 }
 
 .navbar {
@@ -59,10 +61,11 @@ a {
 
 #title {
   /* font-size: 32px; */
+  /* font-size: 70px; */
   font-size: 70px;
   float: left;
-  padding: 3px 0;
-  -webkit-text-stroke: 1px black;
+  /* padding: 10px 0; */
+  /* -webkit-text-stroke: 1px black; */
   font-family: "zombies_rebornregular";
 }
 
@@ -155,6 +158,26 @@ span a {
 
 .search {
   border-radius: 0%;
+}
+
+.bar {
+  background-color: white;
+  height: 28px;
+  border-color: #400404;
+  box-shadow: 5px 5px 5px black;
+  /* position: relative; */
+}
+
+.bar::placeholder {
+  font-family: "Creepster";
+  font-size: 16px;
+  color: rgb(114, 51, 51)
+}
+
+.bar::placeholder:focus {
+  font-family: "Creepster";
+  font-size: 16px;
+  color: rgb(114, 51, 51);
 }
 
 .logout-btn {

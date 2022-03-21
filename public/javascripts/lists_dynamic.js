@@ -110,29 +110,37 @@ async function addToList() {
     const inputContent = document.getElementById("input_content");
     const form = document.querySelector(".add_form");
 
-    const res = await fetch("/mylists/new", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name: inputContent.value }),
-    });
-    const response = await res.json();
+    if (inputContent.value !== "Want to Watch") {
+      const res = await fetch("/mylists/new", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: inputContent.value }),
+      });
+      const response = await res.json();
 
-    if (response.message === "List was added") {
-      const listContainer = document.getElementById("list_container");
-      const lDiv = document.createElement("div");
-      const aTag = document.createElement("a");
-      aTag.innerText = inputContent.value;
-      aTag.classList.add("list-names");
-      aTag.classList.add(`a-tag-list-${response.listId}`);
-      aTag.classList.add(".hovergenreText");
-      lDiv.appendChild(aTag);
-      listContainer.appendChild(lDiv);
-      form.setAttribute("id", "hidden");
-      inputContent.value = "";
-      // window.location.reload();
-      dynamicClick();
+      if (response.message === "List was added") {
+        const listContainer = document.getElementById("list_container");
+        const lDiv = document.createElement("div");
+        const aTag = document.createElement("a");
+        aTag.innerText = inputContent.value;
+        aTag.classList.add("list-names");
+        aTag.classList.add(`a-tag-list-${response.listId}`);
+        aTag.classList.add(".hovergenreText");
+        lDiv.appendChild(aTag);
+        listContainer.appendChild(lDiv);
+        form.setAttribute("id", "hidden");
+        inputContent.value = "";
+        // window.location.reload();
+        dynamicClick();
+      }
+    } else if (!inputContent.value) {
+      errorDefaultModel({ message: `List Name can NOT be Empty` });
+    } else if (inputContent.value === "Want to Watch") {
+      errorDefaultModel({
+        message: `Cannot Create a List with the name "Want to Watch"`,
+      });
     }
   });
 }
@@ -154,26 +162,33 @@ async function renameList() {
   renameBtn.addEventListener("click", async (e) => {
     const listId = renameBtn.className.split("-")[2];
 
-    const renameInput = document.getElementById("rename_input").value;
+    const renameInput = document.getElementById("rename_input");
     const renameForm = document.querySelector(".rename_container");
     const title = document.getElementById("list_title");
     const listTableName = document.querySelector(`.a-tag-list-${listId}`);
 
-    const res = await fetch(`/mylists/${listId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: renameInput }),
-    });
+    if (renameInput.value !== "Want to Watch") {
+      const res = await fetch(`/mylists/${listId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: renameInput.value }),
+      });
 
-    const response = await res.json();
+      const response = await res.json();
 
-    if (response.message === "Successful") {
-      title.innerText = renameInput;
-      renameForm.setAttribute("id", "hidden");
-      listTableName.innerText = renameInput;
-    } else if (response.message === `Cannot Edit "Want to Watch" List Name`) {
-      errorDefaultModel(response);
-      renameForm.setAttribute("id", "hidden");
+      if (response.message === "Successful") {
+        title.innerText = renameInput.value;
+        renameForm.setAttribute("id", "hidden");
+        listTableName.innerText = renameInput.value;
+        renameInput.value = "";
+      } else if (response.message === `Cannot Edit "Want to Watch" List Name`) {
+        errorDefaultModel(response);
+        renameForm.setAttribute("id", "hidden");
+        renameInput.value = "";
+      }
+    } else {
+      errorDefaultModel({ message: `Cannot rename a list "Want to Watch"` });
+      renameInput.value = "";
     }
   });
 }
@@ -209,6 +224,9 @@ async function deleteBtnModel() {
     if (response.message === "success") {
       window.location.reload();
     } else if (response.message === 'Cannot Delete "Want to Watch"') {
+      deleteMessage.innerText = response.message;
+      deleteMessage.style.color = "red";
+    } else if (response.message === "List must be EMPTY to Delete") {
       deleteMessage.innerText = response.message;
       deleteMessage.style.color = "red";
     }

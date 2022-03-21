@@ -48,6 +48,7 @@
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
 
 #add-list-btn,
 #delete_btn,
@@ -70,3 +71,5 @@
 #confirm_btn {
   margin: 2px;
 }
+=======
+>>>>>>> parent of 05962f1 (Merge branch 'main' into jesus)

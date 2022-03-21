@@ -155,7 +155,9 @@ function addReviewDynamic(newReview, userInfo) {
   const divEle = document.createElement("div");
   const pEle = document.createElement("p");
   const liEle = document.createElement("li");
+  const editFormEle = document.createElement('div');
   const formEle = document.createElement("form");
+  const submitBtnEle = document.createElement('div');
   const textareaEle = document.createElement("textarea");
   const buttonform = document.createElement("button");
   const buttonedit = document.createElement("button");
@@ -179,12 +181,17 @@ function addReviewDynamic(newReview, userInfo) {
   );
   liEle.innerText = `By: ${userInfo.firstName} ${userInfo.lastName}`;
 
+  editFormEle.classList.add('edit_form_container')
+
+
   formEle.classList.add(
     `edit-form`,
     `hidden`,
     `edit-form-reviewId-${newReview.id}`,
     `reviewId-${newReview.id}`
   );
+
+  submitBtnEle.classList.add('submitEditBtn_container')
 
   textareaEle.classList.add(
     `reviews-edit-content`,
@@ -217,14 +224,27 @@ function addReviewDynamic(newReview, userInfo) {
   buttondelete.setAttribute("id", `deletebtn-reviewId-${newReview.id}`);
   buttondelete.innerText = "Delete";
 
-  formEle.appendChild(textareaEle);
-  formEle.appendChild(buttonform);
+  formEle.appendChild(submitBtnEle);
+  
+  submitBtnEle.appendChild(textareaEle);
+  submitBtnEle.appendChild(buttonform);
+
+  editFormEle.appendChild(formEle);
 
   divEle.appendChild(pEle);
   divEle.appendChild(liEle);
-  divEle.appendChild(formEle);
+  divEle.appendChild(editFormEle);
+
   divEle.appendChild(buttonedit);
   divEle.appendChild(buttondelete);
+
+
+  // formEle.appendChild(textareaEle);
+  // formEle.appendChild(buttonform);
+
+  // divEle.appendChild(pEle);
+  // divEle.appendChild(liEle);
+  // divEle.appendChild(formEle);
   reviewContainer.prepend(divEle);
 }
 

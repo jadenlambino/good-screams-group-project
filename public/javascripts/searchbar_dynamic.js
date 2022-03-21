@@ -17,6 +17,7 @@ window.addEventListener("load", async (event) => {
       const response = await res.json();
 
       if (response.message === "Success") {
+        
         const dropDown = document.querySelector("#Smy_drop_down");
         response.searchResult.forEach((result) => {
           const aTag = document.createElement("a");

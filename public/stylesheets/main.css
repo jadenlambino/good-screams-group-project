@@ -26,11 +26,7 @@ header {
 }
 
 .navbar {
-  /* display: flex; */
   width: 90%;
-  /* align-items: center; */
-  /* justify-content: space-evenly; */
-  /* padding: 20px; */
   color: white;
   margin: 0 auto;
 }
@@ -58,7 +54,6 @@ a {
 }
 
 #title {
-  /* font-size: 32px; */
   font-size: 70px;
   float: left;
   padding: 3px 0;

@@ -51,6 +51,4 @@ These three images show how we were able to create an error model that would pop
 
 
 ### Conclusion 
-Good Screams was a very challenging project that ended up turning into something we are all very proud of. 
-
- and it was a great learning experience for both the front and backend.
+Good Screams was a very challenging project that ended up turning into something we are all very proud of and it was a great learning experience for both the front and backend.

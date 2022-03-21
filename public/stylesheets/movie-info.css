@@ -345,10 +345,10 @@ li {
   border: 1.5px white solid;
 }
 
-/* @media screen and (max-width: 650px) {
-  .main_movie_container{
+@media screen and (max-width: 650px) {
+  .main_movie_container {
     flex-direction: column;
     flex-wrap: wrap;
     flex: 1;
   }
-} */
+}

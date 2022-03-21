@@ -1,3 +1,7 @@
+/* body {
+  background-color: black;
+} */
+
 html {
   scroll-behavior: smooth;
 }
@@ -26,6 +30,7 @@ img {
   position: sticky;
   top: 35px;
   margin-left: 10px;
+  align-items: center;
 }
 
 .genre_title_movies {
@@ -55,7 +60,7 @@ img {
 .movie_column_container {
   display: flex;
   flex-direction: column;
-  background-color: #400404;
+  background-color: black;
   margin: 10px;
   padding: 10px;
   border-radius: 16px;

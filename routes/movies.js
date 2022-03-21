@@ -31,6 +31,7 @@ router.get(
       order: [["id", "ASC"]],
     });
 
+    
     if (movie) {
       res.render("movie-info", { title: movie.name, movie, lists, userId });
     }

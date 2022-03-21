@@ -6,18 +6,19 @@
 .cancelbtn {
   background-color: #ccc;
   color: black;
-  border-radius: 5px;
-  border: none;
 }
+
 
 #style_model_btn {
   background-color: #f44336;
 }
 
+
 .container {
   padding: 16px;
   text-align: center;
 }
+
 
 .modal {
   display: none;
@@ -32,8 +33,9 @@
   padding-top: 50px;
 }
 
+
 .modal-content {
-  background-color: black;
+  background-color: #400404;
   color: white;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
@@ -42,10 +44,12 @@
   width: 250px;
 }
 
+
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
+
 
 .close {
   position: absolute;
@@ -62,11 +66,13 @@ hr {
   cursor: pointer;
 }
 
+
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
+
 
 @media screen and (max-width: 300px) {
   .cancelbtn,

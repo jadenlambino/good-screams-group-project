@@ -83,9 +83,12 @@ router.delete(
 
     if (list) {
       if (list.name !== "Want to Watch") {
-        await list.destroy();
-
-        res.json({ message: "success" });
+        try {
+          await list.destroy();
+          res.json({ message: "success" });
+        } catch (e) {
+          res.json({ message: "List must be EMPTY to Delete" });
+        }
       } else {
         res.json({ message: 'Cannot Delete "Want to Watch"' });
       }

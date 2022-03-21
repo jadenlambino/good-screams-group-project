@@ -118,7 +118,7 @@
   font-weight: bold;
 }
 
-.list_button:hover{
+.list_button:hover {
   background-color: rgb(100, 13, 13);
   font-size: 18px;
 }
@@ -153,14 +153,14 @@ h3 {
   box-sizing: border-box;
 }
 
-.reviews_description::-webkit-scrollbar{
+.reviews_description::-webkit-scrollbar {
   background-color: rgb(29, 27, 27);
   border-radius: 5px;
 }
 
 .reviews_description::-webkit-scrollbar-thumb {
   background: black;
-  border: white .01px solid;
+  border: white 0.01px solid;
   border-radius: 5px;
 }
 
@@ -204,7 +204,7 @@ h3 {
   border: none;
 }
 
-.add_review_btn:hover{
+.add_review_btn:hover {
   background-color: rgb(100, 13, 13);
   font-size: 18px;
 }
@@ -229,7 +229,7 @@ h3 {
   cursor: pointer;
 }
 
-.editbtn:hover{
+.editbtn:hover {
   background-color: rgb(100, 13, 13);
   font-size: 15px;
 }
@@ -248,7 +248,7 @@ h3 {
   font-weight: bold;
 }
 
-.deletebtn:hover{
+.deletebtn:hover {
   background-color: red;
   font-size: 15px;
 }
@@ -267,20 +267,20 @@ h3 {
 }
 
 .submitEditBtn {
- background-color: #8C4250;
- border: none;
- color: white;
- margin: 0px 0px 4px 5px;
- font-family: Arial, Helvetica, sans-serif;
- font-weight: bold;
- border-radius: 5px;
- width: 101px;
- height: 38px;
- font-size: 14px;
- cursor: pointer;
+  background-color: #8c4250;
+  border: none;
+  color: white;
+  margin: 0px 0px 4px 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 101px;
+  height: 38px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.submitEditBtn:hover{
+.submitEditBtn:hover {
   background-color: rgb(100, 13, 13);
   font-size: 16px;
 }
@@ -300,7 +300,7 @@ h3 {
   font-weight: bold;
 }
 
-.submit_review_btn:hover{
+.submit_review_btn:hover {
   background-color: rgb(100, 13, 13);
   font-size: 16px;
 }
@@ -325,7 +325,7 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all .8s ease-in-out;
+  transition: all 0.8s ease-in-out;
   background-color: black;
   border: 1.5px white solid;
 }
@@ -380,7 +380,7 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  transition: all .8s ease-in-out;
+  transition: all 0.8s ease-in-out;
   background-color: black;
   border: 1.5px white solid;
 }

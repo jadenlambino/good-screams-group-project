@@ -118,6 +118,11 @@
   font-weight: bold;
 }
 
+.list_button:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 18px;
+}
+
 .submit_review_container {
   display: flex;
   margin: 10px;
@@ -199,6 +204,11 @@ h3 {
   border: none;
 }
 
+.add_review_btn:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 18px;
+}
+
 .review_btn_container {
   display: flex;
   flex-direction: row;
@@ -213,10 +223,15 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   border-radius: 2px;
-  width: 38px;
+  width: 42px;
   height: 19px;
   font-size: 14px;
   cursor: pointer;
+}
+
+.editbtn:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 15px;
 }
 
 .deletebtn {
@@ -225,12 +240,17 @@ h3 {
   color: white;
   margin: 2px;
   border-radius: 2px;
-  width: 55px;
+  width: 60px;
   height: 19px;
   font-size: 14px;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+}
+
+.deletebtn:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 15px;
 }
 
 .submitEditBtn_container {
@@ -258,7 +278,11 @@ h3 {
  height: 38px;
  font-size: 14px;
  cursor: pointer;
+}
 
+.submitEditBtn:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 16px;
 }
 
 .submit_review_btn {
@@ -274,6 +298,11 @@ h3 {
   cursor: pointer;
   letter-spacing: 1px;
   font-weight: bold;
+}
+
+.submit_review_btn:hover{
+  background-color: rgb(100, 13, 13);
+  font-size: 16px;
 }
 
 .reviews-owner {

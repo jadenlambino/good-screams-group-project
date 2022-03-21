@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Creepster:regular);
 
-.drop_btn:hover,
-.drop_btn:focus {
+.drop_btn:hover{
   background-color: rgb(100, 13, 13);
+  font-size: 18px;
 }
 
 .drop_down {

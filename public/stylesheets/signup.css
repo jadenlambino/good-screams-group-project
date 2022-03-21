@@ -10,7 +10,7 @@ body {
 .signup-container {
   /* margin-top: 20px; */
   width: 400px;
-  height: 460px;
+  height: 470px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -36,16 +36,15 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-weight: bold;
 }
 
 #firstName {
-  /* margin-top: 10px;
-    margin-bottom: 10px; */
   margin: 10px;
   border-radius: 5px;
   border: 3px solid rgb(55, 5, 61);
   height: 25px;
-  width: 228px;
+  width: 242px;
   background-color: rgba(150, 80, 80, 0.75);
 }
 
@@ -53,16 +52,15 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-weight: bold;
 }
 
 #lastName {
-  /* margin-top: 10px;
-    margin-bottom: 10px; */
   margin: 10px;
   border-radius: 5px;
   border: 3px solid rgb(55, 5, 61);
   height: 25px;
-  width: 230px;
+  width: 245px;
   background-color: rgba(150, 80, 80, 0.75);
 }
 
@@ -70,16 +68,15 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-weight: bold;
 }
 
 #email {
-  /* margin-top: 10px;
-    margin-bottom: 10px; */
   margin: 10px;
   border-radius: 5px;
   border: 3px solid rgb(55, 5, 61);
   height: 25px;
-  width: 270px;
+  width: 292px;
   background-color: rgba(150, 80, 80, 0.75);
 }
 
@@ -87,17 +84,14 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* width: 260px; */
-  /* height: 100px; */
+  font-weight: bold;
 }
 
 #hashedPassword {
-  /* margin-top: 10px;
-    margin-bottom: 10px; */
   margin: 10px;
   border-radius: 5px;
   border: 3px solid rgb(55, 5, 61);
-  width: 240px;
+  width: 254px;
   height: 25px;
   background-color: rgba(150, 80, 80, 0.75);
 }
@@ -106,12 +100,10 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* height: 100px; */
+  font-weight: bold;
 }
 
 #confirmPassword {
-  /* margin-top: 10px;
-    margin-bottom: 10px; */
   margin: 10px;
   border-radius: 5px;
   border: 3px solid rgb(55, 5, 61);
@@ -126,7 +118,7 @@ h2 {
 }
 
 #cancel-button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   margin-top: 10px;
   padding: 8px;
@@ -134,16 +126,34 @@ h2 {
   justify-self: center;
   border-radius: 5px;
   background-color: rgba(168, 17, 17, 0.75);
+  box-shadow: 2px 2px 2px black; */
+  width: 120px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 8px;
+  margin-right: 10px;
+  align-self: center;
+  justify-self: center;
+  border-radius: 5px;
+  background-color: #800000;
+  border-color: #800000;
+  /* border-color: #682020;
+  background-color: #682020; */
   box-shadow: 2px 2px 2px black;
 }
 
 #cancel-button:hover {
-  background-color: rgb(122, 12, 12);
+  /* background-color: rgb(122, 12, 12);
+  color: white; */
+  background-color: #400000;
+  border-color: #400000;
   color: white;
 }
 
 #signup-button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   margin-top: 10px;
   padding: 8px;
@@ -151,11 +161,27 @@ h2 {
   justify-self: center;
   border-radius: 5px;
   background-color: rgba(83, 56, 102, 0.842);
+  box-shadow: 2px 2px 2px black; */
+  width: 120px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px;
+  padding: 8px;
+  margin-left: 10px;
+  align-self: center;
+  justify-self: center;
+  border-radius: 5px;
+  background-color: #2e1d4d;
+  border-color: #2e1d4d;
   box-shadow: 2px 2px 2px black;
 }
 
 #signup-button:hover {
-  background-color: rgb(55, 5, 61);
+  /* background-color: rgb(55, 5, 61);
+  color: white; */
+  background-color: #38082a;
+  border-color: #38082a;
   color: white;
 }
 

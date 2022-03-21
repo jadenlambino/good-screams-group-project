@@ -7,7 +7,7 @@ data.forEach((ele, index) => {
   ele.media.forEach((media) => {
     let link;
     if (media.site === "YouTube") {
-      link = `https://www.youtube.com/embed/${media.key}`;
+      link = `https://www.youtube-nocookie.com/embed/${media.key}`;
     } else {
       link = `https://vimeo.com/${media.key}`;
     }

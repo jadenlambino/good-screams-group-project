@@ -115,37 +115,42 @@ async function addToList() {
       errorDefaultModel({ message: `List Name can NOT be Empty` });
     } else if (inputContent.value !== "Want to Watch") {
       const listNamesTable = document.querySelectorAll(".list-names");
-
-      listNamesTable.forEach((ele) => {
-        if (ele.innerText === inputContent.value) {
-          errorDefaultModel({ message: `List Already Exists` });
-          sameName = true;
-        }
-      });
-      if (!sameName) {
-        const res = await fetch("/mylists/new", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name: inputContent.value }),
+      if (inputContent.value.length > 41) {
+        errorDefaultModel({
+          message: `List Name can NOT be more than 40 Characters`,
         });
-        const response = await res.json();
+      } else {
+        listNamesTable.forEach((ele) => {
+          if (ele.innerText === inputContent.value) {
+            errorDefaultModel({ message: `List Already Exists` });
+            sameName = true;
+          }
+        });
+        if (!sameName) {
+          const res = await fetch("/mylists/new", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: inputContent.value }),
+          });
+          const response = await res.json();
 
-        if (response.message === "List was added") {
-          const listContainer = document.getElementById("list_container");
-          const lDiv = document.createElement("div");
-          const aTag = document.createElement("a");
-          aTag.innerText = inputContent.value;
-          aTag.classList.add("list-names");
-          aTag.classList.add(`a-tag-list-${response.listId}`);
-          aTag.classList.add(".hovergenreText");
-          lDiv.appendChild(aTag);
-          listContainer.appendChild(lDiv);
-          form.setAttribute("id", "hidden");
-          inputContent.value = "";
-          // window.location.reload();
-          dynamicClick();
+          if (response.message === "List was added") {
+            const listContainer = document.getElementById("list_container");
+            const lDiv = document.createElement("div");
+            const aTag = document.createElement("a");
+            aTag.innerText = inputContent.value;
+            aTag.classList.add("list-names");
+            aTag.classList.add(`a-tag-list-${response.listId}`);
+            aTag.classList.add(".hovergenreText");
+            lDiv.appendChild(aTag);
+            listContainer.appendChild(lDiv);
+            form.setAttribute("id", "hidden");
+            inputContent.value = "";
+            // window.location.reload();
+            dynamicClick();
+          }
         }
       }
     } else if (inputContent.value === "Want to Watch") {

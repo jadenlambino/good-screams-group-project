@@ -26,7 +26,7 @@
 }
 
 #edit_favgenre_btn {
-  width: 50px;
+  margin: 10px;
 }
 
 .delete_from_db,
@@ -48,4 +48,15 @@
 }
 .add_to_lists:hover {
   background-color: rgb(100, 13, 13);
+}
+
+.faveGenreContainer {
+  display: flex;
+  flex-direction: column;
+
+  height: 160px;
+}
+
+.delete_from_db {
+  margin: 2px;
 }

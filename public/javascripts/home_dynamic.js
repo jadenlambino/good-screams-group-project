@@ -1,4 +1,4 @@
-window.addEventListener("load", async (event) => {
+async function addToFavGenre() {
   const editBtn = document.querySelector("#edit_favgenre_btn");
 
   editBtn.addEventListener("click", (e) => {
@@ -25,19 +25,32 @@ window.addEventListener("load", async (event) => {
   updateBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     const select = document.querySelector(".select_option_list");
+    let sameName = false;
 
-    const res = await fetch(`/home`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ subGenreId: select.value }),
+    const grabAllFaveGenreName = document.querySelectorAll(".delete_from_db");
+
+    grabAllFaveGenreName.forEach((ele) => {
+      if (ele.classList[1].split("_")[3] === select.value) {
+        sameName = true;
+      }
     });
+    if (!sameName) {
+      const res = await fetch(`/home`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ subGenreId: select.value }),
+      });
 
-    const response = await res.json();
-    if (response.message === "Successful") {
-      window.location.reload();
+      const response = await res.json();
+      if (response.message === "Successful") {
+        window.location.reload();
+      }
+    } else {
     }
   });
+}
 
+async function deleteFavGenre() {
   const deleteConnection = document.querySelectorAll(".delete_from_db");
 
   deleteConnection.forEach((delBtn) => {
@@ -56,4 +69,9 @@ window.addEventListener("load", async (event) => {
       }
     });
   });
+}
+
+window.addEventListener("load", async (event) => {
+  addToFavGenre();
+  deleteFavGenre();
 });

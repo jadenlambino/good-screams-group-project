@@ -17,31 +17,35 @@ router.get(
     const genres = await db.SubGenre.findAll({
       include: db.Movie,
     });
-    const media = await db.Media.findAll({
-      include: [db.Movie, db.Type],
+
+    const userData = await db.User.findAll({
+      include: {
+        model: db.SubGenre,
+        include: db.Movie,
+      },
       where: {
-        siteId: 1,
+        id: userId,
       },
     });
 
     const faveGenres = await db.FavGenre.findAll({
-      // include: db.SubGenre,
       where: {
         userId,
       },
       order: [["id", "ASC"]],
     });
 
-    // const notfaveGenres = await db.FavGenre.findAll({
-    //   where: {
-    //     userId: { [Op.ne]: userId },
-    //   },
-    //   order: [["id", "ASC"]],
-    // });
+    const allmovies = [];
+
+    userData[0].SubGenres.forEach((ele) => {
+      ele.Movies.forEach((el) => {
+        allmovies.push(el);
+      });
+    });
 
     for (let i = 0; i < 4; i++) {
       if (fourMedia.size < 4) {
-        fourMedia.add(media[getRandomInt(0, media.length)]);
+        fourMedia.add(allmovies[getRandomInt(0, allmovies.length)]);
       }
     }
 

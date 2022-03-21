@@ -18,14 +18,29 @@ window.addEventListener("load", async (event) => {
 
       if (response.message === "Success") {
         const dropDown = document.querySelector("#Smy_drop_down");
-        response.searchResult.forEach((result) => {
+
+        const noResultsFound = document.querySelector(".no-results-found");
+
+        if (noResultsFound) {
+          noResultsFound.remove();
+        }
+        if (!response.searchResult.length) {
           const aTag = document.createElement("a");
-          aTag.innerText = result.name;
-          aTag.setAttribute("href", `/movies/${result.id}`);
-          aTag.setAttribute("class", "Sresult-drop-down");
+          aTag.innerText = "No Results Found";
+          // aTag.setAttribute("href", `/movies/${result.id}`);
+          aTag.setAttribute("class", "no-results-found");
           dropDown.appendChild(aTag);
-        });
-        dropDown.classList.add("show");
+          dropDown.classList.add("show");
+        } else {
+          response.searchResult.forEach((result) => {
+            const aTag = document.createElement("a");
+            aTag.innerText = result.name;
+            aTag.setAttribute("href", `/movies/${result.id}`);
+            aTag.setAttribute("class", "Sresult-drop-down");
+            dropDown.appendChild(aTag);
+          });
+          dropDown.classList.add("show");
+        }
       }
     }
   });
